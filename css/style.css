@@ -1,0 +1,53 @@
+/*
+
+*** MAIN COLOR
+http://www.colourlovers.com/palette/600798/(_t_r_a_v_e_l_e_r_)
+ECF0D6 236,240,214
+DDE4B5 221,228,181
+93AEA6 147,174,166
+5E677A 94,103,122
+5B585A 91,88,90
+
+*** Glyphicons
+http://getbootstrap.com/components/#glyphicons
+
+*** Place holder image
+http://imsky.github.io/holder/
+
+*** Bootstrap Docs
+http://getbootstrap.com/css/
+
+*/
+
+body{
+	font-family: 'Roboto', sans-serif;
+}
+nav{
+
+}
+#content{
+	margin-top:70px;
+	display:block;
+}
+#map-canvas{
+	height:500px;
+	margin:2em auto;
+}
+
+.navbar-default{
+	background: #ECF0D6;
+}
+.navbar-default .navbar-brand, .navbar-default .navbar-nav>li>a{
+	color:#5E677A;
+}
+.navbar-default{
+	border-bottom:#DDE4B5 solid 8px;
+}
+
+.form-control{
+}
+#search{
+	position: absolute;
+	top:102px;
+	left:20%;
+}
