@@ -25,4 +25,5 @@ function initialize() {
 $(document).ready(function() {
 	// init();
     google.maps.event.addDomListener(window, "load", initialize);
+    $('.dropdown-toggle').dropdown();
 });
