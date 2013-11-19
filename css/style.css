@@ -55,3 +55,26 @@ nav{
 .story-division{
 	margin-top:5px;
 }
+
+.filter-bar{
+	margin-bottom: 5px;
+	margin-top: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	/*background: #ECF0D6;*/
+}
+
+.tags{
+	color:#5E677A;
+	margin-left: 10px;
+}
+.thumbs{
+	/*float: right;*/
+	/*margin-bottom: 5px;*/
+}
+.thumbdown{
+	margin-left: 10px;
+}
+.tag-list li {
+	display: inline;
+}
