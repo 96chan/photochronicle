@@ -49,7 +49,7 @@
         <div class="row">
           	<ol class="breadcrumb">
     				  <li><a href="#">Sather Gate</a></li>
-   		 		    <li class="active">Stories</a></li>
+   		 		    <li class="active">Tours</a></li>
   			   </ol>
         </div>
 
@@ -75,104 +75,101 @@
         <!-- tabs -->
         <div class="row">
             <ul class="nav nav-tabs">
-            	<li class="active"><a href="location_stories.html">Stories</a></li>
-            	<li><a href="location_tours.html">Tours</a></li>
+            	<li><a href="location_stories.html">Stories</a></li>
+            	<li class="active"><a href="location_tours.html">Tours</a></li>
             </ul>
         </div>
 
-        <!-- story division -->
-        <div class="story-division">
+        <!-- tour division -->
+        <div class="tour-division">
 
         <!-- filters -->
           <div class="row filter-bar">
-          	<div class="col-sm-12 col-md-5 col-md-offset-1">
+          	<div class="col-sm-12 col-md-3 col-md-offset-1">
   	        	<span>Filter By</span>
-          		<div class="btn-group">
-          			
+          		
                 <div class="btn-group">
           			 <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
   				    	 Tags <span class="caret"></span></button>
 
       				    <ul id="tag-filter-dropdown" class="dropdown-menu" role="menu">
-      					    <li><a href="#">All Tags </a></li>
-                    <li><a href="#">Sather Gate </a></li>
-      					    <li><a href="#">Berkeley </a></li>
-      					    <li><a href="#">Cal </a></li>
-                    <li><a href="#">Architecture </a></li>
-                    <li><a href="#">Students </a></li>
+      					    <li><a href="#">Sather Gate, </a></li>
+      					    <li><a href="#">UC Berkeley, </a></li>
+      					    <li><a href="#">Student Life, </a></li>
+                    <li><a href="#">Engagement, </a></li>
+                    <li><a href="#">Campus, </a></li>
                   </ul>
-      				  </div>
-
-  					  <button type="button" class="btn btn-default btn-sm" data-toggle="button">Has Photos</button>
-  					  <button type="button" class="btn btn-default btn-sm" data-toggle="button">Featured in Tours</button>
-  	        </div><!-- end btn-group -->
-          </div>
-
-          <div class="col-sm-12 col-md-4">
-          		<span id="sortby">Sort By</span>
-          		<div class="btn-group">
-          			<button type="button" class="btn btn-default btn-sm"># of Likes</button>
-          		</div>
+  	            </div><!-- end btn-group -->
             </div>
-   
-          <div class="col-sm-6 col-md-2">
-            <button type="button" class="btn btn-primary btn-sm pull-right">Add A Story</button>
+
+          <div class="col-sm-12 col-md-6">
+          		<span id="sortby">Sort By</span>
+              <div class="btn-group" data-toggle="buttons">
+            		<label class="btn btn-default btn-sm">
+                  <input type="radio" name="options" id="num-likes-btn"># of Likes
+                </label>
+                <label class="btn btn-default btn-sm">
+                  <input type="radio" name="options" id="distance-btn">Distance
+                </label>
+                <label class="btn btn-default btn-sm">
+                  <input type="radio" name="options" id="time-required-btn">Time Required
+                </label>
+            </div>
           </div>
+   
+         <!--  <div class="col-sm-6 col-md-2">
+            <button type="button" class="btn btn-primary btn-sm pull-right">Add A Tour</button>
+          </div> -->
         </div> <!-- end row -->
 
         <div class="row">
-          <div class="col-sm-6 col-md-4 story-block">
+          <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
-              <img data-src="holder.js/300x200" alt="...">
+              <!-- <img data-src="holder.js/300x200" alt="..."> -->
+              <div class="tour-map">tour map</div>
               <div class="caption">
-                <h3>The Beautiful Sather Gate</h3>
-                <p>Sather Gate is a prominent landmark separating Sproul Plaza from the bridge over Strawberry Creek, leading to the center of the University of California, Berkeley campus.</p>
-                <hr/>
-                <p><span class="glyphicon glyphicon-tags"></span><span class="tags">Sather Gate, Cal, Berkeley</span></p>
-                <p>
-                	<span class="thumbs">
-                    <span class="thumbup"><span class="glyphicon glyphicon-thumbs-up"></span> 200 </span>
-                  	<span class="thumbdown"><span class="glyphicon glyphicon-thumbs-down"></span> 0 </span>
-                  </span>
-                  <span class="intour-indicator pull-right"><span class="glyphicon glyphicon-map-marker"></span>In Tours</span>
-                </p>
+                <h3>A Day in Berkeley</h3>
+                <!-- <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                <hr/> -->
+                <p><span class="glyphicon glyphicon-tags"></span><span class="tags">Tag1, Tag2, Tag3</span></p>
+                <p><span class="glyphicon glyphicon-time">
+                   </span><span class="distanceinfo">2 miles</span>
+                   <span class="timeinfo">in 45 minuites</span>
+                 </p>
               </div>
-            </div>
+            </div> <!-- end thumbnail -->
           </div>
-          <div class="col-sm-6 col-md-4 story-block">
+          <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
-              <img data-src="holder.js/300x200" alt="...">
+              <!-- <img data-src="holder.js/300x200" alt="..."> -->
+              <div class="tour-map">Sather at Night</div>
               <div class="caption">
-                <h3>The History of Sather Gate</h3>
-                <p>Sather Gate was completed in 1910. Atop the gate are eight panels of bas-relief figures: four nude men representing the disciplines of law, letters, medicine, and mining, and four nude women representing the disciplines of agriculture, architecture, art, and electricity.</p>
-                <hr/>
-                <p><span class="glyphicon glyphicon-tags"></span><span class="tags">Sather Gate, Cal, Architecture</span></p>
-                <p>
-                  <span class="thumbs">
-                    <span class="thumbup"><span class="glyphicon glyphicon-thumbs-up"></span> 200 </span>
-                    <span class="thumbdown"><span class="glyphicon glyphicon-thumbs-down"></span> 100 </span>
-                  </span>
-                  <span class="intour-indicator pull-right"><span class="glyphicon glyphicon-map-marker"></span>In Tours</span>
-                </p>
+                <h3>Tour Title</h3>
+                <!-- <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                <hr/> -->
+                <p><span class="glyphicon glyphicon-tags"></span><span class="tags">Tag1, Tag2, Tag3</span></p>
+                <p><span class="glyphicon glyphicon-time">
+                   </span><span class="distanceinfo">2 miles</span>
+                   <span class="timeinfo">in 45 minuites</span>
+                 </p>
               </div>
-            </div>
+            </div> <!-- end thumbnail -->
           </div>
-          <div class="col-sm-6 col-md-4 story-block">
+          <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
-              <img data-src="holder.js/300x200" alt="...">
+              <!-- <img data-src="holder.js/300x200" alt="..."> -->
+              <div class="tour-map">tour map</div>
               <div class="caption">
-                <h3>Thumbnail label</h3>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-               <hr/>
-                <p><span class="glyphicon glyphicon-tags"></span><span class="tags">Sather Gate, Students, Cal</span></p>
-                <p>
-                  <span class="thumbs">
-                    <span class="thumbup"><span class="glyphicon glyphicon-thumbs-up"></span> 200 </span>
-                    <span class="thumbdown"><span class="glyphicon glyphicon-thumbs-down"></span> 100 </span>
-                  </span>
-                </p>
+                <h3>History of Sather Gate</h3>
+                <!-- <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                <hr/> -->
+                <p><span class="glyphicon glyphicon-tags"></span><span class="tags">Tag1, Tag2, Tag3</span></p>
+                <p><span class="glyphicon glyphicon-time">
+                   </span><span class="distanceinfo">2 miles</span>
+                   <span class="timeinfo">in 45 minuites</span>
+                 </p>
               </div>
-            </div>
+            </div> <!-- end thumbnail -->
           </div>  
         </div><!-- end row -->
         <div><!-- end story division -->

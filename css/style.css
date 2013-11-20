@@ -78,3 +78,13 @@ nav{
 .tag-list li {
 	display: inline;
 }
+.tour-map{
+	height:200px;
+	width: 300px;
+}
+.timeinfo{
+	margin-left: 10px;
+}
+.distanceinfo{
+	margin-left: 10px;
+}
