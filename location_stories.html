@@ -103,8 +103,17 @@
                   </ul>
       				  </div>
 
-  					  <button type="button" class="btn btn-default btn-sm" data-toggle="button">Has Photos</button>
-  					  <button type="button" class="btn btn-default btn-sm" data-toggle="button">Featured in Tours</button>
+              <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-default btn-sm" id="hasPhoto-filter">
+                  <input type="checkbox"> Has Photos
+                </label>
+              </div>
+  					 
+              <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-default btn-sm" id="inTour-filter">
+                  <input type="checkbox" > Featured In Tours
+                </label>
+              </div>
   	        </div><!-- end btn-group -->
           </div>
 
@@ -121,14 +130,14 @@
         </div> <!-- end row -->
 
         <div class="row">
-          <div class="col-sm-6 col-md-4 story-block">
+          <div class="col-sm-6 col-md-4 story-block" hasImage="True" inTour="True">
             <div class="thumbnail">
-              <img data-src="holder.js/300x200" alt="...">
+              <img data-src="holder.js/300x200/" alt="...">
               <div class="caption">
                 <h3>The Beautiful Sather Gate</h3>
                 <p>Sather Gate is a prominent landmark separating Sproul Plaza from the bridge over Strawberry Creek, leading to the center of the University of California, Berkeley campus.</p>
                 <hr/>
-                <p><span class="glyphicon glyphicon-tags"></span><span class="tags">Sather Gate, Cal, Berkeley</span></p>
+                <p><span class="glyphicon glyphicon-tags"></span><span class="tags">Sather Gate, Berkeley</span></p>
                 <p>
                 	<span class="thumbs">
                     <span class="thumbup"><span class="glyphicon glyphicon-thumbs-up"></span> 200 </span>
@@ -139,7 +148,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-6 col-md-4 story-block">
+          <div class="col-sm-6 col-md-4 story-block" hasImage="True" inTour="True">
             <div class="thumbnail">
               <img data-src="holder.js/300x200" alt="...">
               <div class="caption">
@@ -157,9 +166,9 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-6 col-md-4 story-block">
+          <div class="col-sm-6 col-md-4 story-block" hasImage="False" inTour="False">
             <div class="thumbnail">
-              <img data-src="holder.js/300x200" alt="...">
+              <img data-src="holder.js/300x200/text:This story has no image." alt="...">
               <div class="caption">
                 <h3>Thumbnail label</h3>
                 <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
@@ -187,6 +196,7 @@
     <script src="js/jquery-1.10.2.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/explore_location.js"></script>
 <!-- End Footer -->
 </body>
 </html>
