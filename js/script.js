@@ -25,16 +25,6 @@ function initialize() {
 $(document).ready(function() {
 	// init();
     google.maps.event.addDomListener(window, "load", initialize);
-    $('.dropdown-toggle').dropdown();
-    $('.btn-group').button();
-    
-    $('.thumbnail').on("click", function(){
-        console.log("boo");
-    });
-
-    filterStoryByTags();
-    filterStoryByInTour();
-    filterStoryByImage();
     
 });
 

@@ -1,4 +1,22 @@
 
+/* =====================
+
+	Document Ready
+
+====================== */
+$(document).ready(function() {
+	// init();
+    // google.maps.event.addDomListener(window, "load", initialize);
+    $('.dropdown-toggle').dropdown();
+    $('.btn-group').button();
+    
+    // $('.thumbnail').on("click", function(){
+    // });
+
+    filterStoryByTags();
+    filterStoryByInTour();
+    filterStoryByImage(); 
+});
 /* ==================
 
   Helper functions

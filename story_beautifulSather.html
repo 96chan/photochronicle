@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <title>Photo Chronicle</title>    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">    
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="">
+    <link rel='stylesheet' id='css-template' type='text/css' href='css/normalize.css' />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>    
+    <link rel='stylesheet' id='css-template' type='text/css' href='css/style.css' />
+<!---	<link href="jquery_thumbnail_scroller/jquery.thumbnailScroller.css" rel="stylesheet" type="text/css" /> -->
+<link  href="http://fotorama.s3.amazonaws.com/4.4.8/fotorama.css" rel="stylesheet"> <!-- 3 KB -->
+
+  	<script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=visualization"></script>
+    <script src="js/custom.modernizr.js"></script>
+	<script src="js/holder.js"></script>
+
+
+    
+</head>
+<body>
+    <!-- nav -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-camera"></span>&nbsp;Photo Chronicle</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#explore">Explore</a></li>
+            <li><a href="#tour">View Tour</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;Sign In</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- end nav -->
+
+    <!-- main contents -->
+    <div id="content">
+      <div class="container">
+
+      	 <!-- breadcrumb -->
+        <div class="row">
+          	<ol class="breadcrumb">
+    			<li><a href="location_stories.html">Sather Gate</a></li>
+   		 		<li><a href="location_stories.html">Stories</a></li>
+   		 		<li class="active">The Beautiful Sather Gate</li>
+  			</ol>
+        </div>
+
+        <!-- Story Titel -->
+        <div id= "story-title" class="row">
+    			<h2>The Beautiful Sather Gate</h2>
+        </div>
+
+       
+ 	 	<div class="row filter-bar">
+ 	 		<div class="col-sm-6 col-md-2">
+    			<div class="btn-group">
+                <button type="button" class="btn btn-default">
+                	<span class="glyphicon glyphicon-heart"></span> Like </button>
+                <button type="button" class="btn btn-default" disabled="disabled">200</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+        	<blockquote><p>Sather Gate is a prominent landmark separating Sproul Plaza from the bridge over Strawberry Creek, leading to the center of the University of California, Berkeley campus.
+        		Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+        		Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+        		Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+        	</p></blockquote>
+        </div>
+  
+        <!-- Other Contents -->
+        <div class="row story-detail-div">
+        	<div class="col-md-1 year-scroller">
+          	
+          		<div class="year-circle">
+          			<a href="#">1980's</a>
+          		</div>
+          			<div class="year-circle">
+          			<a href="#">1990's</a>
+          		</div>
+          		<div class="year-circle">
+          			<a href="#">2000's</a>
+          		</div>
+          			<div class="year-circle">
+          			<a href="#">2010's</a>
+          		</div>
+        	</div> <!-- end year-scroller-->
+
+			<div  class="col-md-2 story-thumb-img-div" >
+				<div id="tS3" class="jThumbnailScroller">
+					<div class="jTscrollerContainer">
+						<div class="jTscroller">
+							<!-- <a href="#"><img data-src="holder.js/124x100/text:1" /></a>
+							<a href="#"><img data-src="holder.js/124x100/text:2"  /></a>
+							<a href="#"><img data-src="holder.js/124x100/text:3"  /></a>
+							<a href="#"><img data-src="holder.js/124x100/text:4" /></a>
+							<a href="#"><img data-src="holder.js/124x100/text:5"  /></a>
+							<a href="#"><img data-src="holder.js/124x100/text:6"  /></a>
+							<a href="#"><img data-src="holder.js/124x100/text:7"  /></a>
+							<a href="#"><img data-src="holder.js/124x100/text:8"  /></a> -->
+							<a href="#"><img src="jquery_thumbnail_scroller/thumbs/img1.jpg" /></a>
+							<a href="#"><img src="jquery_thumbnail_scroller/thumbs/img2.jpg" /></a>
+							<a href="#"><img src="jquery_thumbnail_scroller/thumbs/img3.jpg" /></a>
+							<a href="#"><img src="jquery_thumbnail_scroller/thumbs/img4.jpg" /></a>
+							<a href="#"><img src="jquery_thumbnail_scroller/thumbs/img5.jpg" /></a>
+							<a href="#"><img src="jquery_thumbnail_scroller/thumbs/img6.jpg" /></a>
+							<a href="#"><img src="jquery_thumbnail_scroller/thumbs/img7.jpg" /></a>
+							<a href="#"><img src="jquery_thumbnail_scroller/thumbs/img8.jpg" /></a>
+							<a href="#"><img src="jquery_thumbnail_scroller/thumbs/img9.jpg" /></a>
+							<a href="#"><img src="jquery_thumbnail_scroller/thumbs/img10.jpg" /></a>
+							<a href="#"><img src="jquery_thumbnail_scroller/thumbs/img11.jpg" /></a>
+							<a href="#"><img src="jquery_thumbnail_scroller/thumbs/img12.jpg" /></a>
+							<a href="#"><img src="jquery_thumbnail_scroller/thumbs/img13.jpg" /></a>
+							<a href="#"><img src="jquery_thumbnail_scroller/thumbs/img14.jpg" /></a>
+							<a href="#"><img src="jquery_thumbnail_scroller/thumbs/img15.jpg" /></a>
+							<a href="#"><img src="jquery_thumbnail_scroller/thumbs/img16.jpg" /></a>
+							<a href="#"><img src="jquery_thumbnail_scroller/thumbs/img17.jpg" /></a>
+							<a href="#"><img src="jquery_thumbnail_scroller/thumbs/img18.jpg" /></a>
+							<a href="#"><img src="jquery_thumbnail_scroller/thumbs/img19.jpg" /></a>
+							<a href="#"><img src="jquery_thumbnail_scroller/thumbs/img20.jpg" /></a>
+						</div>
+					</div>
+					<a href="#" class="jTscrollerPrevButton"></a>
+					<a href="#" class="jTscrollerNextButton"></a>
+				</div>
+	        </div> <!-- end story-thumb-img-div -->
+
+          <div class="col-md-9 story-large-img-div">
+          	<div class="thumbnail">
+              <img src="img/sather_gate_1.jpg"/>
+            </div>
+            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. </p>
+          </div><!-- end story-large-img-div -->
+
+          
+        </div><!-- end row story-detail-div -->
+
+        <div class="row testarea">
+        	<div class="col-md-2 year-scroller">
+          	
+          		<div class="year-circle">
+          			<a href="#">1980's</a>
+          		</div>
+          			<div class="year-circle">
+          			<a href="#">1990's</a>
+          		</div>
+          		<div class="year-circle">
+          			<a href="#">2000's</a>
+          		</div>
+          			<div class="year-circle">
+          			<a href="#">2010's</a>
+          		</div>
+        	</div> <!-- end year-scroller-->
+        	
+        	<div  class="col-md-8 col-md-offset-1" >
+        		<div class="fotorama" data-nav="thumbs" data-width="100%" data-loop="true">
+				  <img src="img/sather_gate_1.jpg">
+				  <img src="img/sather_gate_2.jpg">
+				  <img src="img/sather_gate_3.jpg">
+				  <img src="img/sather_gate_4.jpg">
+				  <img src="img/sather_gate_5.jpg">
+				  <img src="img/sather_gate_6.jpg">
+
+				</div>
+        	</div>
+        </div>
+
+      </div> 
+    </div>
+    <!-- end main contents -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+	<script src="js/jquery-1.10.2.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+  <!--  <script src="jquery_thumbnail_scroller/jquery-ui-1.8.13.custom.min.js"></script>   -->
+	<script src="js/story_detail.js"></script>
+<script src="http://fotorama.s3.amazonaws.com/4.4.8/fotorama.js"></script> <!-- 15 KB -->
+<!-- 
+    <script>
+// jQuery.noConflict();
+(function($){
+window.onload=function(){
+    $("#tS3").thumbnailScroller({
+        scrollerType:"hoverPrecise",
+        scrollerOrientation:"vertical",
+        scrollSpeed:600,
+        scrollEasing:"easeOutCirc",
+        scrollEasingAmount:600,
+        acceleration:2,
+        scrollSpeed:800,
+        noScrollCenterSpace:10,
+        autoScrolling:0,
+        autoScrollingSpeed:2000,
+        autoScrollingEasing:"easeInOutQuad",
+        autoScrollingDelay:500
+    });
+ }   
+})(jQuery);
+</script>
+
+<script src="jquery_thumbnail_scroller/jquery.thumbnailScroller.js"></script> -->
+<!-- End Footer -->
+</body>
+</html>
+
