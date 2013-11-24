@@ -20,6 +20,10 @@ http://getbootstrap.com/css/
 *** Jquery-thumbnail-scroller plugin
 http://manos.malihu.gr/jquery-thumbnail-scroller/
 All files (css, js) are downloaded to jquery_thumbnail_scroller folder
+
+*** Timeline style sheet
+http://christian-fei.com/simple-vertical-timeline-with-css/
+timeline.css
 */
 
 body{
@@ -148,7 +152,12 @@ nav{
 .large-img img{
 	width: 100%;
 	height: auto;
-	border:2px solid #DDE4B5;
+	max-width: 700px;
+	max-height: 480px;
+	margin-left: auto;
+	margin-right: auto;
+	display:block;
+	/*border:2px solid #DDE4B5;*/
 }
 
 .small-img {
@@ -156,4 +165,14 @@ nav{
 	height:auto;
 	border:2px solid #DDE4B5;
 }
+.year-scroll{
+	height:480px;
+	overflow-y: scroll;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.img-caption{
+	text-align: center;
+}
+
 /* end Wendy's experiemntal css. May remove later*/

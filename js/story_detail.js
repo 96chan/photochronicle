@@ -25,5 +25,12 @@ $(document).ready(function() {
 		// console.log($(".story-large-img-div > .thumbnail").html());
 	});
 
+	$(".timeline > .event").on("click", function(){
+		var path = $(this).children("img").attr("src");
+		console.log(path);
+		 console.log($(".large-img").children("img").attr("src"));
+		$(".large-img").children("img").attr("src", path);
+	});
+
 	
 });
