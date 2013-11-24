@@ -13,6 +13,8 @@ $(document).ready(function() {
     // $('.thumbnail').on("click", function(){
     // });
 	$(".story-detail-div").hide();
+	$(".testarea").hide();
+	$(".testarea2").hide();
 	
 	$(".jTscroller > a").on("click", function(e){
 		e.preventDefault();
@@ -22,4 +24,6 @@ $(document).ready(function() {
 		$(".story-large-img-div > .thumbnail").html("<img src='"+path+"'/>");
 		// console.log($(".story-large-img-div > .thumbnail").html());
 	});
+
+	
 });

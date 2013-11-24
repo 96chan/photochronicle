@@ -106,7 +106,7 @@ nav{
 	margin-right:auto;
 	margin-left:auto
 }
-
+/* Wendy's experiemntal css. May remove later*/
 .year-circle{
   height: 70px;
   width: 70px; 
@@ -126,8 +126,34 @@ nav{
   text-align: center;
   text-decoration:none;
   line-height: 60px;
+  display: inline-block;
   /*padding-top:50%;*/
 }
 .year-scroller{
 	margin-top: 50px;
 }
+.small-thumb{
+	display: inline-block;
+
+}
+.small-thumb img{
+	display: inline;
+	width: 196px;
+	height: 120px;
+	margin-top: 10px;
+}
+.year-button-grp{
+	/*display:block;*/
+}
+.large-img img{
+	width: 100%;
+	height: auto;
+	border:2px solid #DDE4B5;
+}
+
+.small-img {
+	width:117px;
+	height:auto;
+	border:2px solid #DDE4B5;
+}
+/* end Wendy's experiemntal css. May remove later*/
