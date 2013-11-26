@@ -1,4 +1,6 @@
 
+var maxStory = 3;
+var storyLikes={"story1Likes":200, "story2Likes": 100, "story3Likes": 56}; 
 /* =====================
 
 	Document Ready
@@ -16,6 +18,12 @@ $(document).ready(function() {
     filterStoryByTags();
     filterStoryByInTour();
     filterStoryByImage(); 
+
+    
+	$(".thumbup").each(function(){
+		var storyNum = $(this).attr("for");
+		$(this).html("<span class='glyphicon glyphicon-thumbs-up'></span> "+ storyLikes[storyNum]);
+	});
 });
 /* ==================
 
