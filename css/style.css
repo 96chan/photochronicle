@@ -111,45 +111,7 @@ nav{
 	margin-right:auto;
 	margin-left:auto
 }
-/* Wendy's experiemntal css. May remove later*/
-.year-circle{
-  height: 70px;
-  width: 70px; 
-  vertical-align: middle;
-  border-radius: 50%; /* may require vendor prefixes */
-  outline: none;
-  margin-left: auto;
-  margin-right: auto;
-  /*margin: 25px 0;*/
-  margin-top: 25px;
-  border: 4px solid #DDE4B5;
-  background-color: #ECF0D6;
-  /*display: table-cell;*/
-  /*color: black;*/
-  /*font-family: Helvetica, Arial Black, sans;*/
-  font-size: 1em;
-  text-align: center;
-  text-decoration:none;
-  line-height: 60px;
-  display: inline-block;
-  /*padding-top:50%;*/
-}
-.year-scroller{
-	margin-top: 50px;
-}
-.small-thumb{
-	display: inline-block;
-
-}
-.small-thumb img{
-	display: inline;
-	width: 196px;
-	height: 120px;
-	margin-top: 10px;
-}
-.year-button-grp{
-	/*display:block;*/
-}
+/* Wendy's experiemntal css.*/
 .large-img img{
 	width: 100%;
 	height: auto;
@@ -159,8 +121,8 @@ nav{
 	margin-right: auto;
 	display:block;
 	/*border:2px solid #DDE4B5;*/
+	box-shadow: 10px 10px 5px #888;
 }
-
 .small-img {
 	width:117px;
 	height:auto;
@@ -173,7 +135,26 @@ nav{
 	margin-bottom: 10px;
 }
 .img-caption{
+	width: 100%;
 	text-align: center;
 }
+.img-creator{
+	float: right;
+}
 
-/* end Wendy's experiemntal css. May remove later*/
+#story-desc-form button{
+	float: right;
+	margin-left: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.img-caption{
+	margin-top: 10px;
+	/*background-color: #eee;*/
+}
+.tour-map-canvas{
+	height:300px;
+	/*width: 10%;*/
+	/*margin:2em auto;*/
+}
+/* end Wendy's experiemntal css.*/

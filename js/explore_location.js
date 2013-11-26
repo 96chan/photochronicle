@@ -1,4 +1,23 @@
 
+var maxStory = 3;
+var storyLikes={"story1Likes":200, "story2Likes": 100, "story3Likes": 56}; 
+
+var maps=[];
+var mapOptions; 
+function initialize() {
+   mapOptions = {
+    zoom: 8,
+    center: new google.maps.LatLng(-34.397, 150.644),
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  // map = new google.maps.Map(document.getElementsByClassName('tour-map-canvas'),
+  //     mapOptions);
+ 	$(document.getElementsByClassName('tour-map-canvas')).each(function(){
+  		console.log($(this));
+        var map = new google.maps.Map($(this)[0], mapOptions);
+    });
+
+ }
 /* =====================
 
 	Document Ready
@@ -6,16 +25,22 @@
 ====================== */
 $(document).ready(function() {
 	// init();
-    // google.maps.event.addDomListener(window, "load", initialize);
+     google.maps.event.addDomListener(window, "load", initialize);
+    
+
     $('.dropdown-toggle').dropdown();
     $('.btn-group').button();
-    
-    // $('.thumbnail').on("click", function(){
-    // });
+
 
     filterStoryByTags();
     filterStoryByInTour();
     filterStoryByImage(); 
+
+    
+	$(".thumbup").each(function(){
+		var storyNum = $(this).attr("for");
+		$(this).html("<span class='glyphicon glyphicon-thumbs-up'></span> "+ storyLikes[storyNum]);
+	});
 });
 /* ==================
 
