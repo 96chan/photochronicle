@@ -79,14 +79,14 @@
                 <div class="btn-group">
           			 <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
   				    	 Tags <span class="caret"></span></button>
-
-      				    <ul id="tag-filter-dropdown" class="dropdown-menu" role="menu">
-      					    <li><a href="#">Sather Gate, </a></li>
-      					    <li><a href="#">UC Berkeley, </a></li>
-      					    <li><a href="#">Student Life, </a></li>
-                    <li><a href="#">Engagement, </a></li>
-                    <li><a href="#">Campus, </a></li>
+                  <ul id="tag-filter-dropdown" class="dropdown-menu" role="menu">
+                    <li class="filter" data-filter="all"><a href="#">All Tags</a></li>
+                    <li class="filter" data-filter="tag1"><a href="#">tag1</a></li>
+                    <li class="filter" data-filter="tag2"><a href="#">tag2</a></li>
+                    <li class="filter" data-filter="tag1 tag2"><a href="#">tag1&tag2</a></li>
+                    <li class="filter" data-filter="tag2 tag4"><a href="#">tag2&tag4</a></li>
                   </ul>
+
   	            </div><!-- end btn-group -->
             </div>
 
@@ -105,65 +105,57 @@
             </div>
           </div>
    
-          <div class="col-sm-6 col-md-2">
+          <!-- <div class="col-sm-6 col-md-2">
             <button type="button" class="btn btn-primary btn-sm pull-right">Add A Tour</button>
-          </div>
+          </div> -->
         </div> <!-- end row -->
 
-        <div class="row">
-          <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-              <!-- <img data-src="holder.js/300x200" alt="..."> -->
+        <div class="row tour-division">
+           <ul id="tour-grid">
+            <li class="mix all tag1 tag2" data-likes="100">
+              <div class="thumbnail">
               <div class="tour-map-canvas"></div>
-              <div class="caption">
-                <h3>A Day in Berkeley</h3>
-                <!-- <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                <hr/> -->
-                <p><span class="glyphicon glyphicon-tags"></span><span class="tags">Tag1, Tag2, Tag3</span></p>
-                <p><span class="glyphicon glyphicon-time">
-                   </span><span class="distanceinfo">2 miles</span>
-                   <span class="timeinfo">in 45 minuites</span>
-                 </p>
-                  <p><span class="glyphicon glyphicon-heart"></span><span class="num-likes">130</span></p>
-              </div>
-            </div> <!-- end thumbnail -->
-          </div>
-          <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-              <!-- <img data-src="holder.js/300x200" alt="..."> -->
+                <div class="caption">
+                  <h3>tour1</h3>
+                  <p><span class="glyphicon glyphicon-tags"></span><span class="tags">Tag1, Tag2</span></p>
+                  <p><span class="glyphicon glyphicon-time">
+                     </span><span class="distanceinfo">2 miles</span>
+                     <span class="timeinfo">in 45 minuites</span>
+                   </p>
+                   <p><span class="glyphicon glyphicon-heart"></span><span class="num-likes">100</span></p>
+                </div></div>
+            </li>
+            <li class="mix all tag2 tag3" data-likes="300">
+              <div class="thumbnail">
               <div class="tour-map-canvas"></div>
-              <div class="caption">
-                <h3>Tour Title</h3>
-                <!-- <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                <hr/> -->
-                <p><span class="glyphicon glyphicon-tags"></span><span class="tags">Tag1, Tag2, Tag3</span></p>
-                <p><span class="glyphicon glyphicon-time">
-                   </span><span class="distanceinfo">2 miles</span>
-                   <span class="timeinfo">in 45 minuites</span>
-                 </p>
-                 <p><span class="glyphicon glyphicon-heart"></span><span class="num-likes">85</span></p>
-              </div>
-            </div> <!-- end thumbnail -->
-          </div>
-          <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-              <!-- <img data-src="holder.js/300x200" alt="..."> -->
+                <div class="caption">
+                  <h3>tour2</h3>
+                  <p><span class="glyphicon glyphicon-tags"></span><span class="tags">Tag2, Tag3</span></p>
+                  <p><span class="glyphicon glyphicon-time">
+                     </span><span class="distanceinfo">2 miles</span>
+                     <span class="timeinfo">in 45 minuites</span>
+                   </p>
+                   <p><span class="glyphicon glyphicon-heart"></span><span class="num-likes">300</span></p>
+                </div></div>
+            </li>
+            <li class="mix all tag4 tag3" data-likes="200">
+              <div class="thumbnail">
               <div class="tour-map-canvas"></div>
-              <div class="caption">
-                <h3>History of Sather Gate</h3>
-                <!-- <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                <hr/> -->
-                <p><span class="glyphicon glyphicon-tags"></span><span class="tags">Tag1, Tag2, Tag3</span></p>
-                <p><span class="glyphicon glyphicon-time">
-                   </span><span class="distanceinfo">2 miles</span>
-                   <span class="timeinfo">in 45 minuites</span>
-                 </p>
-                 <p><span class="glyphicon glyphicon-heart"></span><span class="num-likes">79</span></p>
-              </div>
-            </div> <!-- end thumbnail -->
-          </div>  
+                <div class="caption">
+                  <h3>tour3</h3>
+                  <p><span class="glyphicon glyphicon-tags"></span><span class="tags">Tag4, Tag3</span></p>
+                  <p><span class="glyphicon glyphicon-time">
+                     </span><span class="distanceinfo">2 miles</span>
+                     <span class="timeinfo">in 45 minuites</span>
+                   </p>
+                   <p><span class="glyphicon glyphicon-heart"></span><span class="num-likes">200</span></p>
+                </div></div>
+            </li>
+          </ul>
         </div><!-- end row -->
-        <div><!-- end story division -->
+
+        <ul><li class="sort" data-sort="data-likes" sort-order="desc">Sort</li></ul>
+        
       </div> 
     </div>
     <!-- end main contents -->
@@ -175,6 +167,7 @@
     <script src="js/jquery-1.10.2.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/explore_location.js"></script>
+    <script src="js/jquery.mixitup.min.js"></script>
 <!-- End Footer -->
 </body>
 </html>

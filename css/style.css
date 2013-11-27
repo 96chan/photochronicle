@@ -76,10 +76,7 @@ nav{
 	color:#5E677A;
 	margin-left: 10px;
 }
-.thumbs{
-	/*float: right;*/
-	/*margin-bottom: 5px;*/
-}
+
 .thumbdown{
 	margin-left: 10px;
 }
@@ -154,7 +151,24 @@ nav{
 }
 .tour-map-canvas{
 	height:300px;
-	/*width: 10%;*/
+	width: auto;
 	/*margin:2em auto;*/
+}
+
+#tour-grid{
+	padding-left: 0px;
+}
+#tour-grid li{
+	width: 360px;
+	height: auto;
+	/*border: 2px solid #DDE4B5;*/
+	margin-left: 10px;
+	margin-right: 10px;
+	/*display: inline-block;*/
+}
+
+#tour-grid .mix{
+    opacity: 0;
+    display: none;
 }
 /* end Wendy's experiemntal css.*/

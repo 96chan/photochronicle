@@ -26,7 +26,7 @@ function initialize() {
 $(document).ready(function() {
 	// init();
      google.maps.event.addDomListener(window, "load", initialize);
-    
+    $('#tour-grid').mixitup();
 
     $('.dropdown-toggle').dropdown();
     $('.btn-group').button();
@@ -40,6 +40,10 @@ $(document).ready(function() {
 	$(".thumbup").each(function(){
 		var storyNum = $(this).attr("for");
 		$(this).html("<span class='glyphicon glyphicon-thumbs-up'></span> "+ storyLikes[storyNum]);
+	});
+
+	$(".filter > a").on("click", function(e){
+		e.preventDefault();
 	});
 });
 /* ==================
