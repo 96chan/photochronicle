@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <title>Photo Chronicle</title>    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">    
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="">
+    <link rel='stylesheet' id='css-template' type='text/css' href='css/normalize.css' />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>    
+    <link rel='stylesheet' id='css-template' type='text/css' href='css/style.css' />
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=visualization"></script>
+    <script src="js/custom.modernizr.js"></script>
+    <script src="js/holder.js"></script>
+</head>
+<body>
+    <!-- nav -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-camera"></span>&nbsp;Photo Chronicle</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#explore">Explore</a></li>
+            <li><a href="#tour">View Tour</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;Sign In</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- end nav -->
+
+    <!-- main contents -->
+    <div id="content">
+      <div class="container">
+
+        <!-- breadcrumb -->
+        <div class="row">
+          	<ol class="breadcrumb">
+    				  <li><a href="#">Sather Gate</a></li>
+   		 		    <li class="active">Tours</a></li>
+  			   </ol>
+        </div>
+
+        <!-- Other Contents -->
+
+        <!-- Location Titel -->
+        <div id= "location-title" class="row">
+        		<h2>Sather Gate</h2>
+        </div>
+
+        <!-- tabs -->
+        <div class="row">
+            <ul class="nav nav-tabs">
+            	<li><a href="location_stories.html">Stories</a></li>
+            	<li class="active"><a href="location_tours.html">Tours</a></li>
+            </ul>
+        </div>
+
+        <!-- tour division -->
+        <div class="tour-division">
+
+        <!-- filters -->
+          <div class="row filter-bar">
+          	<div class="col-sm-12 col-md-3 col-md-offset-1">
+  	        	<span>Filter By</span>
+          		
+                <div class="btn-group">
+          			 <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
+  				    	 Tags <span class="caret"></span></button>
+                  <ul id="tag-filter-dropdown" class="dropdown-menu" role="menu">
+                    <li class="filter" data-filter="all"><a href="#">All Tags</a></li>
+                    <li class="filter" data-filter="tag1"><a href="#">tag1</a></li>
+                    <li class="filter" data-filter="tag2"><a href="#">tag2</a></li>
+                    <li class="filter" data-filter="tag1 tag2"><a href="#">tag1&tag2</a></li>
+                    <li class="filter" data-filter="tag2 tag4"><a href="#">tag2&tag4</a></li>
+                  </ul>
+
+  	            </div><!-- end btn-group -->
+            </div>
+
+          <div class="col-sm-12 col-md-6">
+          		<span id="sortby">Sort By</span>
+              <div class="btn-group" data-toggle="buttons">
+            		<label class="btn btn-default btn-sm">
+                  <input type="radio" name="options" id="num-likes-btn"># of Likes
+                </label>
+                <label class="btn btn-default btn-sm">
+                  <input type="radio" name="options" id="distance-btn">Distance
+                </label>
+                <label class="btn btn-default btn-sm">
+                  <input type="radio" name="options" id="time-required-btn">Time Required
+                </label>
+            </div>
+          </div>
+   
+          <!-- <div class="col-sm-6 col-md-2">
+            <button type="button" class="btn btn-primary btn-sm pull-right">Add A Tour</button>
+          </div> -->
+        </div> <!-- end row -->
+
+        <div class="row tour-division">
+           <ul id="tour-grid">
+            <li class="mix all tag1 tag2" data-likes="100">
+              <div class="thumbnail">
+              <div class="tour-map-canvas"></div>
+                <div class="caption">
+                  <h3>tour1</h3>
+                  <p><span class="glyphicon glyphicon-tags"></span><span class="tags">Tag1, Tag2</span></p>
+                  <p><span class="glyphicon glyphicon-time">
+                     </span><span class="distanceinfo">2 miles</span>
+                     <span class="timeinfo">in 45 minuites</span>
+                   </p>
+                   <p><span class="glyphicon glyphicon-heart"></span><span class="num-likes">100</span></p>
+                </div></div>
+            </li>
+            <li class="mix all tag2 tag3" data-likes="300">
+              <div class="thumbnail">
+              <div class="tour-map-canvas"></div>
+                <div class="caption">
+                  <h3>tour2</h3>
+                  <p><span class="glyphicon glyphicon-tags"></span><span class="tags">Tag2, Tag3</span></p>
+                  <p><span class="glyphicon glyphicon-time">
+                     </span><span class="distanceinfo">2 miles</span>
+                     <span class="timeinfo">in 45 minuites</span>
+                   </p>
+                   <p><span class="glyphicon glyphicon-heart"></span><span class="num-likes">300</span></p>
+                </div></div>
+            </li>
+            <li class="mix all tag4 tag3" data-likes="200">
+              <div class="thumbnail">
+              <div class="tour-map-canvas"></div>
+                <div class="caption">
+                  <h3>tour3</h3>
+                  <p><span class="glyphicon glyphicon-tags"></span><span class="tags">Tag4, Tag3</span></p>
+                  <p><span class="glyphicon glyphicon-time">
+                     </span><span class="distanceinfo">2 miles</span>
+                     <span class="timeinfo">in 45 minuites</span>
+                   </p>
+                   <p><span class="glyphicon glyphicon-heart"></span><span class="num-likes">200</span></p>
+                </div></div>
+            </li>
+          </ul>
+        </div><!-- end row -->
+
+        <ul><li class="sort" data-sort="data-likes" sort-order="desc">Sort</li></ul>
+        
+      </div> 
+    </div>
+    <!-- end main contents -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/explore_location.js"></script>
+    <script src="js/jquery.mixitup.min.js"></script>
+<!-- End Footer -->
+</body>
+</html>

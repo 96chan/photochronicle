@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <title>Photo Chronicle</title>    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">    
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="">
+    <link rel='stylesheet' id='css-template' type='text/css' href='css/normalize.css' />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>    
+    <link rel='stylesheet' id='css-template' type='text/css' href='css/style.css' />
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=visualization"></script>
+    <script src="js/custom.modernizr.js"></script>
+    <script src="js/holder.js"></script>
+</head>
+<body>
+    <!-- nav -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-camera"></span>&nbsp;Photo Chronicle</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#explore">Explore</a></li>
+            <li><a href="#tour">View Tour</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;Sign In</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- end nav -->
+
+    <!-- main contents -->
+    <div id="content">
+      <div class="container">
+
+        <!-- breadcrumb -->
+        <div class="row">
+          	<ol class="breadcrumb">
+    				  <li><a href="#">Sather Gate</a></li>
+   		 		    <li class="active">Stories</a></li>
+  			   </ol>
+        </div>
+
+        <!-- Other Contents -->
+
+        <!-- Location Titel -->
+        <div id= "location-title" class="row">
+        		<h2>Sather Gate</h2>
+        </div>
+
+        <!-- tabs -->
+        <div class="row">
+            <ul class="nav nav-tabs">
+            	<li class="active"><a href="location_stories.html">Stories</a></li>
+            	<li><a href="location_tours.html">Tours</a></li>
+            </ul>
+        </div>
+
+        <!-- story division -->
+        <div class="story-division">
+
+        <!-- filters -->
+          <div class="row filter-bar">
+          	<div class="col-sm-12 col-md-5 col-md-offset-1">
+  	        	<span>Filter By</span>
+          		<div class="btn-group">
+          			
+                <div class="btn-group">
+          			 <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
+  				    	 Tags <span class="caret"></span></button>
+
+      				    <ul id="tag-filter-dropdown" class="dropdown-menu" role="menu">
+      					    <li><a href="#">All Tags <span class="glyphicon glyphicon-check"></span></a></li>
+                    <li><a href="#">Sather Gate <span class="glyphicon glyphicon-unchecked"></span></a></li>
+      					    <li><a href="#">Berkeley <span class="glyphicon glyphicon-unchecked"></span></a></li>
+      					    <li><a href="#">Cal <span class="glyphicon glyphicon-unchecked"></span></a></li>
+                    <li><a href="#">Architecture <span class="glyphicon glyphicon-unchecked"></span></a></li>
+                    <li><a href="#">Students <span class="glyphicon glyphicon-unchecked"></span></a></li>
+                  </ul>
+      				  </div>
+
+              <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-default btn-sm" id="hasPhoto-filter">
+                  <input type="checkbox"> Has Photos
+                </label>
+              </div>
+  					 
+              <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-default btn-sm" id="inTour-filter">
+                  <input type="checkbox" > Featured In Tours
+                </label>
+              </div>
+  	        </div><!-- end btn-group -->
+          </div>
+
+          <div class="col-sm-12 col-md-4">
+          		<span id="sortby">Sort By</span>
+          		<div class="btn-group">
+          			<button type="button" class="btn btn-default btn-sm"># of Likes</button>
+          		</div>
+            </div>
+   
+          <div class="col-sm-6 col-md-2">
+            <button type="button" class="btn btn-primary btn-sm pull-right">Add A Story</button>
+          </div>
+        </div> <!-- end row -->
+
+        <div class="row">
+          <div class="col-sm-6 col-md-4 story-block" hasImage="True" inTour="True">
+            <div class="thumbnail">
+              <a href="story_beautifulSather.html">
+              <img data-src="holder.js/300x200/" alt="..." style="display:block;">
+              </a>
+              <div class="caption">
+                <h3>The Beautiful Sather Gate</h3>
+                <div>Sather Gate is a prominent landmark separating Sproul Plaza from the bridge over Strawberry Creek, leading to the center of the University of California, Berkeley campus.</div>
+                <hr/>
+                <div><span class="glyphicon glyphicon-tags"></span><span class="tags">Sather Gate, Berkeley</span></div>
+                <div>
+                	<span class="thumbs">
+                    <span class="thumbup" for="story1Likes"><span class="glyphicon glyphicon-thumbs-up"></span> 200 </span>
+                  	<!-- <span class="thumbdown"><span class="glyphicon glyphicon-thumbs-down"></span> 0 </span> -->
+                  </span>
+                  <span class="intour-indicator pull-right"><span class="glyphicon glyphicon-map-marker"></span>In Tours</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4 story-block" hasImage="True" inTour="True">
+            <div class="thumbnail">
+              <a href="#">
+              <img data-src="holder.js/300x200" alt="...">
+              </a>
+              <div class="caption">
+                <h3>The History of Sather Gate</h3>
+                <p>Sather Gate was completed in 1910. Atop the gate are eight panels of bas-relief figures: four nude men representing the disciplines of law, letters, medicine, and mining, and four nude women representing the disciplines of agriculture, architecture, art, and electricity.</p>
+                <hr/>
+                <p><span class="glyphicon glyphicon-tags"></span><span class="tags">Sather Gate, Cal, Architecture</span></p>
+                <p>
+                  <span class="thumbs">
+                    <span class="thumbup" for="story2Likes"><span class="glyphicon glyphicon-thumbs-up"></span> 100 </span>
+                    <!-- <span class="thumbdown"><span class="glyphicon glyphicon-thumbs-down"></span> 100 </span> -->
+                  </span>
+                  <span class="intour-indicator pull-right"><span class="glyphicon glyphicon-map-marker"></span>In Tours</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4 story-block" hasImage="False" inTour="False">
+            <div class="thumbnail">
+              <a href="#">
+              <img data-src="holder.js/300x200/text:This story has no image." alt="...">
+              </a>
+              <div class="caption">
+                <h3>Thumbnail label</h3>
+                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+               <hr/>
+                <p><span class="glyphicon glyphicon-tags"></span><span class="tags">Sather Gate, Students, Cal</span></p>
+                <p>
+                  <span class="thumbs">
+                    <span class="thumbup" for="story3Likes"><span class="glyphicon glyphicon-thumbs-up"></span> 56 </span>
+                    <!-- <span class="thumbdown"><span class="glyphicon glyphicon-thumbs-down"></span> 100 </span> -->
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>  
+        </div><!-- end row -->
+        <div><!-- end story division -->
+      </div> 
+    </div>
+    <!-- end main contents -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/explore_location.js"></script>
+<!-- End Footer -->
+</body>
+</html>

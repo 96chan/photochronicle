@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <title>Photo Chronicle</title>    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">    
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="">
+    <link rel='stylesheet' id='css-template' type='text/css' href='css/normalize.css' />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>    
+    <link rel='stylesheet' id='css-template' type='text/css' href='css/style.css' />
+	<!-- <link href="jquery_thumbnail_scroller/jquery.thumbnailScroller.css" rel="stylesheet" type="text/css" />  -->
+<!-- <link  href="http://fotorama.s3.amazonaws.com/4.4.8/fotorama.css" rel="stylesheet"> <!-- 3 KB --> -->
+<link rel='stylesheet' id='css-template' type='text/css' href='css/timeline.css' />
+  	<script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=visualization"></script>
+    <script src="js/custom.modernizr.js"></script>
+	<script src="js/holder.js"></script>
+
+
+    
+</head>
+<body>
+    <!-- nav -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-camera"></span>&nbsp;Photo Chronicle</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#explore">Explore</a></li>
+            <li><a href="#tour">View Tour</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;Sign In</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- end nav -->
+
+    <!-- main contents -->
+    <div id="content">
+      <div class="container">
+
+      	 <!-- breadcrumb -->
+        <div class="row">
+          	<ol class="breadcrumb">
+    			<li><a href="location_stories.html">Sather Gate</a></li>
+   		 		<li><a href="location_stories.html">Stories</a></li>
+   		 		<li class="active">The Beautiful Sather Gate</li>
+  			</ol>
+        </div>
+
+        <!-- Story Titel -->
+        <div id= "story-title" class="row">
+    		<h2>The Beautiful Sather Gate <span class="small text-muted">(created by you)</span> </h2>
+        </div>
+
+       
+ 	 	<div class="row filter-bar">
+ 	 		<div class="col-sm-6 col-md-2">
+    			<div class="btn-group">
+                <a role="button" class="btn btn-primary like-btn" for="story1Likes">
+                	<span class="glyphicon glyphicon-heart"></span> Like </a>
+                <button type="button" class="btn btn-default like-count" disabled="disabled">200</button>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4" id="edit-rights">
+                <div class="btn-group">
+	                <a role="button" class="btn btn-default" id="edit-story">
+	                	<span class="glyphicon glyphicon-edit"></span> Edit </a>
+	                <a role="button" class="btn btn-default" id="remove-story">
+	                	<span class="glyphicon glyphicon-remove"></span> Remove </a>
+	                <button types="button" class="btn btn-default" id="check-private">
+	                	<span class="glyphicon glyphicon-unchecked"></span> Private</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+        	<blockquote id="story-desc"><p>Sather Gate is a prominent landmark separating Sproul Plaza from the bridge over Strawberry Creek, leading to the center of the University of California, Berkeley campus.
+        		Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+        		Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+        		Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+        	</p></blockquote>
+       	 	<hr/>
+        </div>
+        <div class="row">
+        	<form role="form" id="story-desc-form">	
+        		<textarea class="form-control" rows="6"></textarea>
+        		<button type="submit" class="btn btn-primary" id="story-desc-save-btn">Save</button>
+        		<button type="button" class="btn btn-primary" id="story-desc-cancel-btn">Cancel</button>
+        		<hr/>
+        	</form>
+        </div>
+  
+        <!-- Other Contents -->
+		<div class="story-detail-div">
+			<div class="row">
+				<div class="col-sm-6 col-md-4">
+					<div class="year-scroll">
+						<ul class='timeline'>
+							<li class="year offset-first">1980's</li>
+							<li class='event' href="#">
+								<img src="img/sather_gate_1.jpg" class="small-img"/>
+							</li>
+							<li class="year">1990's</li>
+							<li class="event">
+								<img src="img/sather_gate_2.jpg" class="small-img"/>
+							</li>
+							<li class="event">
+								<img src="img/sather_gate_3.jpg" class="small-img"/>
+							</li>
+							<li class="year">2000's</li>
+							<li class="event">
+								<img src="img/sather_gate_4.jpg" class="small-img"/>
+							</li>
+							<li class="event">
+								<img src="img/sather_gate_5.jpg" class="small-img"/>
+							</li>
+							<li class="event">
+								<img src="img/sather_gate_6.jpg" class="small-img"/>
+							</li>
+							<li class="event">
+								<img src="img/sather_gate_7.jpg" class="small-img"/>
+							</li>
+							<li class="year">2010's</li>
+							<li class="event">
+								<img src="img/sather_gate_8.jpg" class="small-img"/>
+							</li>
+							<li class="event">
+								<img src="img/sather_gate_9.jpg" class="small-img"/>
+							</li>
+							<li class="event">
+								<img src="img/sather_gate_11.jpg" class="small-img"/>
+							</li>
+							<li class="event">
+								<img src="img/sather_gate_12.jpg" class="small-img"/>
+							</li>
+							<li class="event">
+								<img src="img/sather_gate_13.jpg" class="small-img"/>
+							</li>
+						</ul>
+					</div> <!-- end scroll section -->
+				</div>
+				<div class="col-sm-6 col-md-8">
+					<div class="large-img">
+					   <img src="img/sather_gate_1.jpg"/>
+					   <p class="img-caption">this is caption. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+					   <div class="img-creator text-muted">Added by: Anonymous <span class="glyphicon glyphicon-user"> </span> </div>
+					</div>
+				</div>
+			</div>
+		</div> <!-- end testarea3 -->
+
+
+    </div>
+    <!-- end main contents -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+	<script src="js/jquery-1.10.2.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+
+	<script src="js/story_detail.js"></script>
+	<!-- <script src="js/jquery.mixitup.min.js"></script> -->
+<!-- End Footer -->
+</body>
+</html>
+

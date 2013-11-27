@@ -17,6 +17,13 @@ http://imsky.github.io/holder/
 *** Bootstrap Docs
 http://getbootstrap.com/css/
 
+*** Jquery-thumbnail-scroller plugin
+http://manos.malihu.gr/jquery-thumbnail-scroller/
+All files (css, js) are downloaded to jquery_thumbnail_scroller folder
+
+*** Timeline style sheet
+http://christian-fei.com/simple-vertical-timeline-with-css/
+timeline.css
 */
 
 body{
@@ -29,6 +36,7 @@ nav{
 	margin-top:70px;
 	display:block;
 }
+
 #map-canvas{
 	height:500px;
 	margin:2em auto;
@@ -51,3 +59,116 @@ nav{
 	top:102px;
 	left:20%;
 }
+
+.story-division{
+	margin-top:5px;
+}
+
+.filter-bar{
+	margin-bottom: 5px;
+	margin-top: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	/*background: #ECF0D6;*/
+}
+
+.tags{
+	color:#5E677A;
+	margin-left: 10px;
+}
+
+.thumbdown{
+	margin-left: 10px;
+}
+.tag-list li {
+	display: inline;
+}
+.tour-map{
+	height:200px;
+	width: 300px;
+}
+.timeinfo{
+	margin-left: 10px;
+}
+.distanceinfo{
+	margin-left: 10px;
+}
+.story-descriptions{
+	margin-bottom: 5px;
+	margin-top: 5px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #eee; 
+}
+/*extend bootstrap thumbnail css*/
+.thumbnail>a>img{
+	display:block;
+	height:auto;
+	max-width:100%;
+	margin-right:auto;
+	margin-left:auto
+}
+/* Wendy's experiemntal css.*/
+.large-img img{
+	width: 100%;
+	height: auto;
+	max-width: 700px;
+	max-height: 480px;
+	margin-left: auto;
+	margin-right: auto;
+	display:block;
+	/*border:2px solid #DDE4B5;*/
+	box-shadow: 10px 10px 5px #888;
+}
+.small-img {
+	width:117px;
+	height:auto;
+	border:2px solid #DDE4B5;
+}
+.year-scroll{
+	height:480px;
+	overflow-y: scroll;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.img-caption{
+	width: 100%;
+	text-align: center;
+}
+.img-creator{
+	float: right;
+}
+
+#story-desc-form button{
+	float: right;
+	margin-left: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.img-caption{
+	margin-top: 10px;
+	/*background-color: #eee;*/
+}
+.tour-map-canvas{
+	height:300px;
+	width: auto;
+	/*margin:2em auto;*/
+}
+
+#tour-grid{
+	padding-left: 0px;
+}
+#tour-grid li{
+	width: 360px;
+	height: auto;
+	/*border: 2px solid #DDE4B5;*/
+	margin-left: 10px;
+	margin-right: 10px;
+	/*display: inline-block;*/
+}
+
+#tour-grid .mix{
+    opacity: 0;
+    display: none;
+}
+/* end Wendy's experiemntal css.*/
