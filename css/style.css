@@ -255,3 +255,28 @@ nav{
     max-width: 100%;
     height: auto;
 }
+
+
+/* modal styles */
+.modal-dialog, .modal-content {
+    width: 100%;
+}
+
+.modal p {
+    color: #808080;
+}
+
+.left-sector {
+    width: 48%;
+    float: left;
+}
+
+.right-sector {
+    margin-left: 52%;
+}
+
+.separator h1 {
+    color: red;
+    text-align: center;
+    vertical-align: middle;
+}
