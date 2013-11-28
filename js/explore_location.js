@@ -48,6 +48,7 @@ $(document).ready(function() {
 	$(".filter > a").on("click", function(e){
 		e.preventDefault();
 	});
+
 });
 /* ==================
 

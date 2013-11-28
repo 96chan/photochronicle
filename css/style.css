@@ -108,6 +108,10 @@ nav{
 	margin-right:auto;
 	margin-left:auto
 }
+
+.thumbnail>a{
+	text-decoration: none;
+}
 /* Wendy's experiemntal css.*/
 .large-img img{
 	width: 100%;
