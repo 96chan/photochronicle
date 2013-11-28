@@ -171,6 +171,30 @@ nav{
     opacity: 0;
     display: none;
 }
+
+#tour-sort-bar li{
+	display: inline-block;
+}
+#story-filter-bar li{
+	display: inline-block;
+}
+#story-grid .mix{
+	opacity: 0;
+	display: none;
+}
+#story-grid li{
+	width: 30%;
+	height: auto;
+	/*border: 2px solid #DDE4B5;*/
+	margin-left: 10px;
+	margin-right: 10px;
+	/*display: inline-block;*/
+	/*vertical-align: top;*/
+}
+
+#story-sort-bar li{
+	display: inline-block;
+}
 /* end Wendy's experiemntal css.*/
 
 /* "card" class */

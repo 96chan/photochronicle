@@ -91,8 +91,8 @@
             </div>
 
           <div class="col-sm-12 col-md-6">
-          		<span id="sortby">Sort By</span>
-              <div class="btn-group" data-toggle="buttons">
+          		
+             <!--  <div class="btn-group" data-toggle="buttons">
             		<label class="btn btn-default btn-sm">
                   <input type="radio" name="options" id="num-likes-btn"># of Likes
                 </label>
@@ -102,7 +102,20 @@
                 <label class="btn btn-default btn-sm">
                   <input type="radio" name="options" id="time-required-btn">Time Required
                 </label>
-            </div>
+            </div> -->
+              <ul id="tour-sort-bar">
+                <span>Sort By</span>
+                <li class="sort" data-sort="data-likes" data-order="asc">
+                  <button type="button" class="btn btn-default btn-sm"># of Likes</button>
+                </li>
+                <li class="sort" data-sort="data-distance" data-order="desc">
+                  <button type="button" class="btn btn-default btn-sm">Distance</button>
+                </li>
+                 <li class="sort" data-sort="data-time" data-order="desc">
+                  <button type="button" class="btn btn-default btn-sm">Time Required</button>
+                </li>
+              </ul>
+        
           </div>
    
           <!-- <div class="col-sm-6 col-md-2">
@@ -112,50 +125,46 @@
 
         <div class="row tour-division">
            <ul id="tour-grid">
-            <li class="mix all tag1 tag2" data-likes="100">
+            <li class="mix all tag1 tag2" data-likes="100" data-distance="2" data-time="50">
               <div class="thumbnail">
               <div class="tour-map-canvas"></div>
                 <div class="caption">
                   <h3>tour1</h3>
-                  <p><span class="glyphicon glyphicon-tags"></span><span class="tags">Tag1, Tag2</span></p>
-                  <p><span class="glyphicon glyphicon-time">
+                  <div><span class="glyphicon glyphicon-tags"></span><span class="tags">Tag1, Tag2</span></div>
+                  <div><span class="glyphicon glyphicon-time">
                      </span><span class="distanceinfo">2 miles</span>
-                     <span class="timeinfo">in 45 minuites</span>
-                   </p>
-                   <p><span class="glyphicon glyphicon-heart"></span><span class="num-likes">100</span></p>
+                     <span class="timeinfo">in 50 minuites</span>
+                   <span class="pull-right"><span class="glyphicon glyphicon-heart"></span><span class="num-likes">100</span></span></div>
                 </div></div>
             </li>
-            <li class="mix all tag2 tag3" data-likes="300">
+            <li class="mix all tag2 tag3" data-likes="300" data-distance="5" data-time="45">
               <div class="thumbnail">
               <div class="tour-map-canvas"></div>
                 <div class="caption">
                   <h3>tour2</h3>
-                  <p><span class="glyphicon glyphicon-tags"></span><span class="tags">Tag2, Tag3</span></p>
-                  <p><span class="glyphicon glyphicon-time">
-                     </span><span class="distanceinfo">2 miles</span>
+                  <div><span class="glyphicon glyphicon-tags"></span><span class="tags">Tag2, Tag3</span></div>
+                  <div><span class="glyphicon glyphicon-time">
+                     </span><span class="distanceinfo">5 miles</span>
                      <span class="timeinfo">in 45 minuites</span>
-                   </p>
-                   <p><span class="glyphicon glyphicon-heart"></span><span class="num-likes">300</span></p>
+                   <span class="pull-right"><span class="glyphicon glyphicon-heart"></span><span class="num-likes">300</span></span></div>
                 </div></div>
             </li>
-            <li class="mix all tag4 tag3" data-likes="200">
+            <li class="mix all tag4 tag3" data-likes="200" data-distance="3" data-time="15">
               <div class="thumbnail">
               <div class="tour-map-canvas"></div>
                 <div class="caption">
                   <h3>tour3</h3>
-                  <p><span class="glyphicon glyphicon-tags"></span><span class="tags">Tag4, Tag3</span></p>
-                  <p><span class="glyphicon glyphicon-time">
-                     </span><span class="distanceinfo">2 miles</span>
-                     <span class="timeinfo">in 45 minuites</span>
-                   </p>
-                   <p><span class="glyphicon glyphicon-heart"></span><span class="num-likes">200</span></p>
+                  <div><span class="glyphicon glyphicon-tags"></span><span class="tags">Tag4, Tag3</span></div>
+                  <div><span class="glyphicon glyphicon-time">
+                     </span><span class="distanceinfo">3 miles</span>
+                     <span class="timeinfo">in 15 minuites</span>
+                   <span class="pull-right"><span class="glyphicon glyphicon-heart"></span><span class="num-likes">200</span></span></div>
                 </div></div>
             </li>
           </ul>
         </div><!-- end row -->
 
-        <ul><li class="sort" data-sort="data-likes" sort-order="desc">Sort</li></ul>
-        
+     
       </div> 
     </div>
     <!-- end main contents -->

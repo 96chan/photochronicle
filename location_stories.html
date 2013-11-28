@@ -73,44 +73,40 @@
 
         <!-- filters -->
           <div class="row filter-bar">
-          	<div class="col-sm-12 col-md-5 col-md-offset-1">
+          	<div class="col-sm-12 col-md-6">
+              <ul id="story-filter-bar">
   	        	<span>Filter By</span>
-          		<div class="btn-group">
-          			
-                <div class="btn-group">
+          		<span class="btn-group">
+                
           			 <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
   				    	 Tags <span class="caret"></span></button>
-
-      				    <ul id="tag-filter-dropdown" class="dropdown-menu" role="menu">
-      					    <li><a href="#">All Tags <span class="glyphicon glyphicon-check"></span></a></li>
-                    <li><a href="#">Sather Gate <span class="glyphicon glyphicon-unchecked"></span></a></li>
-      					    <li><a href="#">Berkeley <span class="glyphicon glyphicon-unchecked"></span></a></li>
-      					    <li><a href="#">Cal <span class="glyphicon glyphicon-unchecked"></span></a></li>
-                    <li><a href="#">Architecture <span class="glyphicon glyphicon-unchecked"></span></a></li>
-                    <li><a href="#">Students <span class="glyphicon glyphicon-unchecked"></span></a></li>
+                  <ul class="dropdown-menu" role="menu">
+                    <li class="filter" data-filter="all"><a href="#">All Tags</a></li>
+                    <li class="filter" data-filter="sathergate"><a href="#">Sather Gate</a></li>
+                    <li class="filter" data-filter="berkeley"><a href="#">Berkeley</a></li>
+                    <li class="filter" data-filter="cal"><a href="#">California</a></li>
+                    <li class="filter" data-filter="architecture"><a href="#">Architecture</a></li>
                   </ul>
-      				  </div>
+                </span>
 
-              <div class="btn-group" data-toggle="buttons">
-                <label class="btn btn-default btn-sm" id="hasPhoto-filter">
-                  <input type="checkbox"> Has Photos
-                </label>
-              </div>
-  					 
-              <div class="btn-group" data-toggle="buttons">
-                <label class="btn btn-default btn-sm" id="inTour-filter">
-                  <input type="checkbox" > Featured In Tours
-                </label>
-              </div>
-  	        </div><!-- end btn-group -->
-          </div>
+                <li class="filter" data-filter="hasPhoto">
+                  <button type="button" class="btn btn-default btn-sm">Has Photos</button>
+                </li>
+                <li class="filter" data-filter="inTour">
+                  <button type="button" class="btn btn-default btn-sm">Featured In Tour</button>
+                </li>
+              </ul>
+            </div>
 
           <div class="col-sm-12 col-md-4">
-          		<span id="sortby">Sort By</span>
-          		<div class="btn-group">
-          			<button type="button" class="btn btn-default btn-sm"># of Likes</button>
-          		</div>
-            </div>
+          		<!-- <ul id="story-sort-bar"> -->
+                <span>Sort By</span>
+                <!-- <li class="sort" data-sort="data-likes" data-order="desc"> -->
+
+                  <button type="button" class="btn btn-default btn-sm" id="sort-likes"># of Likes</button>
+                <!-- </li> -->
+              <!-- </ul> -->
+          </div>
    
           <div class="col-sm-6 col-md-2">
             <button type="button" class="btn btn-primary btn-sm pull-right">Add A Story</button>
@@ -118,67 +114,68 @@
         </div> <!-- end row -->
 
         <div class="row">
-          <div class="col-sm-6 col-md-4 story-block" hasImage="True" inTour="True">
-            <div class="thumbnail">
-              <a href="story_beautifulSather.html">
-              <img data-src="holder.js/300x200/" alt="..." style="display:block;">
-              </a>
-              <div class="caption">
-                <h3>The Beautiful Sather Gate</h3>
-                <div>Sather Gate is a prominent landmark separating Sproul Plaza from the bridge over Strawberry Creek, leading to the center of the University of California, Berkeley campus.</div>
-                <hr/>
-                <div><span class="glyphicon glyphicon-tags"></span><span class="tags">Sather Gate, Berkeley</span></div>
-                <div>
-                	<span class="thumbs">
-                    <span class="thumbup" for="story1Likes"><span class="glyphicon glyphicon-thumbs-up"></span> 200 </span>
-                  	<!-- <span class="thumbdown"><span class="glyphicon glyphicon-thumbs-down"></span> 0 </span> -->
-                  </span>
-                  <span class="intour-indicator pull-right"><span class="glyphicon glyphicon-map-marker"></span>In Tours</span>
+          <ul id="story-grid">
+            <li class="mix all sathergate berkeley hasPhoto inTour" data-name="250">
+              <div class="thumbnail">
+                <a href="story_beautifulSather.html">
+                <img src="img/sather_gate_8.jpg" alt="...">
+                </a>
+                <div class="caption">
+                  <h3>The Beautiful Sather Gate</h3>
+                  <div>Sather Gate is a prominent landmark separating Sproul Plaza from the bridge over Strawberry Creek, leading to the center of the University of California, Berkeley campus.</div>
+                  <hr/>
+                  <div><span class="glyphicon glyphicon-tags"></span><span class="tags">Sather Gate, Berkeley</span></div>
+                  <div>
+                  	<span class="thumbs">
+                      <span class="thumbup" for="story1Likes"><span class="glyphicon glyphicon-thumbs-up"></span> 250 </span>
+                    </span>
+                    <span class="intour-indicator pull-right"><span class="glyphicon glyphicon-map-marker"></span>In Tours</span>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-4 story-block" hasImage="True" inTour="True">
-            <div class="thumbnail">
-              <a href="#">
-              <img data-src="holder.js/300x200" alt="...">
-              </a>
-              <div class="caption">
-                <h3>The History of Sather Gate</h3>
-                <p>Sather Gate was completed in 1910. Atop the gate are eight panels of bas-relief figures: four nude men representing the disciplines of law, letters, medicine, and mining, and four nude women representing the disciplines of agriculture, architecture, art, and electricity.</p>
-                <hr/>
-                <p><span class="glyphicon glyphicon-tags"></span><span class="tags">Sather Gate, Cal, Architecture</span></p>
-                <p>
-                  <span class="thumbs">
-                    <span class="thumbup" for="story2Likes"><span class="glyphicon glyphicon-thumbs-up"></span> 100 </span>
-                    <!-- <span class="thumbdown"><span class="glyphicon glyphicon-thumbs-down"></span> 100 </span> -->
-                  </span>
-                  <span class="intour-indicator pull-right"><span class="glyphicon glyphicon-map-marker"></span>In Tours</span>
-                </p>
+            </li>
+            <li class="mix all sathergate cal architecture hasPhoto" data-name="500">
+              <div class="thumbnail">
+                <a href="#">
+                <img src="img/sather_gate_1.jpg" alt="...">
+                </a>
+                <div class="caption">
+                  <h3>The History of Sather Gate</h3>
+                  <p>Sather Gate was completed in 1910. Atop the gate are eight panels of bas-relief figures: four nude men representing the disciplines of law, letters, medicine, and mining, and four nude women representing the disciplines of agriculture, architecture, art, and electricity.</p>
+                  <hr/>
+                  <p><span class="glyphicon glyphicon-tags"></span><span class="tags">Sather Gate, California, Architecture</span></p>
+                  <p>
+                    <span class="thumbs">
+                      <span class="thumbup" for="story2Likes"><span class="glyphicon glyphicon-thumbs-up"></span> 500 </span>
+                    </span>
+                  <!--   <span class="intour-indicator pull-right"><span class="glyphicon glyphicon-map-marker"></span>In Tours</span> -->
+                  </p>
+                </div>
               </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-4 story-block" hasImage="False" inTour="False">
-            <div class="thumbnail">
-              <a href="#">
-              <img data-src="holder.js/300x200/text:This story has no image." alt="...">
-              </a>
-              <div class="caption">
-                <h3>Thumbnail label</h3>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-               <hr/>
-                <p><span class="glyphicon glyphicon-tags"></span><span class="tags">Sather Gate, Students, Cal</span></p>
-                <p>
-                  <span class="thumbs">
-                    <span class="thumbup" for="story3Likes"><span class="glyphicon glyphicon-thumbs-up"></span> 56 </span>
-                    <!-- <span class="thumbdown"><span class="glyphicon glyphicon-thumbs-down"></span> 100 </span> -->
-                  </span>
-                </p>
+            </li>
+            <li class="mix all sathergate student cal" data-name="56">
+              <div class="thumbnail">
+                <a href="#">
+                <img data-src="holder.js/300x200/text:This story has no image." alt="...">
+                </a>
+                <div class="caption">
+                  <h3>Thumbnail label</h3>
+                  <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                 <hr/>
+                  <p><span class="glyphicon glyphicon-tags"></span><span class="tags">Sather Gate, Students, California</span></p>
+                  <p>
+                    <span class="thumbs">
+                      <span class="thumbup" for="story3Likes"><span class="glyphicon glyphicon-thumbs-up"></span> 56 </span>
+                      <!-- <span class="thumbdown"><span class="glyphicon glyphicon-thumbs-down"></span> 100 </span> -->
+                    </span>
+                  </p>
+                </div>
               </div>
-            </div>
-          </div>  
+            </li>  
+         </ul>
         </div><!-- end row -->
         <div><!-- end story division -->
+
       </div> 
     </div>
     <!-- end main contents -->
@@ -191,6 +188,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/explore_location.js"></script>
+    <script src="js/jquery.mixitup.min.js"></script>
 <!-- End Footer -->
 </body>
 </html>
