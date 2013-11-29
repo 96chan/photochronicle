@@ -325,3 +325,24 @@ embed {
     max-width: 100%;
     height: auto;
 }
+
+
+/* Chan */
+#myModal{
+	position:absolute;
+	top:30%;
+	left:35%;
+}
+#modal-button-group{
+	float:right;
+}
+.modal-content{
+	height:280px;
+}
+.modal, .modal-content, .modal-dialog, .modal-body{
+	width:400px;
+}
+.modal-content{
+	border-radius:0;
+}
+
