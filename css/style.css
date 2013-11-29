@@ -328,21 +328,19 @@ embed {
 
 
 /* Chan */
-#myModal{
+#signin-modal{
 	position:absolute;
-	top:30%;
-	left:35%;
+	top:20%;
 }
 #modal-button-group{
 	float:right;
 }
-.modal-content{
+.signin-content{
 	height:280px;
 }
-.modal, .modal-content, .modal-dialog, .modal-body{
+.signin{
 	width:400px;
 }
-.modal-content{
-	border-radius:0;
-}
+.signin-header{
 
+}

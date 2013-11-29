@@ -35,23 +35,23 @@
             <li><a href="#tour">View Tour</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li data-toggle="modal" data-target="#myModal"><a id="signin" href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;Sign In</a></li>
+            <li data-toggle="modal" data-target="#signin-modal"><a id="signin" href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;Sign In</a></li>
             <li><a id="after-signin" href="#"></a></li>
-            <li><a id="logout" href="#"></a></li>
+            <li><a id="signout" href="#">Sign Out</a></li>
           </ul>
         </div>
       </div>
     </nav>
     <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-       <div class="modal-content">
-           <div class="modal-header">
-              Sign in Photo Chronicle
+    <div class="modal fade" id="signin-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="signin modal-dialog">
+       <div class="signin signin-content modal-content">
+           <div class="signin-header modal-header">
+              Sign In to Photo Chronicle
            </div>
-           <div class="modal-body">
+           <div class="signin modal-body">
             <form id="form-signin" role="form" method="post">
-              <div class="form-group">
+              <div id="form-group-input-name" class="form-group">
                 <label for="input-name">Username</label>
                 <input type="text" class="form-control stored" id="input-name" placeholder="Enter Username">
               </div>
@@ -94,7 +94,7 @@
           <div>
               Temporal place to test modals:
               <br>
-              <a href="#" onclick="$('#myModal').modal('show');" id="mapModalLink">Add new Tour</a>
+              <a href="#" id="mapModalLink">Add new Tour</a>
               <br>
               <br>
           </div>
