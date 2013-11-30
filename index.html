@@ -82,22 +82,19 @@
         <div id="search" class="row">
           <div class="col-sm-8">
             <div class="input-group">
-                <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
-                <input type="text" class="form-control" placeholder="Type any location, story, or topic">
-                <span class="input-group-btn">
-                  <button class="btn btn-default" type="button">Search</button>
-                </span>
+                <input id="mapsearch-form-canvas" class="controls" type="text" placeholder="Type any location, story, or topic">
+                <button id="searchbutton" class="btn" type="button"><i class="fa fa-search"></i>&nbsp;Search</button>
             </div>
           </div>
         </div>
-        <!-- Other Contents -->
-          <div>
-              Temporal place to test modals:
-              <br>
-              <a href="#" id="mapModalLink">Add new Tour</a>
-              <br>
-              <br>
-          </div>
+        <!-- Other Contents  -->
+        <!--  <div>
+                Temporal place to test modals:
+                <br>
+                <a href="#" id="mapModalLink">Add new Tour</a>
+                <br>
+                <br>
+            </div>   -->
         <div class="row">
           <div class="col-sm-6 col-md-4">
             <div class="card">
@@ -198,6 +195,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
     <script src="js/script.js"></script>
 <!-- End Footer -->
 </body>
