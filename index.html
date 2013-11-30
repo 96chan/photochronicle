@@ -12,9 +12,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>    
     <link rel='stylesheet' id='css-template' type='text/css' href='css/style.css' />
-    <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=visualization"></script>
-    <script src="js/custom.modernizr.js"></script>
-    <script src="js/holder.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
 </head>
 <body>
     <!-- nav -->
@@ -74,19 +72,18 @@
     <!-- main contents -->
     <div id="content">
       <div class="container">
-
-        <!-- Map -->
-        <div id="map-canvas"></div>
-
         <!-- Search Box -->
         <div id="search" class="row">
           <div class="col-sm-8">
             <div class="input-group">
+                <div id="searchbutton" class="searchbtn"><i class="fa fa-search"></i></div>
                 <input id="mapsearch-form-canvas" class="controls" type="text" placeholder="Type any location, story, or topic">
-                <button id="searchbutton" class="btn" type="button"><i class="fa fa-search"></i>&nbsp;Search</button>
             </div>
           </div>
         </div>
+        <!-- Map -->
+        <div id="map-canvas"></div>
+
         <!-- Other Contents  -->
         <!--  <div>
                 Temporal place to test modals:
@@ -102,9 +99,7 @@
                     <h3>A Day at Berkeley <p style="float:right;color:#b3b3b3;font-size:medium;">+100 <i
                             class="fa fa-heart" style="color:#E84D5B;vertical-align:middle;font-size:medium"></i>
                     </p></h3>
-
                     <hr>
-
                     <img src="http://maps.googleapis.com/maps/api/staticmap?center=UC+Berkeley,Berkeley,CA&zoom=13&size=400x300&maptype=terrain
 &markers=color:red%7Clabel:S%7C-122.2550843,37.8762642&sensor=false">
                     <br>
@@ -194,8 +189,9 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="js/custom.modernizr.js"></script>
+    <script src="js/holder.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
     <script src="js/script.js"></script>
 <!-- End Footer -->
 </body>
