@@ -428,3 +428,34 @@ embed {
     font-size: 13px;
     font-weight: 300;
 }
+
+.no_break_float_right {
+    display: inline;
+    float: right;
+}
+
+.thumbnail p a {
+    margin-left: 0.5em;
+}
+
+#title_bar h5 {
+    margin-bottom: 2em;
+}
+
+#title_and_desc {
+    width: 65%;
+    float: left;
+}
+
+#title_bar .no_break_float_right {
+    margin-top: 3.5em;
+}
+
+#title_bar .no_break_float_right a {
+    margin-left: 2em;
+}
+
+#save_area {
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
