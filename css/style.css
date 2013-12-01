@@ -285,7 +285,7 @@ embed {
     margin-top: 1em;
     margin-bottom: 2em;
 }
-=======
+
 .modal-dialog, .modal-content {width: 100%; }
 .modal p {color: #808080; }
 
@@ -316,4 +316,3 @@ img, object, embed {max-width: 100%; height: auto; }
 .addStoryModel-content{ width:480px; margin-left:30%;}
 
 /** end Wendy add story model on location_stories.html **/
->>>>>>> cebe69101a3b8e4dc85d6396645ae51725274ca7
