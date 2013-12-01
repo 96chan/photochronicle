@@ -15,7 +15,7 @@
     <script src="js/custom.modernizr.js"></script>
     <script src="js/holder.js"></script>
 </head>
-<body>
+<body onLoad="tour_detail_loaded()">
     <!-- nav -->
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
@@ -30,37 +30,73 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="#explore">Explore</a></li>
-            <li><a href="#tour">View Tour</a></li>
+            <li id="nav-explore" class="selected"><a href="index">Explore</a></li>
+            <li id="nav-view-tours" ><a href="#tour">View Tours</a></li>
+            <li id="nav-my-page" class="invisible"><a href="mytour">My Page</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;Sign In</a></li>
+            <li data-toggle="modal" data-target="#signin-modal"><a id="signin" href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;Sign In</a></li>
+            <li><a id="after-signin" href="#"></a></li>
+            <li><a id="signout" href="#">Sign Out</a></li>
           </ul>
         </div>
       </div>
     </nav>
+    <!-- Modal -->
+    <div class="modal fade" id="signin-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="signin modal-dialog">
+       <div class="signin signin-content modal-content">
+           <div class="signin-header modal-header">
+              Sign In to Photo Chronicle
+           </div>
+           <div class="signin modal-body">
+            <form id="form-signin" role="form" method="post">
+              <div id="form-group-input-name" class="form-group">
+                <label for="input-name">Username</label>
+                <input type="text" class="form-control stored" id="input-name" placeholder="Enter Username">
+              </div>
+              <div class="form-group">
+                <label for="input-password">Password</label>
+                <input type="password" class="form-control stored" id="input-password" placeholder="Password">
+              </div>
+              <div id="modal-button-group">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary">Sign In</button>
+              </div>
+            </form>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
     <!-- end nav -->
 
     <!-- main contents -->
     <div id="content">
       <div class="container">
 
-        <div id="title_bar">
-          <div id="title_and_desc">
-            <h1>A Day in Berkeley</h1>
+      <div class="row" id="title_bar">
+          <div class="col-md-8">
+            <h1>A Day in Berkeley <small>draft</small></h1>
             <h5>Take a stroll in the beautiful UC Berkeley campus. The campus is a rolling oasis within the bustling city of Berkeley. Find out stories behind the famous Sather Gate, the Canpalini, as well as South Hall, the only original building of the campus still standing. See how the campus changed over time.</h5>
+            <textarea col="80" rows="4" class="hide_on_load"></textarea>
           </div>
-          <div class="no_break_float_right">
-            <a href="#">Publish</a>
-            <a href="#">Edit Description</a>
-            <a href="#">Close tour overview</a>
-            <div id="save_area" class="text-right">
-              Auto saved 5 minutes ago
-              <a href="#" class="btn btn-primary" role="button">Save</a>
+          
+          <div class="col-sm-6 col-md-4 text-right" id="save_area">
+            <div class="btn-group" id="edit_or_not">
+              <a role="button" class="btn btn-default" id="edit_button">
+                Edit</a>
+              <a role="button" id="publish_button" class="btn btn-primary">
+                Publish</a>
+            </div>
+            <div class="btn-group" id="save_or_publish">
+              <a role="button" class="btn btn-default" id="cancel_button">
+                Cancel</a>
+              <a role="button" class="btn btn-primary">
+                Save as a draft</a>
             </div>
           </div>
-        </div>
-        <div id="spacing">&nbsp;</div>
+      </div>
+
         <!-- Other Contents -->
         <div class="row">
 
@@ -70,7 +106,7 @@
               <div class="caption">
                 <h3>Map Overview</h3>
               </div>
-              <div id="map-canvas"></div>
+              <div class="tour-map-canvas"></div>
             </div>
           </div>
 
@@ -78,11 +114,11 @@
           <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
               <div class="caption">
-                <h3>Location List <div class="no_break_float_right"><small><a href="#">add a new location</a></small></div></h3>
+                <h3>Location List <div class="no_break_float_right hide_on_load"><small><a href="#">add a new location</a></small></div></h3>
               </div>
               <div class="thumbnail">
                 <h4>Sather Gate</h4>
-                <p class="text-right">
+                <p class="text-right hide_on_load">
                   <a href="#">edit</a>
                   <a href="#">choose a color</a>
                   <a href="#">remove from tour</a>
@@ -90,7 +126,7 @@
               </div>
               <div class="thumbnail">
                 <h4>Sather Tower</h4>
-                <p class="text-right">
+                <p class="text-right hide_on_load">
                   <a href="#">edit</a>
                   <a href="#">choose a color</a>
                   <a href="#">remove from tour</a>
@@ -98,7 +134,7 @@
               </div>
               <div class="thumbnail">
                 <h4>South Hall</h4>
-                <p class="text-right">
+                <p class="text-right hide_on_load">
                   <a href="#">edit</a>
                   <a href="#">choose a color</a>
                   <a href="#">remove from tour</a>
@@ -106,7 +142,7 @@
               </div>
               <div class="thumbnail">
                 <h4>Hearst Greek Theatre</h4>
-                <p class="text-right">
+                <p class="text-right hide_on_load">
                   <a href="#">edit</a>
                   <a href="#">choose a color</a>
                   <a href="#">remove from tour</a>
@@ -123,37 +159,37 @@
               </div>
               <div class="thumbnail">
                 <h4>Sather Gate
-                  <div class="no_break_float_right"><small><a href="#">add stories</a></small></div>
+                  <div class="no_break_float_right hide_on_load"><small><a href="#">add stories</a></small></div>
                 </h4>
                 <div class="thumbnail">
                   <p>Free speech at Sather Gate</p>
                   <img src="img/sather_gate_1.jpg">
-                  <small><a href="#">Remove from Location</a></small>
+                  <small class="hide_on_load"><a href="#">Remove from Location</a></small>
                 </div>
               </div>
               <div class="thumbnail">
                 <h4>Sather Tower
-                  <div class="no_break_float_right"><small><a href="#">add stories</a></small></div>
+                  <div class="no_break_float_right hide_on_load"><small><a href="#">add stories</a></small></div>
                 </h4>
                 <div class="thumbnail">
                   <p>Sather Tower at night</p>
                   <img src="img/sather_tower_1.jpg">
-                  <small><a href="#">Remove from Location</a></small>
+                  <small class="hide_on_load"><a href="#">Remove from Location</a></small>
                 </div>
               </div>
               <div class="thumbnail">
                 <h4>South Hall
-                  <div class="no_break_float_right"><small><a href="#">add stories</a></small></div>
+                  <div class="no_break_float_right hide_on_load"><small><a href="#">add stories</a></small></div>
                 </h4>
                 <div class="thumbnail">
                   <p>South Hall in a shiny day</p>
                   <img src="img/south_hall.jpg">
-                  <small><a href="#">Remove from Location</a></small>
+                  <small class="hide_on_load"><a href="#">Remove from Location</a></small>
                 </div>
               </div>
               <div class="thumbnail">
                 <h4>Hearst Greek Theatre
-                  <div class="no_break_float_right"><small><a href="#">add stories</a></small></div>
+                  <div class="no_break_float_right hide_on_load"><small><a href="#">add stories</a></small></div>
                 </h4>
                  No stories here yet! Please click on add stories...
             </div>
