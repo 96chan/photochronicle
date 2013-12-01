@@ -254,6 +254,11 @@ embed {
     font-weight: 300;
 }
 
+
+/************************************************
+ jooddang starts adding here...
+ ************************************************/
+
 .no_break_float_right {
     display: inline;
     float: right;
@@ -325,6 +330,10 @@ textarea#story_desc {
 input[type=file] {
     width: 0px;
 }
+
+/************************************************
+ jooddang ends adding here...
+ ************************************************/
 
 
 .modal-dialog, .modal-content {width: 100%; }
