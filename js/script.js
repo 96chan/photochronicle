@@ -7,42 +7,27 @@ var map_canvas;
 var map_modal;
 var bk_latlng = new google.maps.LatLng(37.8900, -122.2728);     // Berkeley
 
-function initialize() {
-  var mapOptions = {
-    zoom: 10,
-    center: bk_latlng,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-  };
-  map = new google.maps.Map(document.getElementById('map-canvas'),
-      mapOptions);
-}
-
-
 function initialize_map_canvas() {
     var mapOptions = {
         zoom: 7,
-        center: new google.maps.LatLng(37.397, -122.644),
+        center: bk_latlng,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         mapTypeControl: false
     };
-    map_canvas = new google.maps.Map(document.getElementById('map-canvas'),
-        mapOptions);
-    var searchbutton = /** @type {HTMLInputElement} */(document.getElementById('searchbutton'));
-    map_canvas.controls[google.maps.ControlPosition.TOP_RIGHT].push(searchbutton);
+    map_canvas = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    var searchbutton = document.getElementById('searchbutton');
+    map_canvas.controls[google.maps.ControlPosition.TOP_CENTER].push(searchbutton);
+    var input = document.getElementById('mapsearch-form-canvas');
+    map_canvas.controls[google.maps.ControlPosition.TOP_CENTER].push(input);
 
-    var input = /** @type {HTMLInputElement} */(document.getElementById('mapsearch-form-canvas'));
-    map_canvas.controls[google.maps.ControlPosition.TOP_RIGHT].push(input);
-
-    var searchBox = new google.maps.places.SearchBox(/** @type {HTMLInputElement} */(input));
+    var searchBox = new google.maps.places.SearchBox(input);
     // Listen for the event fired when the user selects an item from the
     // pick list. Retrieve the matching places for that item.
     google.maps.event.addListener(searchBox, 'places_changed', function () {
         var places = searchBox.getPlaces();
-
         for (var i = 0, marker; marker = markers[i]; i++) {
             marker.setMap(null);
         }
-
         // For each place, get the icon, place name, and location.
         markers = [];
         var bounds = new google.maps.LatLngBounds();
@@ -54,7 +39,6 @@ function initialize_map_canvas() {
                 anchor: new google.maps.Point(17, 34),
                 scaledSize: new google.maps.Size(25, 25)
             };
-
             // Create a marker for each place.
             var marker = new google.maps.Marker({
                 map: map_canvas,
@@ -62,15 +46,12 @@ function initialize_map_canvas() {
                 title: place.name,
                 position: place.geometry.location
             });
-
             markers.push(marker);
-
             bounds.extend(place.geometry.location);
         }
-
+        if(markers.length==1){bounds.extend(bk_latlng);}
         map_canvas.fitBounds(bounds);
     });
-
     // Bias the SearchBox results towards places that are within the bounds of the
     // current map's viewport.
     google.maps.event.addListener(map_canvas, 'bounds_changed', function () {

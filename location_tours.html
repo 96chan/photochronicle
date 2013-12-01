@@ -81,28 +81,17 @@
   				    	 Tags <span class="caret"></span></button>
                   <ul id="tag-filter-dropdown" class="dropdown-menu" role="menu">
                     <li class="filter" data-filter="all"><a href="#">All Tags</a></li>
-                    <li class="filter" data-filter="tag1"><a href="#">tag1</a></li>
-                    <li class="filter" data-filter="tag2"><a href="#">tag2</a></li>
-                    <li class="filter" data-filter="tag1 tag2"><a href="#">tag1&tag2</a></li>
-                    <li class="filter" data-filter="tag2 tag4"><a href="#">tag2&tag4</a></li>
+                    <li class="filter" data-filter="campustour"><a href="#">campus tour</a></li>
+                    <li class="filter" data-filter="historic"><a href="#">historic</a></li>
+                    <li class="filter" data-filter="calcampus"><a href="#">cal campus</a></li>
+                    <li class="filter" data-filter="library"><a href="#">library</a></li>
+                    <li class="filter" data-filter="fun"><a href="#">fun</a></li>
                   </ul>
 
   	            </div><!-- end btn-group -->
             </div>
 
           <div class="col-sm-12 col-md-6">
-          		
-             <!--  <div class="btn-group" data-toggle="buttons">
-            		<label class="btn btn-default btn-sm">
-                  <input type="radio" name="options" id="num-likes-btn"># of Likes
-                </label>
-                <label class="btn btn-default btn-sm">
-                  <input type="radio" name="options" id="distance-btn">Distance
-                </label>
-                <label class="btn btn-default btn-sm">
-                  <input type="radio" name="options" id="time-required-btn">Time Required
-                </label>
-            </div> -->
               <ul id="tour-sort-bar">
                 <span>Sort By</span>
                 <li class="sort" data-sort="data-likes" data-order="asc">
@@ -118,40 +107,47 @@
         
           </div>
    
-          <!-- <div class="col-sm-6 col-md-2">
-            <button type="button" class="btn btn-primary btn-sm pull-right">Add A Tour</button>
-          </div> -->
+          <div class="col-sm-6 col-md-2">
+            <a role="button" class="btn btn-primary btn-sm pull-right" href="tour_detail.html">Add A Tour</a>
+          </div>
         </div> <!-- end row -->
 
         <div class="row tour-division">
            <ul id="tour-grid">
-            <li class="mix all tag1 tag2" data-likes="100" data-distance="2" data-time="50">
+            <li class="mix all campustour historic" data-likes="100" data-distance="2" data-time="50">
               <div class="thumbnail">
-              <div class="tour-map-canvas"></div>
-                <div class="caption">
-                  <h3>tour1</h3>
-                  <div><span class="glyphicon glyphicon-tags"></span><span class="tags">Tag1, Tag2</span></div>
-                  <div><span class="glyphicon glyphicon-time">
-                     </span><span class="distanceinfo">2 miles</span>
-                     <span class="timeinfo">in 50 minuites</span>
-                   <span class="pull-right"><span class="glyphicon glyphicon-heart"></span><span class="num-likes">100</span></span></div>
-                </div></div>
+                  <div class="tour-map-canvas"></div>
+                    <a href="tour_detail.html" style="text-decoration: none;">
+                    <div class="caption">
+                      <h3>A Day in Berkeley</h3>
+                      <div><span class="glyphicon glyphicon-tags"></span><span class="tags">campus tour, historic</span></div>
+                      <div><span class="glyphicon glyphicon-time">
+                         </span><span class="distanceinfo">3 miles</span>
+                         <span class="timeinfo">in 50 minuites</span>
+                       <span class="pull-right"><span class="glyphicon glyphicon-heart"></span><span class="num-likes">100</span></span></div>
+                     </div>
+                  </a>
+                </div>
             </li>
-            <li class="mix all tag2 tag3" data-likes="300" data-distance="5" data-time="45">
+            <li class="mix all calcampus library fun" data-likes="300" data-distance="5" data-time="45">
               <div class="thumbnail">
               <div class="tour-map-canvas"></div>
+              <a href="#">
                 <div class="caption">
-                  <h3>tour2</h3>
-                  <div><span class="glyphicon glyphicon-tags"></span><span class="tags">Tag2, Tag3</span></div>
+                  <h3>Berkeley Library Tour</h3>
+                  <div><span class="glyphicon glyphicon-tags"></span><span class="tags">cal campus, library, fun</span></div>
                   <div><span class="glyphicon glyphicon-time">
                      </span><span class="distanceinfo">5 miles</span>
                      <span class="timeinfo">in 45 minuites</span>
                    <span class="pull-right"><span class="glyphicon glyphicon-heart"></span><span class="num-likes">300</span></span></div>
-                </div></div>
+                </div>
+              </a>
+              </div>
             </li>
             <li class="mix all tag4 tag3" data-likes="200" data-distance="3" data-time="15">
               <div class="thumbnail">
               <div class="tour-map-canvas"></div>
+              <a href="#">
                 <div class="caption">
                   <h3>tour3</h3>
                   <div><span class="glyphicon glyphicon-tags"></span><span class="tags">Tag4, Tag3</span></div>
@@ -159,7 +155,9 @@
                      </span><span class="distanceinfo">3 miles</span>
                      <span class="timeinfo">in 15 minuites</span>
                    <span class="pull-right"><span class="glyphicon glyphicon-heart"></span><span class="num-likes">200</span></span></div>
-                </div></div>
+                </div>
+              </a>
+              </div>
             </li>
           </ul>
         </div><!-- end row -->

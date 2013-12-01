@@ -73,29 +73,32 @@
 
         <!-- filters -->
           <div class="row filter-bar">
-          	<div class="col-sm-12 col-md-6">
-              <ul id="story-filter-bar">
-  	        	<span>Filter By</span>
-          		<span class="btn-group">
-                
-          			 <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
-  				    	 Tags <span class="caret"></span></button>
-                  <ul class="dropdown-menu" role="menu">
-                    <li class="filter" data-filter="all"><a href="#">All Tags</a></li>
-                    <li class="filter" data-filter="sathergate"><a href="#">Sather Gate</a></li>
-                    <li class="filter" data-filter="berkeley"><a href="#">Berkeley</a></li>
-                    <li class="filter" data-filter="cal"><a href="#">California</a></li>
-                    <li class="filter" data-filter="architecture"><a href="#">Architecture</a></li>
-                  </ul>
-                </span>
-
-                <li class="filter" data-filter="hasPhoto">
+          	<div class="col-sm-6 col-md-5 col-md-offset-1">
+               <div id="story-filter-bar">
+                <div>
+      	        	<span>Filter By</span>
+                		<div class="btn-group">
+                			 <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
+        				    	 Tags <span class="caret"></span></button>
+                        <ul class="dropdown-menu" role="menu">
+                          <!-- <li class="filter" data-filter="all"><a href="#">All Tags</a></li> -->
+                          <li class="filter" data-filter="sathergate"><a href="#">Sather Gate</a></li>
+                          <li class="filter" data-filter="berkeley"><a href="#">Berkeley</a></li>
+                          <li class="filter" data-filter="cal"><a href="#">Cal</a></li>
+                          <li class="filter" data-filter="architecture"><a href="#">Architecture</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="filter" data-filter="hasPhoto">
                   <button type="button" class="btn btn-default btn-sm">Has Photos</button>
-                </li>
-                <li class="filter" data-filter="inTour">
+                </div>
+                <div class="filter" data-filter="inTour">
                   <button type="button" class="btn btn-default btn-sm">Featured In Tour</button>
-                </li>
-              </ul>
+                </div>
+                <div class="filter" data-filter="all">
+                  <button type="button" class="btn btn-default btn-sm">All</button>
+                </div>
+              </div>
             </div>
 
           <div class="col-sm-12 col-md-4">
@@ -109,8 +112,42 @@
           </div>
    
           <div class="col-sm-6 col-md-2">
-            <button type="button" class="btn btn-primary btn-sm pull-right">Add A Story</button>
+            <button type="button" class="btn btn-primary btn-sm pull-right" id="btn-addStory">Add A Story</button>
           </div>
+          <div class="modal fade" id="addStory-modal" tabindex="-1" role="dialog" aria-labelledby="addStoryModelLabel" aria-hidden="true">
+              <div class="addStoryModel modal-dialog">
+               <div class="addStoryModel-content modal-content">
+                   <div class="addStoryModelHeader modal-header">
+                      <h2><small>Add a new story to Photo Chronicle</small></h2>
+                   </div>
+                   <div class="addStoryModel modal-body">
+                    <form id="form-addStory" role="form" method="post">
+                      <div id="form-group-input-storyTitle" class="form-group">
+                        <label for="input-storyTitle">Title</label>
+                        <input type="text" class="form-control stored" id="storyTitle" placeholder="Enter story title">
+                      </div>
+                      <div class="form-group">
+                        <label for="input-storyDesc">Description</label>
+                        <textarea class="form-control stored" id="input-storyDesc" rows="3"></textarea>
+                      </div>
+                      <div class="form-group">
+                       Upload Photos
+                        <a role="button" class="btn btn-primary" id="btn-uploadImg" href="#"></a>
+                        <!-- add code to drag and drop img -->
+
+                      </div>
+                      <div id="modal-button-group">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                      </div>
+                    </form>
+                  </div>
+                </div><!-- /.modal-content -->
+              </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+
+
+
         </div> <!-- end row -->
 
         <div class="row">
@@ -118,20 +155,20 @@
             <li class="mix all sathergate berkeley hasPhoto inTour" data-name="250">
               <div class="thumbnail">
                 <a href="story_beautifulSather.html">
-                <img src="img/sather_gate_8.jpg" alt="...">
-                </a>
-                <div class="caption">
-                  <h3>The Beautiful Sather Gate</h3>
-                  <div>Sather Gate is a prominent landmark separating Sproul Plaza from the bridge over Strawberry Creek, leading to the center of the University of California, Berkeley campus.</div>
-                  <hr/>
-                  <div><span class="glyphicon glyphicon-tags"></span><span class="tags">Sather Gate, Berkeley</span></div>
-                  <div>
-                  	<span class="thumbs">
-                      <span class="thumbup" for="story1Likes"><span class="glyphicon glyphicon-thumbs-up"></span> 250 </span>
-                    </span>
-                    <span class="intour-indicator pull-right"><span class="glyphicon glyphicon-map-marker"></span>In Tours</span>
+                  <img src="img/sather_gate_8.jpg" alt="...">
+                  <div class="caption">
+                    <h3>The Beautiful Sather Gate</h3>
+                    <div>Sather Gate is a prominent landmark separating Sproul Plaza from the bridge over Strawberry Creek, leading to the center of the University of California, Berkeley campus.</div>
+                    <hr/>
+                    <div><span class="glyphicon glyphicon-tags"></span><span class="tags">Sather Gate, Berkeley</span></div>
+                    <div>
+                    	<span class="thumbs">
+                        <span class="thumbup" for="story1Likes"><span class="glyphicon glyphicon-heart"></span> 250 </span>
+                      </span>
+                      <span class="intour-indicator pull-right"><span class="glyphicon glyphicon-map-marker"></span>In Tours</span>
+                    </div>
                   </div>
-                </div>
+                </a>
               </div>
             </li>
             <li class="mix all sathergate cal architecture hasPhoto" data-name="500">
@@ -146,7 +183,7 @@
                   <p><span class="glyphicon glyphicon-tags"></span><span class="tags">Sather Gate, California, Architecture</span></p>
                   <p>
                     <span class="thumbs">
-                      <span class="thumbup" for="story2Likes"><span class="glyphicon glyphicon-thumbs-up"></span> 500 </span>
+                      <span class="thumbup" for="story2Likes"><span class="glyphicon glyphicon-heart"></span> 500 </span>
                     </span>
                   <!--   <span class="intour-indicator pull-right"><span class="glyphicon glyphicon-map-marker"></span>In Tours</span> -->
                   </p>
@@ -162,11 +199,10 @@
                   <h3>Thumbnail label</h3>
                   <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
                  <hr/>
-                  <p><span class="glyphicon glyphicon-tags"></span><span class="tags">Sather Gate, Students, California</span></p>
+                  <p><span class="glyphicon glyphicon-tags"></span><span class="tags">Sather Gate, Students, Cal</span></p>
                   <p>
                     <span class="thumbs">
-                      <span class="thumbup" for="story3Likes"><span class="glyphicon glyphicon-thumbs-up"></span> 56 </span>
-                      <!-- <span class="thumbdown"><span class="glyphicon glyphicon-thumbs-down"></span> 100 </span> -->
+                      <span class="thumbup" for="story3Likes"><span class="glyphicon glyphicon-heart"></span> 56 </span>
                     </span>
                   </p>
                 </div>
