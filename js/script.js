@@ -162,6 +162,8 @@ $('#form-signin').submit(function(){
       $('#signin').hide();
       $('#signout').show();
       $('#signin-modal').modal('hide');
+
+      tour_detail_loaded();
     }
     return false;
 });
@@ -170,6 +172,8 @@ $('#signout').click(function(){
     $('#signin').show();
     $('#after-signin').hide();
     $('#signout').hide();
+
+    tour_detail_loaded();
 });
 $('#mapModalLink').click(function(){
   $('#myModal').modal('show');
@@ -276,14 +280,23 @@ function tour_detail_loaded() {
       $('#edit_or_not').hide();
   }
 
-  $('#edit_or_not').onClick(function() {
+  $('#edit_or_not').on('click', function() {
     $('#save_or_publish').show();
     $('#edit_or_not').hide();
+    $('#title_bar h5').hide();
+    $('.hide_on_load').show();
+    $('#title_bar textarea').val($('#title_bar h5').text());
+    $('#title_bar textarea').attr("cols", "100");
   });
 
-  $('#save_or_publish').onClick(function() {
+  $('#save_or_publish').on('click', function(e) {
     $('#save_or_publish').hide();
     $('#edit_or_not').show();
+    $('.hide_on_load').hide();
+    $('#title_bar h5').show();
+    if(e.target.id !== $('#cancel_button').attr('id')) {
+      $('#title_bar h5').text($('#title_bar textarea').val());
+    }
   });
 }
 

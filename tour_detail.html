@@ -30,15 +30,44 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="#explore">Explore</a></li>
-            <li><a href="#tour">View Tour</a></li>
+            <li id="nav-explore" class="selected"><a href="index">Explore</a></li>
+            <li id="nav-view-tours" ><a href="#tour">View Tours</a></li>
+            <li id="nav-my-page" class="invisible"><a href="mytour">My Page</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;Sign In</a></li>
+            <li data-toggle="modal" data-target="#signin-modal"><a id="signin" href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;Sign In</a></li>
+            <li><a id="after-signin" href="#"></a></li>
+            <li><a id="signout" href="#">Sign Out</a></li>
           </ul>
         </div>
       </div>
     </nav>
+    <!-- Modal -->
+    <div class="modal fade" id="signin-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="signin modal-dialog">
+       <div class="signin signin-content modal-content">
+           <div class="signin-header modal-header">
+              Sign In to Photo Chronicle
+           </div>
+           <div class="signin modal-body">
+            <form id="form-signin" role="form" method="post">
+              <div id="form-group-input-name" class="form-group">
+                <label for="input-name">Username</label>
+                <input type="text" class="form-control stored" id="input-name" placeholder="Enter Username">
+              </div>
+              <div class="form-group">
+                <label for="input-password">Password</label>
+                <input type="password" class="form-control stored" id="input-password" placeholder="Password">
+              </div>
+              <div id="modal-button-group">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary">Sign In</button>
+              </div>
+            </form>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
     <!-- end nav -->
 
     <!-- main contents -->
@@ -49,6 +78,7 @@
           <div class="col-md-8">
             <h1>A Day in Berkeley</h1>
             <h5>Take a stroll in the beautiful UC Berkeley campus. The campus is a rolling oasis within the bustling city of Berkeley. Find out stories behind the famous Sather Gate, the Canpalini, as well as South Hall, the only original building of the campus still standing. See how the campus changed over time.</h5>
+            <textarea col="80" rows="4" class="hide_on_load"></textarea>
           </div>
           
           <div class="col-sm-6 col-md-4 text-right" id="save_area">
@@ -57,6 +87,8 @@
                 Edit</a>
             </div>
             <div class="btn-group" id="save_or_publish">
+              <a role="button" class="btn btn-default" id="cancel_button">
+                Cancel</a>
               <a role="button" class="btn btn-default">
                 Save as draft</a>
               <a role="button" class="btn btn-primary">
