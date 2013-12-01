@@ -125,6 +125,95 @@ $('#mapModalLink').click(function(){
 });
 //***********************
 
+//  READ IMAGE FILES
+function errorHandler(e) {
+  var msg = '';
+
+  switch (e.code) {
+    case FileError.QUOTA_EXCEEDED_ERR:
+      msg = 'QUOTA_EXCEEDED_ERR';
+      break;
+    case FileError.NOT_FOUND_ERR:
+      msg = 'NOT_FOUND_ERR';
+      break;
+    case FileError.SECURITY_ERR:
+      msg = 'SECURITY_ERR';
+      break;
+    case FileError.INVALID_MODIFICATION_ERR:
+      msg = 'INVALID_MODIFICATION_ERR';
+      break;
+    case FileError.INVALID_STATE_ERR:
+      msg = 'INVALID_STATE_ERR';
+      break;
+    default:
+      msg = 'Unknown Error';
+      break;
+  };
+
+  console.log('Error: ' + msg);
+};
+var file_index = 1;
+$('#directory-selector').change(function(e) {
+  $('#extras').append('<div class=\"extra_item thumbnail\"><a href=\"#\"><img src=\"img/sather_gate_' + file_index + '.jpg\"></a>date: <input type=\"text\" size=\"8\"></div>');
+  file_index += 1;
+  /*
+  var reader = new FileReader();
+  var allfiles = e.target.files;
+  var files = [];
+  $.each(allfiles, function(i, item) {
+    // if(item.name.indexOf(".jpg")>=0 || item.name.indexOf(".JPG")>=0)
+      console.log(item);
+      files.push(item);
+  });
+
+  var j = 0;
+  var data;
+  for(var i=0;i<files.length;i++) {
+    console.log('i.........' + i);
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      var data = e.target.result;
+      var bb = (window.MozBlobBuilder || window.WebKitBlobBuilder || window.BlobBuilder)();
+      bb.append(data);
+      var fileSaver = window.saveAs(bb.getBlob(), files[0].name);
+      // var jpeg = new $j(data, files[i]);
+      $('#extras').append('<div class=\"extra_item thumbnail\"><a href=\"#\"><img src=\"' + files[0].name + '\"></a>date: <input type=\"text\" size=\"8\"></div>');
+    };
+
+    reader.readAsBinaryString(files[i]);
+    // loadFiles(files);
+  }
+  function onInitFs(fs) {
+
+    fs.root.getFile(files[0].name, {create: true, exclusive: true}, function(fileEntry) {
+
+      // Create a FileWriter object for our FileEntry (log.txt).
+      fileEntry.createWriter(function(fileWriter) {
+
+        fileWriter.onwriteend = function(e) {
+          console.log('Write completed.');
+        };
+
+        fileWriter.onerror = function(e) {
+          console.log('Write failed: ' + e.toString());
+        };
+
+        // Create a new Blob and write it to log.txt.
+        var blob = new Blob(data);
+
+        fileWriter.write(blob);
+
+      }, errorHandler);
+
+    }, errorHandler);
+
+  }
+
+  window.requestFileSystem  = window.requestFileSystem || window.webkitRequestFileSystem;
+  window.requestFileSystem(window.TEMPORARY, 1024*1024, onInitFs, errorHandler);
+    */
+
+});
 
 
 $('#myModal').on('shown', function () {
