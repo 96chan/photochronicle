@@ -11,6 +11,9 @@ var st_latlng = new google.maps.LatLng(37.87205,-122.25783);    // Sather Tower
 var hgt_latlng = new google.maps.LatLng(37.87362,-122.25415);   // Hearst Greek Theatre
 var hmmb_latlng = new google.maps.LatLng(37.87448,-122.25725);  // Hearst Memorial Mining Building
 
+var maxStory = 3;
+var storyLikes={"story1Likes":250, "story2Likes": 500, "story3Likes": 56}; 
+
 function initialize_map_canvas() {
     var mapOptions = {
         zoom: 16,
@@ -89,29 +92,71 @@ function createMarker(latlng, html) {
         infowindow.open(map_canvas,marker);
     });
 }
+function initialize_tour_map_canvas() {
+   mapOptions = {
+    zoom: 8,
+    center: new google.maps.LatLng(-34.397, 150.644),
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  // map = new google.maps.Map(document.getElementsByClassName('tour-map-canvas'),
+  //     mapOptions);
+  $(document.getElementsByClassName('tour-map-canvas')).each(function(){
+      console.log($(this));
+        var map = new google.maps.Map($(this)[0], mapOptions);
+    });
+
+ }
 /* =====================
 
 	Document Ready
 
 ====================== */
 $(document).ready(function() {
-
-  var height = $(document).height()-54;
-  $('#map-canvas').css('height',height);
-  $('#map-canvas').css('width',$(document).width());
-	// init();
-  google.maps.event.addDomListener(window, "load", initialize_map_canvas);
-
+  if($(document).find('#map-canvas').length > 0){
+    var height = $(document).height()-54;
+    $('#map-canvas').css('height',height);
+    $('#map-canvas').css('width',$(document).width());
+    // init();
+    google.maps.event.addDomListener(window, "load", initialize_map_canvas);
+  }
+  if($(document).find('.tour-map-canvas').length > 0){
+    // init();
+    google.maps.event.addDomListener(window, "load", initialize_tour_map_canvas);
+  }
   // getting login name  
   if (localStorage["name"]) {
       $('#input-name').val(localStorage["name"]);
       $('#signin').hide();
       $('#after-signin').text('Welcome, '+localStorage["name"]+'!' );
+      if($('#nav-my-page').hasClass('invisible')) $('#nav-my-page').removeClass('invisible').addClass('visible');
   }else{
       $('#signout').hide();
       $('#after-signin').hide();
       $('#signin').show();      
   }
+    $('#tour-grid').mixitup();
+    $("#story-grid").mixitup();
+
+    $('.dropdown-toggle').dropdown();
+    $('.btn-group').button();
+
+    $("#sort-likes").on("click", function(){
+      $('#story-grid').mixitup('sort',["data-name",'asc']);
+    });
+    // filterStoryByTags();
+    // filterStoryByInTour();
+    // filterStoryByImage(); 
+
+    
+  $(".thumbup").each(function(){
+    var storyNum = $(this).attr("for");
+    $(this).html("<span class='glyphicon glyphicon-thumbs-up'></span> "+ storyLikes[storyNum]);
+  });
+
+  $(".filter > a").on("click", function(e){
+    e.preventDefault();
+  });
+  
 });
 
 //***********************
@@ -133,6 +178,7 @@ $('#form-signin').delegate('input','keyup',function(){
     $el.parent().removeClass("has-success");
   }
 });
+// Submitting a form
 $('#form-signin').submit(function(){
     if($('#input-name').val().length==0 || $('#input-password').val().length==0){
       $(this).addClass('has-error');
@@ -144,109 +190,23 @@ $('#form-signin').submit(function(){
       $('#signin').hide();
       $('#signout').show();
       $('#signin-modal').modal('hide');
+      $('.invisible').removeClass('invisible').addClass('visible');
     }
     return false;
 });
+// Clicking Sign Out
 $('#signout').click(function(){
     localStorage.clear();
     $('#signin').show();
     $('#after-signin').hide();
     $('#signout').hide();
+    $('#nav-my-page').removeClass('visible').addClass('invisible');
 });
 $('#mapModalLink').click(function(){
   $('#myModal').modal('show');
 });
 //***********************
 
-//  READ IMAGE FILES
-function errorHandler(e) {
-  var msg = '';
-
-  switch (e.code) {
-    case FileError.QUOTA_EXCEEDED_ERR:
-      msg = 'QUOTA_EXCEEDED_ERR';
-      break;
-    case FileError.NOT_FOUND_ERR:
-      msg = 'NOT_FOUND_ERR';
-      break;
-    case FileError.SECURITY_ERR:
-      msg = 'SECURITY_ERR';
-      break;
-    case FileError.INVALID_MODIFICATION_ERR:
-      msg = 'INVALID_MODIFICATION_ERR';
-      break;
-    case FileError.INVALID_STATE_ERR:
-      msg = 'INVALID_STATE_ERR';
-      break;
-    default:
-      msg = 'Unknown Error';
-      break;
-  };
-
-  console.log('Error: ' + msg);
-};
-var file_index = 1;
-$('#directory-selector').change(function(e) {
-  $('#extras').append('<div class=\"extra_item thumbnail\"><a href=\"#\"><img src=\"img/sather_gate_' + file_index + '.jpg\"></a>date: <input type=\"text\" size=\"8\"></div>');
-  file_index += 1;
-  /*
-  var reader = new FileReader();
-  var allfiles = e.target.files;
-  var files = [];
-  $.each(allfiles, function(i, item) {
-    // if(item.name.indexOf(".jpg")>=0 || item.name.indexOf(".JPG")>=0)
-      console.log(item);
-      files.push(item);
-  });
-
-  var j = 0;
-  var data;
-  for(var i=0;i<files.length;i++) {
-    console.log('i.........' + i);
-    var reader = new FileReader();
-    reader.onload = function(e) {
-      var data = e.target.result;
-      var bb = (window.MozBlobBuilder || window.WebKitBlobBuilder || window.BlobBuilder)();
-      bb.append(data);
-      var fileSaver = window.saveAs(bb.getBlob(), files[0].name);
-      // var jpeg = new $j(data, files[i]);
-      $('#extras').append('<div class=\"extra_item thumbnail\"><a href=\"#\"><img src=\"' + files[0].name + '\"></a>date: <input type=\"text\" size=\"8\"></div>');
-    };
-
-    reader.readAsBinaryString(files[i]);
-    // loadFiles(files);
-  }
-  function onInitFs(fs) {
-
-    fs.root.getFile(files[0].name, {create: true, exclusive: true}, function(fileEntry) {
-
-      // Create a FileWriter object for our FileEntry (log.txt).
-      fileEntry.createWriter(function(fileWriter) {
-
-        fileWriter.onwriteend = function(e) {
-          console.log('Write completed.');
-        };
-
-        fileWriter.onerror = function(e) {
-          console.log('Write failed: ' + e.toString());
-        };
-
-        // Create a new Blob and write it to log.txt.
-        var blob = new Blob(data);
-
-        fileWriter.write(blob);
-
-      }, errorHandler);
-
-    }, errorHandler);
-
-  }
-
-  window.requestFileSystem  = window.requestFileSystem || window.webkitRequestFileSystem;
-  window.requestFileSystem(window.TEMPORARY, 1024*1024, onInitFs, errorHandler);
-    */
-
-});
 
 
 $('#myModal').on('shown', function () {

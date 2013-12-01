@@ -27,15 +27,17 @@ timeline.css
 
 body{font-family: 'Roboto', sans-serif; }
 nav{}
-#content{margin-top:70px; display:block; }
+#content{margin-top:60px; display:block; }
 
 /* Navigation*/
 .navbar-default{background: #ECF0D6; }
 .navbar-default .navbar-brand, .navbar-default .navbar-nav>li>a{color:#5E677A; }
-.navbar-default{border-bottom:#DDE4B5 solid 8px; }
+.navbar-brand{line-height:18px;}
+.navbar-default{border-bottom:#DDE4B5 solid 4px; }
+.selected{background:#DDE4B5;}
 
 /* Map */
-#map-canvas{height:500px; margin:2em auto; }
+#map-canvas{position: absolute;top:54px;left:0;}
 #map-canvas img {max-width: none; }
 #map-modal img {max-width: none; }
 /* Map Search*/
@@ -45,8 +47,8 @@ nav{}
 #mapsearch-form-canvas:focus {border-color: #4d90fe; margin-left: -1px; padding-left: 14px;}
 .controls {margin-top: 16px; border: 1px solid transparent; border-radius: 0px; box-sizing: border-box; -moz-box-sizing: border-box; height: 32px; outline: none;}
 
-
-
+/* Infowindow on Marker*/
+.info-view-more{float:right;}
 
 .story-division{margin-top:5px; }
 .filter-bar{margin-bottom: 5px; margin-top: 5px; padding-top: 5px; padding-bottom: 5px; /*background: #ECF0D6;*/ }
@@ -59,18 +61,8 @@ nav{}
 .story-descriptions{margin-bottom: 5px; margin-top: 5px; margin-left: auto; margin-right: auto; background-color: #eee; }
 
 /*extend bootstrap thumbnail css*/
-
-.thumbnail>a>img{
-	display:block;
-	height:auto;
-	max-width:100%;
-	margin-right:auto;
-	margin-left:auto;
-}
-
-.thumbnail>a{
-	text-decoration: none;
-}
+.thumbnail>a>img{display:block; height:auto; max-width:100%; margin-right:auto; margin-left:auto }
+.thumbnail>a{text-decoration: none; }
 
 /* Wendy's experiemntal css.*/
 .large-img img{width: 100%; height: auto; max-width: 700px; max-height: 480px; margin-left: auto; margin-right: auto; display:block; /*border:2px solid #DDE4B5;*/ box-shadow: 10px 10px 5px #888; }
@@ -116,232 +108,6 @@ nav{}
 .card img {max-width: 100%; height: auto; }
 
 /* modal styles */
-<<<<<<< HEAD
-.modal-dialog, .modal-content {
-    width: 100%;
-}
-
-.modal p {
-    color: #808080;
-}
-
-.left-sector {
-    width: 48%;
-    float: left;
-}
-
-.right-sector {
-    margin-left: 52%;
-}
-
-.separator h1 {
-    color: red;
-    text-align: center;
-    vertical-align: middle;
-}
-
-
-#mapModal {
-    height: 500px;
-    margin: 2em auto;
-}
-
-#mapModal img {
-    max-width: none;
-}
-
-.pac-container {
-    z-index: 1050 !important;
-}
-
-img,
-object,
-embed {
-    max-width: 100%;
-    height: auto;
-}
-
-
-/* Chan */
-#signin-modal{
-	position:absolute;
-	top:20%;
-}
-#modal-button-group{
-	float:right;
-}
-.signin-content{
-	height:280px;
-}
-.signin{
-	width:400px;
-}
-.signin-header{
-
-}
-
-
-.controls {
-    margin-top: 16px;
-    border: 1px solid transparent;
-    border-radius: 2px 0 0 2px;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    height: 32px;
-    outline: none;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-}
-.searchbtn {
-    margin-top: 16px;
-    border: 1px solid transparent;
-    border-radius: 2px 0 0 2px;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    height: 32px;
-    outline: none;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-    margin-right: 13px;
-}
-
-#pac-input {
-    background-color: #fff;
-    padding: 0 11px 0 13px;
-    width: 80%;
-    font-family: Roboto;
-    font-size: 15px;
-    font-weight: 300;
-    text-overflow: ellipsis
-}
-
-#pac-input:focus {
-    border-color: #4d90fe;
-    margin-left: -1px;
-    padding-left: 14px;  /* Regular padding-left + 1. */
-    width: 700px;
-}
-
-#mapsearch-form-canvas {
-    background-color: #fff;
-    padding: 0 11px 0 13px;
-    width: 75%;
-    font-family: Roboto;
-    font-size: 15px;
-    font-weight: 300;
-    text-overflow: ellipsis;
-}
-
-#mapsearch-form-canvas:focus {
-    border-color: #4d90fe;
-    margin-left: -1px;
-    padding-left: 14px;  /* Regular padding-left + 1. */
-    width: 75%;
-}
-
-
-.pac-container {
-    font-family: Roboto;
-    z-index: 1050 !important;
-}
-
-#type-selector {
-    color: #fff;
-    background-color: #4d90fe;
-    padding: 5px 11px 0px 11px;
-}
-
-#type-selector label {
-    font-family: Roboto;
-    font-size: 13px;
-    font-weight: 300;
-}
-
-.no_break_float_right {
-    display: inline;
-    float: right;
-}
-
-.thumbnail p a {
-    margin-left: 0.5em;
-}
-
-#title_bar h5 {
-    margin-bottom: 2em;
-}
-
-#title_and_desc {
-    width: 65%;
-    float: left;
-}
-
-#title_bar .no_break_float_right {
-    margin-top: 3.5em;
-}
-
-#title_bar .no_break_float_right a {
-    margin-left: 2em;
-}
-
-#save_area {
-    margin-top: 1em;
-    margin-bottom: 2em;
-}
-
-.new_story_container {
-    width: 43em;
-}
-
-.new_story_container .panel p {
-    margin-left: 1em;
-    margin-top: 1em;
-}
-
-.panel-body h1 {
-    text-align: center;
-}
-
-
-.extra_item {
-    width: 9em;
-    text-align: center;
-    height: 11em;
-    margin-left: 1em;
-    float: left;
-}
-
-.extra_item label {
-    margin-bottom: 1em;
-}
-
-.extra_item img {
-    margin-bottom: 1em;
-}
-
-.extra_item a:hover {
-    text-decoration: none;
-}
-
-#dir-btn {
-    height: 5em;
-    width: 5em;
-}
-
-.plus_box {
-    margin-top: 1em;
-    margin-left: 3em;
-    width: 4.5em;
-    text-align: center;
-}
-
-textarea#story_desc {
-    width: 100%;
-}
-
-
-input[type=file] {
-    width: 0px;
-}
-
-
 .modal-dialog, .modal-content {width: 100%; }
 .modal p {color: #808080; }
 
@@ -360,6 +126,14 @@ img, object, embed {max-width: 100%; height: auto; }
 #type-selector {color: #fff; background-color: #4d90fe; padding: 5px 11px 0px 11px; }
 #type-selector label {font-family: Roboto; font-size: 13px; font-weight: 300; }
 
+.no_break_float_right {display: inline; float: right; }
+.thumbnail p a {margin-left: 0.5em; }
+#title_bar h5 {margin-bottom: 2em; }
+#title_and_desc {width: 65%; float: left; }
+#title_bar .no_break_float_right {margin-top: 3.5em; }
+#title_bar .no_break_float_right a {margin-left: 2em; }
+#save_area {margin-top: 1em; margin-bottom: 2em; }
+
 /* Sign In*/
 #signin-modal{position:absolute; top:20%; }
 #modal-button-group{float:right; }
@@ -370,5 +144,10 @@ img, object, embed {max-width: 100%; height: auto; }
 #addStory-model{position:absolute; top:20%;}
 .addStoryModel{height:480px;}
 .addStoryModel-content{ width:480px; margin-left:30%;}
-
 /** end Wendy add story model on location_stories.html **/
+
+.invisible{display:none;}
+.visible{display:inline-block;}
+.view-detail{float:right;}
+.txt-right{float:right;}
+.my-story-thumbnail{max-height: 200px;}
