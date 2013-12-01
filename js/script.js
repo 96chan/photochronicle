@@ -119,6 +119,7 @@ $(document).ready(function() {
   $('#map-canvas').css('width',$(document).width());
 	// init();
   google.maps.event.addDomListener(window, "load", initialize_tour_map_canvas);
+  google.maps.event.addDomListener(window, "load", initialize_map_canvas);
 
   // getting login name  
   if (localStorage["name"]) {
