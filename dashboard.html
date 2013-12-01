@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en-US" style="" class=" js no-touch svg inlinesvg svgclippaths no-ie8compat"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">.gm-style .gm-style-cc span,.gm-style .gm-style-cc a,.gm-style .gm-style-mtc div{font-size:10px}</style><link type="text/css" rel="stylesheet" href="./dashboard_files/css"><style type="text/css">@media print {  .gm-style .gmnoprint, .gmnoprint {    display:none  }}@media screen {  .gm-style .gmnoscreen, .gmnoscreen {    display:none  }}</style><style type="text/css">.pac-container{background-color:#fff;position:absolute!important;z-index:1000;border-radius:2px;border-top:1px solid #d9d9d9;font-family:Arial,sans-serif;box-shadow:0 2px 6px rgba(0,0,0,0.3);box-sizing:border-box;overflow:hidden}.pac-container:after{content:"";padding:1px 1px 1px 0;height:16px;text-align:right;display:block;background-image:url(//maps.gstatic.com/mapfiles/api-3/images/powered-by-google-on-white2.png);background-position:right;background-repeat:no-repeat;background-size:104px 16px}.hdpi.pac-container:after{background-image:url(//maps.gstatic.com/mapfiles/api-3/images/powered-by-google-on-white2_hdpi.png)}.pac-item{cursor:default;padding:0 4px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;line-height:30px;text-align:left;border-top:1px solid #e6e6e6;font-size:11px;color:#999}.pac-item:hover{background-color:#fafafa}.pac-item-selected,.pac-item-selected:hover{background-color:#ebf2fe}.pac-matched{font-weight:700}.pac-item-query{font-size:13px;padding-right:3px;color:#000}.pac-icon{width:15px;height:20px;margin-right:7px;margin-top:6px;display:inline-block;vertical-align:top;background-image:url(//maps.gstatic.com/mapfiles/api-3/images/autocomplete-icons.png);background-size:34px}.hdpi .pac-icon{background-image:url(//maps.gstatic.com/mapfiles/api-3/images/autocomplete-icons_hdpi.png)}.pac-icon-search{background-position:-1px -1px}.pac-item-selected .pac-icon-search{background-position:-18px -1px}.pac-icon-marker{background-position:-1px -161px}.pac-item-selected .pac-icon-marker{background-position:-18px -161px}.pac-placeholder{color:gray}</style><style type="text/css">.gm-style div,.gm-style span,.gm-style label,.gm-style a{font-family:Roboto,Arial,sans-serif;font-size:11px;font-weight:400}.gm-style div,.gm-style span,.gm-style label{text-decoration:none}.gm-style img{border:0;padding:0;margin:0}</style>
+    <title>Photo Chronicle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="">
+    <link rel='stylesheet' id='css-template' type='text/css' href='css/normalize.css' />
+    <link rel='stylesheet' id='css-template' type='text/css' href='css/font-awesome.css'/>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" id="css-template" type="text/css" href="css/style_dashboard.css">
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+
+<style id="holderjs-style" type="text/css"></style><script type="text/javascript" charset="UTF-8" src="./dashboard_files/{common,map,util,controls,places_impl}.js"></script><script type="text/javascript" charset="UTF-8" src="./dashboard_files/{onion,stats}.js"></script><script type="text/javascript" charset="UTF-8" src="./dashboard_files/{marker}.js"></script><script type="text/javascript" charset="UTF-8" src="./dashboard_files/{common,util,stats}.js"></script></head>
+<body style="">
+<!-- nav -->
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="./dashboard_files/dashboard.html"><span class="glyphicon glyphicon-camera"></span>&nbsp;Photo Chronicle</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="file:///Users/Ignacio/CloudStation/Courses/User%20Interface%20Design%20and%20Development/photochronicle/dashboard.html#explore">Explore</a></li>
+                <li><a href="file:///Users/Ignacio/CloudStation/Courses/User%20Interface%20Design%20and%20Development/photochronicle/dashboard.html#tour">View Tour</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="./dashboard_files/dashboard.html"><span class="glyphicon glyphicon-user"></span>&nbsp;Sign In</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- end nav -->
+
+<!-- main contents -->
+<div id="content">
+    <div class="container">
+        <!-- Other Contents -->
+        <div class="row">
+            <!-- Map -->
+            <div class="col-sm-6 col-md-4">
+                <table style="width:100%"><tbody><tr>
+                    <td><h3>Tours</h3></td>
+
+                    <td style="text-align:right;padding-right:16px"><a href="./dashboard_files/dashboard.html" onclick="$(&#39;#createNewTourModal&#39;).modal(&#39;show&#39;);" id="mapModalLink"><i class="fa fa-plus-circle"></i> Create new tour</a></td>
+                </tr></tbody></table>
+                <div class="tourspane">
+                <!-- Image Caption 1 -->
+                <div id="box-1" class="box">
+                    <h4 style="text-align:left">A Day at Berkeley</h4>
+                    <img src="./dashboard_files/staticmap">
+                     <span class="caption full-caption">
+                        <h3>Fade Caption</h3>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,sed diam nonummy nibh euismod tincidunt ut laoreet
+            dolore magna aliquam erat volutpat.</p>
+                      </span>
+
+                </div>
+
+                <!-- Image Caption 2 -->
+                <div id="box-2" class="box">
+                    <h4 style="text-align:left">Revisiting Chinatown</h4>
+                    <img src="./dashboard_files/staticmap(1)">
+                <span class="caption full-caption">
+        <h3>Fade Caption</h3>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,sed diam nonummy nibh euismod tincidunt ut laoreet
+            dolore magna aliquam erat volutpat.</p>
+        </span>
+                </div>
+
+                <!-- Image Caption 3 -->
+                <div id="box-3" class="box">
+                    <h4 style="text-align:left">New York NightLife</h4>
+                    <img src="./dashboard_files/staticmap(2)">
+        <span class="caption full-caption">
+        <h3>Fade Caption</h3>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,sed diam nonummy nibh euismod tincidunt ut laoreet
+            dolore magna aliquam erat volutpat.</p>
+        </span>
+                </div>
+
+                <!-- Image Caption 4 -->
+                <div id="box-4" class="box">
+                    <h4 style="text-align:left">Rock in Seattle</h4>
+                    <img src="./dashboard_files/staticmap(3)">
+                   <span class="caption full-caption">
+        <h3>Slide Caption</h3>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,sed diam nonummy nibh euismod tincidunt ut laoreet
+            dolore magna aliquam erat volutpat.</p>
+        </span>
+                </div>
+                <!-- Image Caption 5 -->
+                <div id="box-5" class="box">
+                    <h4 style="text-align:left">Seattle: Native American Heritage </h4>
+                    <img src="./dashboard_files/staticmap(3)">
+                   <span class="caption full-caption">
+        <h3>Slide Caption</h3>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,sed diam nonummy nibh euismod tincidunt ut laoreet
+            dolore magna aliquam erat volutpat.</p>
+        </span>
+                </div>
+                <!-- Image Caption 6 -->
+                <div id="box-6" class="box">
+                    <h4 style="text-align:left">Rock in Seattle</h4>
+                    <img src="./dashboard_files/staticmap(1)">
+        <span class="caption full-caption">
+        <h3>Free Style Caption</h3>
+        <p>Lorem ipsum dolor sit amet,consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+        </span>
+                </div>
+                </div>
+                <br>
+                <p>Go to your tours <i class="fa fa-arrow-circle-right"></i></p>
+            </div>
+
+
+            <!-- Stories List -->
+            <div class="col-sm-6 col-md-4">
+                <table style="width:100%"><tbody><tr>
+                    <td><h3>Stories</h3></td>
+
+                    <td style="text-align:right;padding-right:16px"><a href="./dashboard_files/dashboard.html" onclick="$(&#39;#createnewstoryModal&#39;).modal(&#39;show&#39;);" id="mapModalLink"><i class="fa fa-plus-circle"></i> Create a new story</a></td>
+                </tr></tbody></table>
+                <div class="storiespane">
+                    <div class="box">
+                        <h4 style="text-align:left">The Beautiful Sather Gate</h4>
+                        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+                                <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <img src="./dashboard_files/sather_gate_1.jpg" alt="First slide">
+                                    <div class="container">
+                                        <div class="carousel-caption">
+                                            <p>Sather gate, 1890</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img src="./dashboard_files/sather_gate_2.jpg" alt="Second slide">
+                                    <div class="container">
+                                        <div class="carousel-caption">
+                                            <p>Sather gate, 1960.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img src="./dashboard_files/sather_gate_3.jpg" alt="Third slide">
+                                    <div class="container">
+                                        <div class="carousel-caption">
+                                            <p>Sather gate, 1960.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="left carousel-control" href="file:///Users/Ignacio/CloudStation/Courses/User%20Interface%20Design%20and%20Development/photochronicle/dashboard.html#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+                            <a class="right carousel-control" href="file:///Users/Ignacio/CloudStation/Courses/User%20Interface%20Design%20and%20Development/photochronicle/dashboard.html#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+
+                        </div>
+                        <br>
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,sed diam nonummy nibh euismod tincidunt ut laoreet
+                            dolore magna aliquam erat volutpat.</p>
+                    </div>
+
+                    <div class="box">
+                        <h4 style="text-align:left">The Sather Gate in Winter</h4>
+                        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+                                <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <img src="./dashboard_files/sather_gate_4.jpg" alt="First slide">
+                                    <div class="container">
+                                        <div class="carousel-caption">
+                                            <p>Sather gate, 1890</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img src="./dashboard_files/sather_gate_5.jpg" alt="Second slide">
+                                    <div class="container">
+                                        <div class="carousel-caption">
+                                            <p>Sather gate, 1960.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img src="./dashboard_files/sather_gate_6.jpg" alt="Third slide">
+                                    <div class="container">
+                                        <div class="carousel-caption">
+                                            <p>Sather gate, 1960.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="left carousel-control" href="file:///Users/Ignacio/CloudStation/Courses/User%20Interface%20Design%20and%20Development/photochronicle/dashboard.html#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+                            <a class="right carousel-control" href="file:///Users/Ignacio/CloudStation/Courses/User%20Interface%20Design%20and%20Development/photochronicle/dashboard.html#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,sed diam nonummy nibh euismod tincidunt ut laoreet
+                            dolore magna aliquam erat volutpat.</p>
+                    </div>
+
+                    <div class="box">
+                        <h4 style="text-align:left">The Beautiful Sather Gate</h4>
+                        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#myCarousel" data-slide-to="0" class=""></li>
+                                <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+                                <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="item active left">
+                                    <img src="./dashboard_files/sather_gate_1.jpg" alt="First slide">
+                                    <div class="container">
+                                        <div class="carousel-caption">
+                                            <p>Sather gate, 1890</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item next left">
+                                    <img src="./dashboard_files/sather_gate_2.jpg" alt="Second slide">
+                                    <div class="container">
+                                        <div class="carousel-caption">
+                                            <p>Sather gate, 1960.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img src="./dashboard_files/sather_gate_3.jpg" alt="Third slide">
+                                    <div class="container">
+                                        <div class="carousel-caption">
+                                            <p>Sather gate, 1960.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="left carousel-control" href="file:///Users/Ignacio/CloudStation/Courses/User%20Interface%20Design%20and%20Development/photochronicle/dashboard.html#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+                            <a class="right carousel-control" href="file:///Users/Ignacio/CloudStation/Courses/User%20Interface%20Design%20and%20Development/photochronicle/dashboard.html#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,sed diam nonummy nibh euismod tincidunt ut laoreet
+                            dolore magna aliquam erat volutpat.</p>
+                    </div>
+
+                    <div class="box">
+                        <h4 style="text-align:left">The Beautiful Sather Gate</h4>
+                        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#myCarousel" data-slide-to="0" class=""></li>
+                                <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
+                                <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="item">
+                                    <img src="./dashboard_files/sather_gate_1.jpg" alt="First slide">
+                                    <div class="container">
+                                        <div class="carousel-caption">
+                                            <p>Sather gate, 1890</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item active">
+                                    <img src="./dashboard_files/sather_gate_2.jpg" alt="Second slide">
+                                    <div class="container">
+                                        <div class="carousel-caption">
+                                            <p>Sather gate, 1960.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img src="./dashboard_files/sather_gate_3.jpg" alt="Third slide">
+                                    <div class="container">
+                                        <div class="carousel-caption">
+                                            <p>Sather gate, 1960.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="left carousel-control" href="file:///Users/Ignacio/CloudStation/Courses/User%20Interface%20Design%20and%20Development/photochronicle/dashboard.html#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+                            <a class="right carousel-control" href="file:///Users/Ignacio/CloudStation/Courses/User%20Interface%20Design%20and%20Development/photochronicle/dashboard.html#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,sed diam nonummy nibh euismod tincidunt ut laoreet
+                            dolore magna aliquam erat volutpat.</p>
+                    </div>
+
+                </div>
+                <br>
+                <p>Go to your stories <i class="fa fa-arrow-circle-right"></i></p>
+            </div>
+
+            <!-- Tour stories
+            <div class="col-sm-6 col-md-4">
+                <h3>Inbox</h3>
+                <div class="thumbnail">
+                    <div class="caption">
+
+                    </div>
+                    <div class="thumbnail">
+                        <h4>Fillmore and Pacific&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <small><a href="#">add stories</a></small>
+                        </h4>
+                    </div>
+                    <div class="thumbnail">
+                        <h4>Fillmore and Jackson&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <small><a href="#">add stories</a></small>
+                        </h4>
+                    </div>
+                </div>
+            </div>  -->
+
+            <!--div class="col-sm-6 col-md-4">
+              <div class="thumbnail">
+                <img data-src="holder.js/300x200" alt="...">
+                <div class="caption">
+                  <h3>Thumbnail label</h3>
+                  <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                  <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                </div>
+              </div>
+            </div-->
+        </div>
+        <!-- end row -->
+    </div>
+</div>
+<!-- end main contents -->
+
+<!-- modals-->
+<div class="modal fade" id="createNewTourModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h1 class="modal-title" id="myModalLabel">Start a new tour!</h1>
+                <p>Don't worry!, you will be able to change everything after this step...</p>
+            </div>
+            <div class="modal-body">
+                <div class="left-sector">
+                    <h3><span class="label label-default">1</span>&nbsp;Name it!</h3>
+                    <br>
+                    <h4>Title:</h4>
+                    <input name="text" placeholder="Tour title" style="width:100%">
+                    <h4>Description:</h4>
+                    <textarea id="TourDescription" rows="5" style="width:100%;height:100%;">Write your story here!</textarea>
+                </div>
+                <div class="right-sector">
+                    <h3><span class="label label-default">2</span>&nbsp;Choose your first Location</h3>
+                    <br>
+                    <p>Search and the map to select an starting point for your tour:</p>
+                    
+                    <div id="map-modal" style="position: relative; background-color: rgb(229, 227, 223); overflow: hidden; -webkit-transform: translateZ(0);"><div class="gm-style" style="position: absolute; left: 0px; top: 0px; overflow: hidden; width: 100%; height: 100%; z-index: 0;"><div style="position: absolute; left: 0px; top: 0px; overflow: hidden; width: 100%; height: 100%; z-index: 0;"><div style="position: absolute; left: 0px; top: 0px; z-index: 1; width: 100%; cursor: url(https://maps.gstatic.com/mapfiles/openhand_8_8.cur) 8 8, default; -webkit-transform-origin: 0px 0px; -webkit-transform: matrix(1, 0, 0, 1, 0, 0);"><div style="-webkit-transform: translateZ(0); position: absolute; left: 0px; top: 0px; width: 100%; z-index: 200;"><div style="-webkit-transform: translateZ(0); position: absolute; left: 0px; top: 0px; z-index: 101; width: 100%;"></div></div><div style="-webkit-transform: translateZ(0); position: absolute; left: 0px; top: 0px; width: 100%; z-index: 201;"><div style="-webkit-transform: translateZ(0); position: absolute; left: 0px; top: 0px; z-index: 102; width: 100%;"></div><div style="-webkit-transform: translateZ(0); position: absolute; left: 0px; top: 0px; z-index: 103; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: -1;"><div style="position: absolute; left: 0px; top: 0px; z-index: 1;"><div style="width: 256px; height: 256px; overflow: hidden; -webkit-transform: translateZ(0); position: absolute; left: -101px; top: -165px;"></div></div></div></div></div><div style="-webkit-transform: translateZ(0); position: absolute; left: 0px; top: 0px; width: 100%; z-index: 202;"><div style="-webkit-transform: translateZ(0); position: absolute; left: 0px; top: 0px; z-index: 104; width: 100%;"></div><div style="-webkit-transform: translateZ(0); position: absolute; left: 0px; top: 0px; z-index: 105; width: 100%;"></div><div style="-webkit-transform: translateZ(0); position: absolute; left: 0px; top: 0px; z-index: 106; width: 100%;"></div></div><div style="-webkit-transform: translateZ(0); position: absolute; left: 0px; top: 0px; z-index: 100; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: 0;"><div style="position: absolute; left: 0px; top: 0px; z-index: 1;"><div style="width: 256px; height: 256px; -webkit-transform: translateZ(0); position: absolute; left: -101px; top: -165px;"></div></div></div></div><div style="position: absolute; z-index: 0; left: 0px; top: 0px;"><div style="overflow: hidden;"></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 0;"><div style="position: absolute; left: 0px; top: 0px; z-index: 1;"><div style="width: 256px; height: 256px; -webkit-transform: translateZ(0); position: absolute; left: -101px; top: -165px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="./dashboard_files/vt" draggable="false" style="width: 256px; height: 256px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; -webkit-transform: translateZ(0);"></div></div></div></div></div><div style="margin-left: 5px; margin-right: 5px; z-index: 1000000; position: absolute; left: 0px; bottom: 0px;"><a target="_blank" href="http://maps.google.com/maps?ll=37.397,-122.644&z=7&t=m&hl=en-US&gl=US&mapclient=apiv3" title="Click to see this area on Google Maps" style="position: static; overflow: visible; float: none; display: inline;"><div style="width: 62px; height: 26px; cursor: pointer;"><img src="./dashboard_files/google_white2_hdpi.png" draggable="false" style="position: absolute; left: 0px; top: 0px; width: 62px; height: 26px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div></a></div><div class="gmnoprint" style="z-index: 1000001; position: absolute; right: 0px; bottom: 0px; width: 12px;"><div draggable="false" class="gm-style-cc" style="-webkit-user-select: none;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right;"><a style="color: rgb(68, 68, 68); text-decoration: none; cursor: pointer; display: none;">Map Data</a><span style="display: none;"></span></div></div></div><div style="background-color: white; padding: 15px 21px; border: 1px solid rgb(171, 171, 171); font-family: Roboto, Arial, sans-serif; color: rgb(34, 34, 34); -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 16px; box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 16px; z-index: 10000002; display: none; width: 0px; height: 0px; position: absolute; left: 5px; top: 5px;"><div style="padding: 0px 0px 10px; font-size: 16px;">Map Data</div><div style="font-size: 13px;"></div><div style="width: 13px; height: 13px; overflow: hidden; position: absolute; opacity: 0.7; right: 12px; top: 12px; z-index: 10000; cursor: pointer;"><img src="./dashboard_files/mapcnt3.png" draggable="false" style="position: absolute; left: -2px; top: -336px; width: 59px; height: 492px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div></div><div class="gmnoscreen" style="position: absolute; right: 0px; bottom: 0px;"><div style="font-family: Roboto, Arial, sans-serif; font-size: 11px; color: rgb(68, 68, 68); direction: ltr; text-align: right; background-color: rgb(245, 245, 245);"></div></div><div class="gmnoprint gm-style-cc" draggable="false" style="z-index: 1000001; position: absolute; -webkit-user-select: none; right: 0px; bottom: 0px;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right;"><a href="http://www.google.com/intl/en-US_US/help/terms_maps.html" target="_blank" style="text-decoration: none; cursor: pointer; color: rgb(68, 68, 68);">Terms of Use</a></div></div><button id="searchbuttonmodal" class="searchbtn" type="button" style="z-index: 0; position: absolute; right: 0px; top: 0px;"><i class="fa fa-search"></i>&nbsp;Search</button><input id="mapsearchboxmodal" class="controls" type="text" placeholder="Search Box" autocomplete="off" style="z-index: 0; position: absolute; right: 13px; top: 0px;"><div draggable="false" class="gm-style-cc" style="-webkit-user-select: none; position: absolute; right: 0px; bottom: 0px;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right; display: none;"><a target="_new" title="Report errors in the road map or imagery to Google" href="http://maps.google.com/maps?ll=37.397,-122.644&z=7&t=m&hl=en-US&gl=US&mapclient=apiv3&skstate=action:mps_dialog$apiref:1&output=classic" style="font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); text-decoration: none; position: relative;">Report a map error</a></div></div><div class="gmnoprint" draggable="false" controlwidth="32" controlheight="84" style="margin: 5px; -webkit-user-select: none; position: absolute; left: 0px; top: 0px;"><div controlwidth="32" controlheight="40" style="cursor: url(https://maps.gstatic.com/mapfiles/openhand_8_8.cur) 8 8, default; position: absolute; left: 0px; top: 0px;"><div style="width: 32px; height: 40px; overflow: hidden; position: absolute; left: 0px; top: 0px;"><img src="./dashboard_files/cb_scout2_hdpi.png" draggable="false" style="position: absolute; left: -9px; top: -102px; width: 1028px; height: 214px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div><div style="width: 32px; height: 40px; overflow: hidden; position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="./dashboard_files/cb_scout2_hdpi.png" draggable="false" style="position: absolute; left: -107px; top: -102px; width: 1028px; height: 214px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div><div style="width: 32px; height: 40px; overflow: hidden; position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="./dashboard_files/cb_scout2_hdpi.png" draggable="false" style="position: absolute; left: -58px; top: -102px; width: 1028px; height: 214px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div><div style="width: 32px; height: 40px; overflow: hidden; position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="./dashboard_files/cb_scout2_hdpi.png" draggable="false" style="position: absolute; left: -205px; top: -102px; width: 1028px; height: 214px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div></div><div class="gmnoprint" controlwidth="0" controlheight="0" style="opacity: 0.6; display: none; position: absolute;"><div title="Rotate map 90 degrees" style="width: 22px; height: 22px; overflow: hidden; position: absolute; cursor: pointer;"><img src="./dashboard_files/mapcnt3_hdpi.png" draggable="false" style="position: absolute; left: -38px; top: -360px; width: 59px; height: 492px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div></div><div class="gmnoprint" controlwidth="20" controlheight="39" style="position: absolute; left: 6px; top: 45px;"><div style="width: 20px; height: 39px; overflow: hidden; position: absolute;"><img src="./dashboard_files/mapcnt3_hdpi.png" draggable="false" style="position: absolute; left: -39px; top: -401px; width: 59px; height: 492px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div><div title="Zoom in" style="position: absolute; left: 0px; top: 2px; width: 20px; height: 17px; cursor: pointer;"></div><div title="Zoom out" style="position: absolute; left: 0px; top: 19px; width: 20px; height: 17px; cursor: pointer;"></div></div></div></div></div>
+                    
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save tour &amp; start!</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+<div class="modal fade" id="createnewstoryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h1 class="modal-title" id="myModalLabel">Start a new tour!</h1>
+                <p>Don't worry!, you will be able to change everything after this step...</p>
+            </div>
+            <div class="modal-body">
+                <h4>Title: <input type="text" size="60"></h4>
+
+                <div class="panel panel-default">
+                    <div id="extras" class="panel-body text-left">
+                        Add photos, audio/video files
+
+                        <div class="extra_item thumbnail">
+                            <a href="./dashboard_files/dashboard.html">
+                                <label id="dir-btn" for="directory-selector" class="btn btn-default btn-lg">+</label>
+                                <input type="file" id="directory-selector" name="directory[]" webkitdirectory="" directory="">
+                            </a>
+                            date: <input type="text" size="8">
+                        </div>
+
+                    </div>
+                </div>
+
+                <textarea id="story_desc" placeholder="Enter text ..." rows="8"></textarea>
+
+                <div id="new_story_tag">
+                    <h4>Tags <input type="text" size="30" placeholder="separate with comma"> &nbsp;&nbsp;&nbsp;
+                        Private
+			    		<span class="make-switch">
+						    <input type="checkbox" unchecked="">
+						</span>
+                    </h4>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save tour &amp; start!</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="./dashboard_files/jquery.min.js"></script>
+<script src="./dashboard_files/bootstrap.min.js"></script>
+<script src="./dashboard_files/script_loading_map.js"></script>
+
+<!-- End Footer -->
+
+
+<div class="pac-container hdpi" style="display: none; width: 0px; position: absolute; left: 0px; top: 0px;"></div></body></html>
