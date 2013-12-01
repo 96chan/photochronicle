@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>    
     <link rel='stylesheet' id='css-template' type='text/css' href='css/style.css' />
+    <link rel='stylesheet' id='css-template' type='text/css' href='css/style_chan.css' />
 	<!-- <link href="jquery_thumbnail_scroller/jquery.thumbnailScroller.css" rel="stylesheet" type="text/css" />  -->
 <!-- <link  href="http://fotorama.s3.amazonaws.com/4.4.8/fotorama.css" rel="stylesheet"> <!-- 3 KB --> -->
 <link rel='stylesheet' id='css-template' type='text/css' href='css/timeline.css' />
@@ -40,10 +41,39 @@
             <li><a href="#tour">View Tour</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;Sign In</a></li>
+            <li data-toggle="modal" data-target="#signin-modal"><a id="signin" href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;Sign In</a></li>
+            <li><a id="after-signin" href="#"></a></li>
+            <li><a id="signout" href="#">Sign Out</a></li>
           </ul>
         </div>
       </div>
+<!-- Modal -->
+    <div class="modal fade" id="signin-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="signin modal-dialog">
+       <div class="signin signin-content modal-content">
+           <div class="signin-header modal-header">
+              Sign In to Photo Chronicle
+           </div>
+           <div class="signin modal-body">
+            <form id="form-signin" role="form" method="post">
+              <div id="form-group-input-name" class="form-group">
+                <label for="input-name">Username</label>
+                <input type="text" class="form-control stored" id="input-name" placeholder="Enter Username">
+              </div>
+              <div class="form-group">
+                <label for="input-password">Password</label>
+                <input type="password" class="form-control stored" id="input-password" placeholder="Password">
+              </div>
+              <div id="modal-button-group">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary">Sign In</button>
+              </div>
+            </form>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
     </nav>
     <!-- end nav -->
 
@@ -62,46 +92,56 @@
 
         <!-- Story Titel -->
         <div id= "story-title" class="row">
-    		<h2>The Beautiful Sather Gate <span class="small text-muted">(created by you)</span> </h2>
+    		<h2>The Beautiful Sather Gate</h2>
         </div>
 
        
  	 	<div class="row filter-bar">
- 	 		<div class="col-sm-6 col-md-2">
+ 	 		<div class="col-sm-6 col-md-4">
     			<div class="btn-group">
                 <a role="button" class="btn btn-primary like-btn" for="story1Likes">
                 	<span class="glyphicon glyphicon-heart"></span> Like </a>
                 <button type="button" class="btn btn-default like-count" disabled="disabled">200</button>
+          </div>
+          <a role="button" class="btn btn-default edit-rights" id="check-private">
+                    <span class="glyphicon glyphicon-unchecked"></span> Private</a>
+      </div>
+            <div class="col-sm-6 col-md-8">
+              <div class="pull-right">
+                 <a role="button" class="btn btn-default" id="edit-story">
+                    <span class="glyphicon glyphicon-edit"></span> Edit 
+                 </a> 
+                <div class="btn-group edit-rights">
+                   <button type="button" class="btn btn-default" id="story-edit-cancel-btn">Cancel</button>    
+                  <button type="submit" class="btn btn-default" id="story-edit-save-btn">Save as a Draft</button>
+                 <a role="button" class="btn btn-primary edit-rights" id="publish-story">
+                    <span class="glyphicon glyphicon-unchecked"></span> Publish</a>
+               
                 </div>
-            </div>
-            <div class="col-sm-6 col-md-6" id="edit-rights">
-                <div class="btn-group">
-	                <a role="button" class="btn btn-default" id="edit-story">
-	                	<span class="glyphicon glyphicon-edit"></span> Edit Descrption</a>
-                  <a role="button" class="btn btn-default" id="add-img">
-                    <span class="glyphicon glyphicon-plus-sign"></span> Add Photos</a>
-	               <!--  <a role="button" class="btn btn-default" id="remove-story">
-	                	<span class="glyphicon glyphicon-remove"></span> Remove </a> -->
-	                <button types="button" class="btn btn-default" id="check-private">
-	                	<span class="glyphicon glyphicon-unchecked"></span> Private</a>
-
-                </div>
+               </div>
             </div>
         </div>
         <div class="row">
         	<blockquote id="story-desc"><p>Sather Gate is a prominent landmark separating Sproul Plaza from the bridge over Strawberry Creek, leading to the center of the University of California, Berkeley campus. It's featured in the popular animated movie: Monster Inc.
         	</p></blockquote>
-       	 	<hr/>
+       	 <!-- 	<hr/> -->
         </div>
         <div class="row">
         	<form role="form" id="story-desc-form">	
         		<textarea class="form-control" rows="6"></textarea>
-        		<button type="submit" class="btn btn-default" id="story-desc-save-btn">Save</button>
-        		<button type="button" class="btn btn-default" id="story-desc-cancel-btn">Cancel</button>
+        		<!-- <button type="submit" class="btn btn-default" id="story-desc-save-btn">Save</button> -->
+        		<!-- <button type="button" class="btn btn-default" id="story-desc-cancel-btn">Cancel</button> -->
         		<hr/>
         	</form>
         </div>
   
+    <div class="row">
+      <div class="col-sm-8 col-md-8">
+        <h3 class="text-muted">Chronicle of Sather Gate
+        <a role="button" class="btn btn-default edit-rights" id="add-img">
+        <span class="glyphicon glyphicon-plus-sign"></span> Add Photos</a></h3>
+     </div>
+    </div>
         <!-- Other Contents -->
 		<div class="story-detail-div">
 			<div class="row">
@@ -170,7 +210,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
 	<script src="js/jquery-1.10.2.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-
+  <script src="js/script.js"></script>
 	<script src="js/story_detail.js"></script>
 	<!-- <script src="js/jquery.mixitup.min.js"></script> -->
 <!-- End Footer -->

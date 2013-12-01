@@ -48,6 +48,7 @@ $(document).ready(function() {
 
   $('#btn-addStory').click(function(){
     $('#addStory-modal').modal('toggle');
-});
+  });
+
 
 });
