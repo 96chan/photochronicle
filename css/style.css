@@ -286,6 +286,41 @@ embed {
     margin-bottom: 2em;
 }
 
+.new_story_container {
+    width: 43em;
+}
+
+.panel-body h1 {
+    text-align: center;
+}
+
+.extra_item {
+    margin-top: 2em;
+    width: 9em;
+    text-align: center;
+}
+
+.extra_item a:hover {
+    text-decoration: none;
+}
+
+.plus_box {
+    margin-top: 1em;
+    margin-left: 3em;
+    width: 4.5em;
+    text-align: center;
+}
+
+textarea#story_desc {
+    width: 100%;
+}
+
+
+input[type=file] {
+    width: 0px;
+}
+
+
 .modal-dialog, .modal-content {width: 100%; }
 .modal p {color: #808080; }
 

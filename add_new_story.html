@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <title>Photo Chronicle</title>    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">    
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="">
+    <link rel='stylesheet' id='css-template' type='text/css' href='css/normalize.css' />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>    
+    <link rel='stylesheet' id='css-template' type='text/css' href='css/style.css' />
+    <link rel="stylesheet" type='text/css' href="css/bootstrap-switch.css">
+    <link rel="stylesheet" type='text/css' href="css/bootstrap-wysihtml5.css">
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=visualization"></script>
+    <script src="js/custom.modernizr.js"></script>
+    <script src="js/holder.js"></script>
+</head>
+<body>
+   
+    <div class="panel panel-default">
+	    <div class="panel-body">
+		    <h1>Create a New Story!</h1>
+		    
+		    <div class="container new_story_container">
+
+		    	<h4>Title: <input type="text" size="60"></h4>
+
+		    	<div class="panel panel-default">
+				    <div id="extras" class="panel-body text-left">
+				    	Add photos, audio/video files
+
+				    	<div class="extra_item thumbnail">
+					    	<a href="#">
+					    		<label id="dir-btn" for="directory-selector" class="btn btn-default btn-lg">+</label>
+						        <input type="file" id="directory-selector" name="directory[]" webkitdirectory directory />
+					    	</a>
+					    	date: <input type="text" size="8">
+					    </div>
+
+				    </div>
+				</div>
+
+				<textarea id="story_desc" placeholder="Enter text ..." rows="8"></textarea>
+
+			    <div id="new_story_tag">
+			    	<h4>Tags <input type="text" size="30" placeholder="separate with comma"> &nbsp;&nbsp;&nbsp;
+			    		Private 
+			    		<span class="make-switch">
+						    <input type="checkbox" unchecked>
+						</span>
+					</h4>
+			    </div>
+
+			</div>
+			
+	    </div>
+	    <div class="panel-footer text-right">
+	    	<a href="#" class="btn btn-default" role="button">Cancel</a>
+	    	<a href="#" class="btn btn-primary" role="button">Save</a>
+	    </div>
+	</div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="js/bootstrap-switch.min.js"></script>
+    <script src="js/wysihtml5-0.3.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-wysihtml5.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+    	$('#story_desc').wysihtml5();
+    </script>
+	<!-- End Footer -->
+</body>
+</html>
