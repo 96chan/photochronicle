@@ -264,6 +264,13 @@ embed {
     margin-left: 0.5em;
 }
 
+#title_bar {
+    margin-bottom: 2em;
+}
+
+#save_area {
+    margin-top: 6em;
+}
 
 .new_story_container {
     width: 43em;

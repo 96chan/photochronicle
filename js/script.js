@@ -266,6 +266,27 @@ $('#directory-selector').change(function(e) {
 
 });
 
+function tour_detail_loaded() {
+  // getting login name  
+  $('#save_or_publish').hide();
+  $('.hide_on_load').hide();
+
+  if (localStorage["name"]) {
+  } else {
+      $('#edit_or_not').hide();
+  }
+
+  $('#edit_or_not').onClick(function() {
+    $('#save_or_publish').show();
+    $('#edit_or_not').hide();
+  });
+
+  $('#save_or_publish').onClick(function() {
+    $('#save_or_publish').hide();
+    $('#edit_or_not').show();
+  });
+}
+
 
 $('#myModal').on('shown', function () {
     //google.maps.event.addDomListener(window, "load", initialize_modal);
