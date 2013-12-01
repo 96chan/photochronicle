@@ -302,7 +302,21 @@ function tour_detail_loaded() {
   $('#publish_button').on('click', function(e) {
     $('#title_bar h1 small').hide();
   });
+
+  $('.remove_a').on('click', removeFunction);
 }
+
+var removeFunction  = function (event) {
+  $(event.target.parentElement).animate({
+      opacity: 0.25
+      ,left: '+=50'
+      ,height: 'toggle'
+    }
+    , 500
+    , function() {
+      $(event.target.parentElement.parentElement).remove();
+  });
+};
 
 
 $('#myModal').on('shown', function () {
