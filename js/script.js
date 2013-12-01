@@ -11,6 +11,9 @@ var st_latlng = new google.maps.LatLng(37.87205,-122.25783);    // Sather Tower
 var hgt_latlng = new google.maps.LatLng(37.87362,-122.25415);   // Hearst Greek Theatre
 var hmmb_latlng = new google.maps.LatLng(37.87448,-122.25725);  // Hearst Memorial Mining Building
 
+var maxStory = 3;
+var storyLikes={"story1Likes":250, "story2Likes": 500, "story3Likes": 56}; 
+
 function initialize_map_canvas() {
     var mapOptions = {
         zoom: 16,
@@ -89,6 +92,21 @@ function createMarker(latlng, html) {
         infowindow.open(map_canvas,marker);
     });
 }
+function initialize_tour_map_canvas() {
+   mapOptions = {
+    zoom: 8,
+    center: new google.maps.LatLng(-34.397, 150.644),
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  // map = new google.maps.Map(document.getElementsByClassName('tour-map-canvas'),
+  //     mapOptions);
+  $(document.getElementsByClassName('tour-map-canvas')).each(function(){
+      console.log($(this));
+        var map = new google.maps.Map($(this)[0], mapOptions);
+    });
+
+ }
+
 /* =====================
 
 	Document Ready
@@ -100,7 +118,7 @@ $(document).ready(function() {
   $('#map-canvas').css('height',height);
   $('#map-canvas').css('width',$(document).width());
 	// init();
-  google.maps.event.addDomListener(window, "load", initialize_map_canvas);
+  google.maps.event.addDomListener(window, "load", initialize_tour_map_canvas);
 
   // getting login name  
   if (localStorage["name"]) {
