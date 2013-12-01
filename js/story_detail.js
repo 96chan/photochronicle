@@ -7,6 +7,7 @@ var storyLikes={"story1Likes":200, "story2Likes": 100, "story3Likes3": 56};
 $(document).ready(function() {
 	
 	$("#story-desc-form").hide();
+ 	$(".edit-rights").hide();
 
 	$(".timeline > .event").on("click", function(){
 		var path = $(this).children("img").attr("src");
@@ -40,22 +41,33 @@ $(document).ready(function() {
 		$("#story-desc-form").children("textarea").val(desc);
 		$("#story-desc-form").show();
 		$("#story-desc").hide();
+		$(".edit-rights").show();
+		$("#edit-story").hide();
 	});
 
-	$("#story-desc-form").submit(function(e){
-		e.preventDefault();
+	$("#story-edit-save-btn").on("click", function(e){
+		// e.preventDefault();
 		var desc = $("#story-desc-form").children("textarea").val();
 		console.log(desc);
 		$("#story-desc").children("p").html(desc);
 	 	$("#story-desc-form").children("textarea").val("");
 		$("#story-desc-form").hide();
 		$("#story-desc").show();
+		$(".edit-rights").hide();
+		$("#edit-story").show();
 	});
 
-	$("#story-desc-cancel-btn").on("click", function(){
-		// console.log("boo");
+	$("#story-edit-cancel-btn").on("click", function(){
 		$("#story-desc-form").hide();
 		$("#story-desc").show();
+		$(".edit-rights").hide();
+		$("#edit-story").show();
 	});
+
+	if (localStorage["name"]) {
+     $("#edit-story").show();
+  }else{
+      $("#edit-story").hide();   
+  }
 	
 });
