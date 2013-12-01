@@ -280,7 +280,7 @@ function tour_detail_loaded() {
       $('#edit_or_not').hide();
   }
 
-  $('#edit_or_not').on('click', function() {
+  $('#edit_button').on('click', function() {
     $('#save_or_publish').show();
     $('#edit_or_not').hide();
     $('#title_bar h5').hide();
@@ -297,6 +297,10 @@ function tour_detail_loaded() {
     if(e.target.id !== $('#cancel_button').attr('id')) {
       $('#title_bar h5').text($('#title_bar textarea').val());
     }
+  });
+
+  $('#publish_button').on('click', function(e) {
+    $('#title_bar h1 small').hide();
   });
 }
 
