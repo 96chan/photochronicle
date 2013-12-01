@@ -57,27 +57,25 @@ nav{}
 .timeinfo{margin-left: 10px; }
 .distanceinfo{margin-left: 10px; }
 .story-descriptions{margin-bottom: 5px; margin-top: 5px; margin-left: auto; margin-right: auto; background-color: #eee; }
+
 /*extend bootstrap thumbnail css*/
-<<<<<<< HEAD
+
 .thumbnail>a>img{
 	display:block;
 	height:auto;
 	max-width:100%;
 	margin-right:auto;
-	margin-left:auto
+	margin-left:auto;
 }
 
 .thumbnail>a{
 	text-decoration: none;
 }
-=======
-.thumbnail>a>img{display:block; height:auto; max-width:100%; margin-right:auto; margin-left:auto }
 
->>>>>>> 69b3ac5ddf06d6b780bfc09835122c3ec58ea0f5
 /* Wendy's experiemntal css.*/
 .large-img img{width: 100%; height: auto; max-width: 700px; max-height: 480px; margin-left: auto; margin-right: auto; display:block; /*border:2px solid #DDE4B5;*/ box-shadow: 10px 10px 5px #888; }
 .small-img {width:117px; height:auto; border:2px solid #DDE4B5; }
-.year-scroll{height:480px; overflow-y: scroll; margin-top: 10px; margin-bottom: 10px; }
+.year-scroll{height:500px; overflow-y: scroll; margin-top: 10px; margin-bottom: 10px; }
 .img-caption{width: 100%; text-align: center; }
 .img-creator{float: right; }
 
@@ -91,7 +89,8 @@ nav{}
 #tour-grid .mix{opacity: 0; display: none; }
 
 #tour-sort-bar li{display: inline-block; }
-#story-filter-bar li{display: inline-block; }
+#story-filter-bar{display: block;}
+#story-filter-bar div{display: inline-block; }
 #story-grid .mix{opacity: 0; display: none; }
 #story-grid li{width: 30%; height: auto; /*border: 2px solid #DDE4B5;*/ margin-left: 10px; margin-right: 10px; /*display: inline-block;*/ vertical-align: top; }
 
@@ -141,3 +140,9 @@ img, object, embed {max-width: 100%; height: auto; }
 .signin-content{height:280px; }
 .signin{width:400px; }
 
+/** Wendy add story model on location_stories.html **/
+#addStory-model{position:absolute; top:20%;}
+.addStoryModel{height:480px;}
+.addStoryModel-content{ width:480px; margin-left:30%;}
+
+/** end Wendy add story model on location_stories.html **/
