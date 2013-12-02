@@ -37,8 +37,9 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="#explore">Explore</a></li>
-            <li><a href="#tour">View Tour</a></li>
+            <li id="nav-explore" class="selected"><a href="index">Explore</a></li>
+            <li id="nav-view-tours" ><a href="#tour">View Tours</a></li>
+            <li id="nav-my-page" class="invisible"><a href="mytour">My Page</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li data-toggle="modal" data-target="#signin-modal"><a id="signin" href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;Sign In</a></li>
@@ -47,7 +48,8 @@
           </ul>
         </div>
       </div>
-<!-- Modal -->
+    </nav>
+    <!-- Modal -->
     <div class="modal fade" id="signin-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="signin modal-dialog">
        <div class="signin signin-content modal-content">
@@ -73,8 +75,6 @@
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
-
-    </nav>
     <!-- end nav -->
 
     <!-- main contents -->
@@ -92,7 +92,7 @@
 
         <!-- Story Titel -->
         <div id= "story-title" class="row">
-    		<h2>The Beautiful Sather Gate</h2>
+    		<h2>The Beautiful Sather Gate<small id="draft"> (draft) </small></h2>
         </div>
 
        
@@ -115,7 +115,7 @@
                    <button type="button" class="btn btn-default" id="story-edit-cancel-btn">Cancel</button>    
                   <button type="submit" class="btn btn-default" id="story-edit-save-btn">Save as a Draft</button>
                  <a role="button" class="btn btn-primary edit-rights" id="publish-story">
-                    <span class="glyphicon glyphicon-unchecked"></span> Publish</a>
+                    Publish</a>
                
                 </div>
                </div>
@@ -124,7 +124,7 @@
         <div class="row">
         	<blockquote id="story-desc"><p>Sather Gate is a prominent landmark separating Sproul Plaza from the bridge over Strawberry Creek, leading to the center of the University of California, Berkeley campus. It's featured in the popular animated movie: Monster Inc.
         	</p></blockquote>
-       	 <!-- 	<hr/> -->
+       	 	<hr/>
         </div>
         <div class="row">
         	<form role="form" id="story-desc-form">	
@@ -137,7 +137,7 @@
   
     <div class="row">
       <div class="col-sm-8 col-md-8">
-        <h3 class="text-muted">Chronicle of Sather Gate
+        <h3 class="text-muted">Sather Gate Chronicle
         <a role="button" class="btn btn-default edit-rights" id="add-img">
         <span class="glyphicon glyphicon-plus-sign"></span> Add Photos</a></h3>
      </div>
