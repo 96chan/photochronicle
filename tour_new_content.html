@@ -113,7 +113,7 @@
 
           <!-- Location List -->
           <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
+            <div id="locationlist" class="thumbnail">
               <div class="caption">
                 <h3>Location List <div class="no_break_float_right hide_on_load">
                     <small>
@@ -224,17 +224,17 @@
                 </div>
                 <div class="modal-body">
                     <h3>Choose a location:</h3>
-                    <p>Search in the map for a new location in your tour</p>
+                    <div class="alert alert-info"><b>You can use the searchbox to find places, addresses or important locations, and then put pin by clicking on the map</b></div>
                     <input id="mapsearchboxmodal" class="controls" type="text" placeholder="Search Box">
                     <div id="new-location-map-modal"></div>
                     <button id="searchbuttonmodal" class="searchbtn" type="button"><i class="fa fa-search"></i>&nbsp;Search</button>
-                    <h3>Give us a reference name for this location:</h3>
-                    <input name="text" placeholder="type a name!" style = "width:100%">
+                    <h3>Set a reference name for this location:</h3>
+                    <input name="text" id="locationReferenceName" placeholder="type a name!" style = "width:100%">
                 </div>
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save tour & start!</button>
+                    <button id="saveLocationButton" type="button" class="btn btn-primary">Save tour & start!</button>
                 </div>
             </div>
             <!-- /.modal-content -->
