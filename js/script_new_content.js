@@ -375,7 +375,7 @@ $('#saveLocationButton').on('click', function(event) {
     for (var i = 0, temp_marker; temp_marker = markers[i]; i++) {
         markers_overview[i] = new google.maps.Marker({
             map: map_canvas,
-            position: markers[i].position,
+            position: markers[i].position
         });
         bounds.extend(markers[i].position);
 
@@ -384,6 +384,7 @@ $('#saveLocationButton').on('click', function(event) {
 
     //markers[0].position.ob+markers[0].position.pb
     //marker.position.ob+marker.position.pb
+    $("#tourstorieslist").append("<div class=\"thumbnail\" style=\"background-color:#dddddd\"><h4>"+$("#locationReferenceName").val()+"<div class=\"no_break_float_right hide_on_load\"><small><a href=\"#\" onclick=\"$('#addStoryModal').modal(\'show\');\" id=\"mapModalLink\"><i class=\"fa fa-plus-circle\"></i> add stories</a></small></div></h4>No stories here yet! Please click on add stories...</div>");
     $("#locationlist").append("<div class=\"thumbnail\"><h4>"+$("#locationReferenceName").val()+"</h4><p class=\"text-right hide_on_load\"><a href=\"#\" class=\"remove_a\">remove from tour</a></p></div>")
     $('#addnewlocation').modal('hide');
 });
