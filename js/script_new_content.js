@@ -20,7 +20,7 @@ var storyLikes={"story1Likes":250, "story2Likes": 500, "story3Likes": 56};
 function initialize_map_modal() {
     var mapOptions = {
         zoom: 7,
-        center: new google.maps.LatLng(37.397, -122.644),
+        center: new google.maps.LatLng(37.8715, -122.2600),
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         mapTypeControl: false
     };
@@ -127,7 +127,7 @@ function createMarker(latlng, html) {
 function initialize_tour_map_canvas() {
    var mapOptions = {
     zoom: 8,
-    center: new google.maps.LatLng(-34.397, 150.644),
+    center: new google.maps.LatLng(37.8715, -122.2600),
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     mapTypeControl: false
   };
