@@ -156,8 +156,11 @@ $(document).ready(function() {
   }else{
       $('#signout').hide();
       $('#after-signin').hide();
-      $('#signin').show();      
+      $('#signin').show();
+
   }
+
+
 });
 
 //***********************
@@ -385,11 +388,14 @@ $('#saveLocationButton').on('click', function(event) {
     $('#addnewlocation').modal('hide');
 });
 
+$('#searchstorytab').click(function (e) {
+    e.preventDefault();
+    $(this).tab('show');
+});
 
+$('#addnewstorytab').click(function (e) {
+    e.preventDefault();
+    $(this).tab('show');
+});
 
-
-
-
-
-
-
+//$('#story_desc').wysihtml5();
