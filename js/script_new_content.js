@@ -3,6 +3,9 @@
 https://developers.google.com/maps/documentation/javascript/tutorial#Audience
 */
 var markers = [];
+var markers_overview  = [];
+var marker;
+var places = [];
 var map_canvas;
 var map_modal;
 var bk_latlng = new google.maps.LatLng(37.8715, -122.2600);     // Berkeley
@@ -33,21 +36,30 @@ function initialize_map_modal() {
 
     var searchBox = new google.maps.places.SearchBox(/** @type {HTMLInputElement} */(input));
 
-
+    google.maps.event.addListener(map_modal, 'click', function(event){
+        addMarker(event.latLng);
+    });
     // Listen for the event fired when the user selects an item from the
     // pick list. Retrieve the matching places for that item.
     google.maps.event.addListener(searchBox, 'places_changed', function () {
         var places = searchBox.getPlaces();
 
-        for (var i = 0, marker; marker = markers[i]; i++) {
+        /*for (var i = 0, marker; marker = markers[i]; i++) {
             marker.setMap(null);
-        }
+        }*/
+
+        marker = new google.maps.Marker({
+            //position: bk_latlng,
+            map: map_modal,
+            //draggable:true
+        });
 
         // For each place, get the icon, place name, and location.
         markers = [];
         var bounds = new google.maps.LatLngBounds();
+        //retrieving only one place from google places //i=0
         for (var i = 0, place; place = places[i]; i++) {
-            var image = {
+          /*  var image = {
                 url: place.icon,
                 size: new google.maps.Size(71, 71),
                 origin: new google.maps.Point(0, 0),
@@ -60,16 +72,32 @@ function initialize_map_modal() {
                 map: map_modal,
                 icon: image,
                 title: place.name,
-                position: place.geometry.location
-            });
-
-            markers.push(marker);
+                position: place.geometry.location,
+                draggable:true
+            }); */
+            //getting only one marker, to drag and drop
+            if (i==0){
+            //markers.push(marker);
             bounds.extend(place.geometry.location);
+            }
         }
 
         map_modal.fitBounds(bounds);
     });
 
+    function addMarker(latLng){
+        //clear the previous marker and circle.
+        if(marker != null){
+            marker.setMap(null);
+        }
+
+        marker = new google.maps.Marker({
+            position: latLng,
+            map: map_modal,
+            draggable:true
+        });
+
+    }
     // Bias the SearchBox results towards places that are within the bounds of the
     // current map's viewport.
     google.maps.event.addListener(map_modal, 'bounds_changed', function () {
@@ -128,8 +156,11 @@ $(document).ready(function() {
   }else{
       $('#signout').hide();
       $('#after-signin').hide();
-      $('#signin').show();      
+      $('#signin').show();
+
   }
+
+
 });
 
 //***********************
@@ -331,11 +362,40 @@ $('#mapModalLink').on('click', function () {
 });
 
 
+$('#saveLocationButton').on('click', function(event) {
+    /*<div class="thumbnail">
+        <h4>Hearst Greek Theatre</h4>
+        <p class="text-right hide_on_load">
+            <a href="#" class="remove_a">remove from tour</a>
+        </p>
+    </div>*/
+    var bounds = new google.maps.LatLngBounds();
+    markers.push(marker);
 
+    for (var i = 0, temp_marker; temp_marker = markers[i]; i++) {
+        markers_overview[i] = new google.maps.Marker({
+            map: map_canvas,
+            position: markers[i].position,
+        });
+        bounds.extend(markers[i].position);
 
+    }
+    map_canvas.fitBounds(bounds);
 
+    //markers[0].position.ob+markers[0].position.pb
+    //marker.position.ob+marker.position.pb
+    $("#locationlist").append("<div class=\"thumbnail\"><h4>"+$("#locationReferenceName").val()+"</h4><p class=\"text-right hide_on_load\"><a href=\"#\" class=\"remove_a\">remove from tour</a></p></div>")
+    $('#addnewlocation').modal('hide');
+});
 
+$('#searchstorytab').click(function (e) {
+    e.preventDefault();
+    $(this).tab('show');
+});
 
+$('#addnewstorytab').click(function (e) {
+    e.preventDefault();
+    $(this).tab('show');
+});
 
-
-
+//$('#story_desc').wysihtml5();

@@ -117,7 +117,7 @@ nav{}
 
 /* modal styles */
 .modal-dialog, .modal-content {
-    width: 100%;
+    width: 80%;
 }
 
 .modal p {
@@ -125,7 +125,7 @@ nav{}
 }
 
 .left-sector {
-    width: 48%;
+    width: 200px;
     float: left;
 }
 
@@ -337,7 +337,7 @@ input[type=file] {
  ************************************************/
 
 
-.modal-dialog, .modal-content {width: 100%; }
+.modal-dialog, .modal-content {width: 80%; }
 .modal p {color: #808080; }
 
 .left-sector {width: 48%; float: left; }
@@ -402,3 +402,54 @@ img, object, embed {max-width: 100%; height: auto; }
     padding-left: 14px;  /* Regular padding-left + 1. */
     width: 80%;
 }
+
+
+.searchpane {
+    font: 10pt normal Arial, sans-serif;
+    text-align: center;
+    overflow:scroll;
+    height: 560px;
+}
+
+/* Image Box Style */
+.searchpane .box {
+    border: 5px solid #fff;
+    cursor: pointer;
+    height: 200px;
+    float: left;
+    margin: 2px;
+    position: relative;
+    overflow: hidden;
+    width: 95%;
+    -webkit-box-shadow: 1px 1px 1px 1px #ccc;
+    -moz-box-shadow: 1px 1px 1px 1px #ccc;
+    box-shadow: 1px 1px 1px 1px #ccc;
+}
+.searchpane .box img {
+    position: relative;
+    left: 0;
+    -webkit-transition: all 300ms ease-out;
+    -moz-transition: all 300ms ease-out;
+    -o-transition: all 300ms ease-out;
+    -ms-transition: all 300ms ease-out;
+    transition: all 300ms ease-out;
+}
+#searchstory
+{
+    height:650px;
+}
+
+.left-sector {width: 250px; float: left; }
+.right-sector {margin-left: 280px; }
+
+.carousel-inner > .item > img{
+    max-width: none;
+    max-height: 200px;
+    display: block;
+    margin: 0 auto;
+    vertical-align: middle;
+    horizontal-align: middle;
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+}
+
