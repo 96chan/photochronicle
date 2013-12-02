@@ -111,11 +111,74 @@ function initialize_tour_map_canvas() {
   // map = new google.maps.Map(document.getElementsByClassName('tour-map-canvas'),
   //     mapOptions);
   $(document.getElementsByClassName('tour-map-canvas')).each(function(){
-      console.log($(this));
         var map = new google.maps.Map($(this)[0], mapOptions);
     });
-
  }
+function initialize_map_modal() {
+    var mapOptions = {
+        zoom: 7,
+        center: new google.maps.LatLng(37.397, -122.644),
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        mapTypeControl: false
+    };
+    map_modal = new google.maps.Map(document.getElementById('map-modal'),
+        mapOptions);
+
+    var searchbutton = /** @type {HTMLInputElement} */(document.getElementById('searchbuttonmodal'));
+    map_modal.controls[google.maps.ControlPosition.TOP_RIGHT].push(searchbutton);
+
+    // Create the search box and link it to the UI element.
+    var input = /** @type {HTMLInputElement} */(document.getElementById('mapsearchboxmodal'));
+    map_modal.controls[google.maps.ControlPosition.TOP_RIGHT].push(input);
+
+    var searchBox = new google.maps.places.SearchBox(/** @type {HTMLInputElement} */(input));
+
+
+    // Listen for the event fired when the user selects an item from the
+    // pick list. Retrieve the matching places for that item.
+    google.maps.event.addListener(searchBox, 'places_changed', function () {
+        var places = searchBox.getPlaces();
+
+        for (var i = 0, marker; marker = markers[i]; i++) {
+            marker.setMap(null);
+        }
+
+        // For each place, get the icon, place name, and location.
+        markers = [];
+        var bounds = new google.maps.LatLngBounds();
+        for (var i = 0, place; place = places[i]; i++) {
+            var image = {
+                url: place.icon,
+                size: new google.maps.Size(71, 71),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(17, 34),
+                scaledSize: new google.maps.Size(25, 25)
+            };
+
+            // Create a marker for each place.
+            var marker = new google.maps.Marker({
+                map: map_modal,
+                icon: image,
+                title: place.name,
+                position: place.geometry.location
+            });
+
+            markers.push(marker);
+            bounds.extend(place.geometry.location);
+        }
+
+        map_modal.fitBounds(bounds);
+    });
+
+    // Bias the SearchBox results towards places that are within the bounds of the
+    // current map's viewport.
+    google.maps.event.addListener(map_modal, 'bounds_changed', function () {
+        var bounds = map_modal.getBounds();
+        searchBox.setBounds(bounds);
+    });
+
+}
+
 /* =====================
 
 	Document Ready
@@ -126,29 +189,36 @@ $(document).ready(function() {
     $('#intro-container').hide();
   }
   if($(document).find('#map-canvas').length > 0){
-    console.log('a');
     var height = $(document).height()-54;
     $('#map-canvas').css('height',height);
     $('#intro-text').css('height',height);
     $('#map-canvas').css('width',$(document).width());
-    // init();
     google.maps.event.addDomListener(window, "load", initialize_map_canvas);
-  }
-  if($(document).find('.tour-map-canvas').length > 0){
-    // init();
+  }else if($(document).find('.tour-map-canvas').length > 0){
     google.maps.event.addDomListener(window, "load", initialize_tour_map_canvas);
+  }
+  if($(document).find('#map-modal').length > 0){
+    google.maps.event.addDomListener(window, "load", initialize_map_modal);
   }
   // getting login name  
   if (localStorage["name"]) {
       $('#input-name').val(localStorage["name"]);
       $('#signin').hide();
       $('#after-signin').text('Welcome, '+localStorage["name"]+'!' );
-      if($('#nav-my-page').hasClass('invisible')) $('#nav-my-page').removeClass('invisible').addClass('visible');
+      if($('#nav-my-page').hasClass('invisible')){
+         $('#nav-my-page').removeClass('invisible');        
+      }
+      $('#nav-my-page').addClass('visible');
   }else{
       $('#signout').hide();
       $('#after-signin').hide();
       $('#signin').show();      
+      if($('#nav-my-page').hasClass('visible')){
+         $('#nav-my-page').removeClass('visible');        
+      }
+      $('#nav-my-page').addClass('invisible');
   }
+  $("#myModal").show();
 });
 
 //***********************
@@ -182,7 +252,10 @@ $('#form-signin').submit(function(){
       $('#signin').hide();
       $('#signout').show();
       $('#signin-modal').modal('hide');
-      $('.invisible').removeClass('invisible').addClass('visible');
+      if($('#nav-my-page').hasClass('invisible')){
+         $('#nav-my-page').removeClass('invisible');        
+      }
+      $('#nav-my-page').addClass('visible');
     }
     return false;
 });
@@ -192,7 +265,10 @@ $('#signout').click(function(){
     $('#signin').show();
     $('#after-signin').hide();
     $('#signout').hide();
-    $('#nav-my-page').removeClass('visible').addClass('invisible');
+    if($('#nav-my-page').hasClass('visible')){
+         $('#nav-my-page').removeClass('visible');        
+    }
+    $('#nav-my-page').addClass('invisible');
 });
 $('#mapModalLink').click(function(){
   $('#myModal').modal('show');
@@ -206,24 +282,170 @@ $('#intro-container').click(function(){
 //***********************
 
 
-
-$('#myModal').on('shown', function () {
+$('#createNewTourModal').on('shown', function () {
     //google.maps.event.addDomListener(window, "load", initialize_modal);
     //initialize_modal();
     google.maps.event.trigger(map_modal, "resize");
 });
 
 $('#mapModalLink').on('click', function () {
-    $("#myModal").show();
+    $("#createNewTourModal").show();
+    google.maps.event.trigger(map_modal, 'resize');
+});
+
+function errorHandler(e) {
+  var msg = '';
+
+  switch (e.code) {
+    case FileError.QUOTA_EXCEEDED_ERR:
+      msg = 'QUOTA_EXCEEDED_ERR';
+      break;
+    case FileError.NOT_FOUND_ERR:
+      msg = 'NOT_FOUND_ERR';
+      break;
+    case FileError.SECURITY_ERR:
+      msg = 'SECURITY_ERR';
+      break;
+    case FileError.INVALID_MODIFICATION_ERR:
+      msg = 'INVALID_MODIFICATION_ERR';
+      break;
+    case FileError.INVALID_STATE_ERR:
+      msg = 'INVALID_STATE_ERR';
+      break;
+    default:
+      msg = 'Unknown Error';
+      break;
+  };
+
+  console.log('Error: ' + msg);
+};
+var file_index = 1;
+$('#directory-selector').change(function(e) {
+  file_index += 1;
+  $('#extras').append('<div class=\"extra_item thumbnail\"><a href=\"#\"><img src=\"img/sather_gate_' + file_index + '.jpg\"></a>date: <input type=\"text\" size=\"8\"></div>');
+});
+
+function tour_detail_loaded() {
+  // getting login name  
+  $('#save_or_publish').hide();
+  $('.hide_on_load').hide();
+
+  if (localStorage["name"]) {
+      $('#edit_or_not').show();
+  } else {
+      $('#edit_or_not').hide();
+  }
+
+  $('#edit_button').on('click', function() {
+    $('#save_or_publish').show();
+    $('#edit_or_not').hide();
+    $('#title_bar h5').hide();
+    $('.hide_on_load').show();
+    $('#title_bar textarea').val($('#title_bar h5').text());
+    $('#title_bar textarea').attr("cols", "100");
+  });
+
+  $('#save_or_publish').on('click', function(e) {
+    $('#save_or_publish').hide();
+    $('#edit_or_not').show();
+    $('.hide_on_load').hide();
+    $('#title_bar h5').show();
+    if(e.target.id !== $('#cancel_button').attr('id')) {
+      $('#title_bar h5').text($('#title_bar textarea').val());
+    }
+  });
+
+  $('#publish_button').on('click', function(e) {
+    $('#title_bar h1 small').hide();
+  });
+
+  $('.remove_a').on('click', removeFunction);
+
+  $('#add_story').on('click', function(e) {
+    $('#add_new_story-modal').modal('toggle');
+  });
+
+  $('#add_new_story_cancel').on('click', function (e) {
+    $('#add_new_story-modal').modal('toggle');
+  });
+  $('#add_new_story_save').on('click', function (e) {
+    $('#add_new_story-modal').modal('toggle');
+    var title = $('.new_story_container h4 input[type=text]').val();
+    $('#sather_gate').append(
+                '<div class=\"thumbnail\"> \
+                  <p>' + title + '</p> \
+                  <img src=\"img/sather_gate_' + file_index + '.jpg\"> \
+                  <small class=\"hide_on_load remove_a\"><a href=\"#\">Remove from Location</a></small> \
+                </div>');
+    $('#extras').children().eq(1).remove();
+    $('.new_story_container h4 input[type=text]').val('');
+    $('#new_story_tag h4 input[type=text]').val('');
+    $('.new_story_container textarea').val('');
+    $('.remove_a').on('click', removeFunction);
+  });
+}
+
+var removeFunction  = function (event) {
+  $(event.target.parentElement).animate({
+      opacity: 0.25
+      ,left: '+=50'
+      ,height: 'toggle'
+    }
+    , 500
+    , function() {
+      $(event.target.parentElement.parentElement).remove();
+  });
+  return false;
+};
+
+
+$('#addnewlocation').on('shown', function () {
+    //google.maps.event.addDomListener(window, "load", initialize_modal);
+    //initialize_modal();
+    google.maps.event.trigger(map_modal, "resize");
+});
+
+$('#mapModalLink').on('click', function () {
+    $("#addnewlocation").show();
     google.maps.event.trigger(map_modal, 'resize');
 });
 
 
+$('#saveLocationButton').on('click', function(event) {
+    /*<div class="thumbnail">
+        <h4>Hearst Greek Theatre</h4>
+        <p class="text-right hide_on_load">
+            <a href="#" class="remove_a">remove from tour</a>
+        </p>
+    </div>*/
+    var bounds = new google.maps.LatLngBounds();
+    markers.push(marker);
 
+    for (var i = 0, temp_marker; temp_marker = markers[i]; i++) {
+        markers_overview[i] = new google.maps.Marker({
+            map: map_canvas,
+            position: markers[i].position,
+        });
+        bounds.extend(markers[i].position);
 
+    }
+    map_canvas.fitBounds(bounds);
 
+    //markers[0].position.ob+markers[0].position.pb
+    //marker.position.ob+marker.position.pb
+    $("#locationlist").append("<div class=\"thumbnail\"><h4>"+$("#locationReferenceName").val()+"</h4><p class=\"text-right hide_on_load\"><a href=\"#\" class=\"remove_a\">remove from tour</a></p></div>")
+    $('#addnewlocation').modal('hide');
+});
 
+$('#searchstorytab').click(function (e) {
+    e.preventDefault();
+    $(this).tab('show');
+});
 
+$('#addnewstorytab').click(function (e) {
+    e.preventDefault();
+    $(this).tab('show');
+});
 
 
 

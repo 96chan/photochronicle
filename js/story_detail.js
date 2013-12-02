@@ -17,10 +17,8 @@ $(document).ready(function() {
 	$(".like-btn").on("click", function(){
 		var likeCount = $(this).next(".like-count");
 		var storyNum = $(this).attr("for");
-		
 		storyLikes[storyNum] = storyLikes[storyNum]+ 1;
 		likeCount.html(storyLikes[storyNum]);
-
 	});
 
 	//Make Private flag checkable
@@ -143,3 +141,14 @@ function showLargeImg(){
 		$(".large-img").children("img").attr("src", path);
 	});
 }
+$('#form-signin').submit(function(){
+    if($('#input-name').val().length==0 || $('#input-password').val().length==0){
+    }else{
+	     $("#edit-story").show();
+    }
+    return false;
+});
+// Clicking Sign Out
+$('#signout').click(function(){
+     $("#edit-story").hide();
+});
