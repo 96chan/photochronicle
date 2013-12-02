@@ -304,6 +304,9 @@ function tour_detail_loaded() {
   });
 
   $('.remove_a').on('click', removeFunction);
+  $('#add_story').on('click', function(e) {
+    $('#add_new_story-modal').modal('toggle');
+  });
 }
 
 var removeFunction  = function (event) {

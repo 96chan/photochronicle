@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>    
     <link rel='stylesheet' id='css-template' type='text/css' href='css/style.css' />
+    <link rel="stylesheet" type='text/css' href="css/bootstrap-switch.css">
+    <link rel="stylesheet" type='text/css' href="css/bootstrap-wysihtml5.css">
     <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=visualization"></script>
     <script src="js/custom.modernizr.js"></script>
     <script src="js/holder.js"></script>
@@ -159,7 +161,7 @@
               </div>
               <div class="thumbnail">
                 <h4>Sather Gate
-                  <div class="no_break_float_right hide_on_load"><small><a href="#">add stories</a></small></div>
+                  <div class="no_break_float_right hide_on_load"><small><a href="#" id="add_story">add stories</a></small></div>
                 </h4>
                 <div class="thumbnail">
                   <p>Free speech at Sather Gate</p>
@@ -195,6 +197,58 @@
             </div>
           </div>
 
+          <div class="add_new_storyModel-content modal fade" id="add_new_story-modal" tabindex="-1" role="dialog" aria-labelledby="add_new_storyModelLabel" aria-hidden="true">
+              <div class="add_new_storyModel-content add_new_storyModel modal-dialog">
+               <div class="add_new_storyModel-content modal-content">
+                   
+                  <div class="panel panel-default">
+      <div class="panel-body">
+        <h1>Create a New Story!</h1>
+        
+        <div class="container new_story_container">
+
+          <h4>Title: <input type="text" size="60"></h4>
+
+          <div class="panel panel-default">
+              <p>Add photos, audio/video files</p>
+            <div id="extras" class="panel-body text-left">
+
+              <div class="extra_item thumbnail">
+                <a href="#">
+                  <label id="dir-btn" for="directory-selector" class="btn btn-default btn-lg"><br><span class="glyphicon glyphicon-plus-sign"></span><input type="file" id="directory-selector" name="directory[]"  accept="image/jpeg,image/gif,image/png,audio/mpeg,video/mpeg,video/mp4,video/quicktime" /></label>
+                    
+                </a>
+                date: <input type="text" size="8">
+              </div>
+
+            </div>
+        </div>
+
+        <textarea id="story_desc" placeholder="Enter text ..." rows="8"></textarea>
+
+          <div id="new_story_tag">
+            <h4>Tags <input type="text" size="30" placeholder="separate with comma"> &nbsp;&nbsp;&nbsp;
+              Private 
+              <span class="make-switch">
+                <input type="checkbox" unchecked>
+            </span>
+          </h4>
+          </div>
+
+      </div>
+      
+      </div>
+      <div class="panel-footer text-right">
+        <a href="#" class="btn btn-default" role="button">Cancel</a>
+        <a href="#" class="btn btn-primary" role="button">Save</a>
+      </div>
+  </div>
+
+
+                </div><!-- /.modal-content -->
+              </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+
           <!--div class="col-sm-6 col-md-4">
             <div class="thumbnail">
               <img data-src="holder.js/300x200" alt="...">
@@ -215,6 +269,9 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-wysihtml5.js"></script>
+    <script src="js/bootstrap-switch.min.js"></script>
+    <script src="js/wysihtml5-0.3.0.min.js"></script>
     <script src="js/script.js"></script>
 <!-- End Footer -->
 </body>
