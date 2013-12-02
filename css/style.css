@@ -331,6 +331,11 @@ input[type=file] {
     width: 0px;
 }
 
+#add_new_story-modal{left:20em;}
+/*.add_new_storyModel{height:480px;}*/
+.add_new_storyModel-content{ width:48em;}
+
+
 /************************************************
  jooddang ends adding here...
  ************************************************/
