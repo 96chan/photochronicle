@@ -67,6 +67,7 @@ $(document).ready(function() {
 		$(".edit-rights").hide();
 		$("#edit-story").show();
 		$("#draft").hide();
+		$(".remove-small-img").hide();
 	});
 
 	$("#publish-story").on("click", function(){
@@ -79,6 +80,7 @@ $(document).ready(function() {
 		$(".edit-rights").hide();
 		$("#edit-story").show();
 		$("#draft").hide();
+		$(".remove-small-img").hide();
 	});
 	// end code for editing rights
 
