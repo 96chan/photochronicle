@@ -116,5 +116,22 @@ $(document).ready(function() {
 		$(this).parent().hide();
 	});
 
+//add photo model actions
+	$('#add-img').on('click', function(e) {
+    	$('#add_new_photo-modal').modal('toggle');
+ 	});
+
+	$('#add_new_photo_cancel').on('click', function (e) {
+	    $('#add_new_photo-modal').modal('toggle');
+	});
+	
+	$('#add_new_photo_save').on('click', function (e) {
+	    $('#add_new_photo-modal').modal('toggle');
+	    // var title = $('.new_story_container h4 input[type=text]').val();
+	    
+
+	    $('#extras').children().eq(1).remove();
+	    $('.new_photo_container textarea').val('');
+	});
 	
 });

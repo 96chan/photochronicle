@@ -96,7 +96,23 @@ nav{}
 
 #story-sort-bar li{display: inline-block; }
 
+.new_photo_container {
+    width: 43em;
+}
+
+.new_photo_container .panel p {
+    margin-left: 1em;
+    margin-top: 1em;
+}
+
+textarea#photo_desc {
+    width: 100%;
+}
+
+#add_new_photo-modal{left:20em;}
+.add_new_photoModel-content{ width:48em;}
 /* end Wendy's experiemntal css.*/
+
 /* "card" class */
 .card {border-style: solid; border-width: 1px; border-color: #d9d9d9; margin-bottom: 1.25em; padding: 1.25em; background: #ffffff; }
 .card > :first-child {margin-top: 0; }

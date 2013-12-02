@@ -142,6 +142,40 @@
         <span class="glyphicon glyphicon-plus-sign"></span> Add Photos</a></h3>
      </div>
     </div>
+    <!-- model to add photos -->
+        <div class="add_new_photoModel-content modal fade" id="add_new_photo-modal" tabindex="-1" role="dialog" aria-labelledby="add_new_photoModelLabel" aria-hidden="true">
+              <div class="add_new_photoModel-content add_new_photoModel modal-dialog">
+               <div class="add_new_photoModel-content modal-content">
+                   
+                  <div class="panel panel-default">
+                    <div class="panel-body">
+                      <h1>Add New Photos to Sather Gate</h1>
+                      
+                      <div class="container new_photo_container">
+                        <div class="panel panel-default">
+                            <p>Upload photos</p>
+                          <div id="extras" class="panel-body text-left">
+                            <div class="extra_item thumbnail">
+                              <a href="#">
+                                <label id="dir-btn" for="directory-selector" class="btn btn-default btn-lg"><br><span class="glyphicon glyphicon-plus-sign"></span><input type="file" id="directory-selector" name="directory[]"  accept="image/jpeg,image/gif,image/png,audio/mpeg,video/mpeg,video/mp4,video/quicktime" /></label>
+                              </a>
+                              Year: <input type="text" size="8">
+                            </div>
+                          </div>
+                      </div>
+
+                      <textarea id="photo_desc" placeholder="Enter description ..." rows="2"></textarea>
+                    </div>
+                    </div>
+                    <div class="panel-footer text-right">
+                      <a href="#" class="btn btn-default" id="add_new_photo_cancel" role="button">Cancel</a>
+                      <a href="#" class="btn btn-primary" id="add_new_photo_save" role="button">Save</a>
+                    </div>
+                  </div>
+                </div><!-- /.modal-content -->
+              </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+
         <!-- Other Contents -->
 		<div class="story-detail-div">
 			<div class="row">
