@@ -11,22 +11,7 @@ $(document).ready(function() {
  	$("#draft").hide();
  	$(".remove-small-img").hide();
 
- 	//Display enlarged image when click on small image on timeline
-	// $(".timeline > .event").on("click", function(){
-		$(".small-img").on("click", function(){
-		// var path = $(this).children("img").attr("src");
-		var path = $(this).attr("src");
-		var canDel = $(this).next(".remove-small-img").length;
-		console.log(canDel);
-		var user = "Anonymous";
-		if (canDel){
-			if (localStorage["name"]){
-				user = localStorage["name"];
-			}
-		}
-		$(".large-img").find(".img-creator").html("Added by: "+user + "<span class='glyphicon glyphicon-user'> </span>");
-		$(".large-img").children("img").attr("src", path);
-	});
+ 	showLargeImg();
 
 	//increase Like counts
 	$(".like-btn").on("click", function(){
@@ -128,10 +113,31 @@ $(document).ready(function() {
 	$('#add_new_photo_save').on('click', function (e) {
 	    $('#add_new_photo-modal').modal('toggle');
 	    // var title = $('.new_story_container h4 input[type=text]').val();
-	    
 
 	    $('#extras').children().eq(1).remove();
 	    $('.new_photo_container textarea').val('');
+
+	    $("#year2010").before("<li class='event'><img src='img/sather_gate_15.jpg' class='small-img'/></li>");
+	    showLargeImg();
 	});
 	
 });
+
+function showLargeImg(){
+	//Display enlarged image when click on small image on timeline
+	// $(".timeline > .event").on("click", function(){
+		$(".small-img").on("click", function(){
+		// var path = $(this).children("img").attr("src");
+		var path = $(this).attr("src");
+		var canDel = $(this).next(".remove-small-img").length;
+		console.log(canDel);
+		var user = "Anonymous";
+		if (canDel){
+			if (localStorage["name"]){
+				user = localStorage["name"];
+			}
+		}
+		$(".large-img").find(".img-creator").html("Added by: "+user + "<span class='glyphicon glyphicon-user'> </span>");
+		$(".large-img").children("img").attr("src", path);
+	});
+}
