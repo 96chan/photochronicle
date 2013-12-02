@@ -308,6 +308,13 @@ function tour_detail_loaded() {
   $('#add_story').on('click', function(e) {
     $('#add_new_story-modal').modal('toggle');
   });
+
+  $('#add_new_story_cancel').on('click', function (e) {
+    $('#add_new_story-modal').modal('toggle');
+  });
+  $('#add_new_story_save').on('click', function (e) {
+    $('#add_new_story-modal').modal('toggle');
+  });
 }
 
 var removeFunction  = function (event) {
