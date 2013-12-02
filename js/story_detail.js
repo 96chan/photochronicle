@@ -9,14 +9,26 @@ $(document).ready(function() {
 	$("#story-desc-form").hide();
  	$(".edit-rights").hide();
  	$("#draft").hide();
+ 	$(".remove-small-img").hide();
 
-	$(".timeline > .event").on("click", function(){
-		var path = $(this).children("img").attr("src");
-		console.log(path);
-		 console.log($(".large-img").children("img").attr("src"));
+ 	//Display enlarged image when click on small image on timeline
+	// $(".timeline > .event").on("click", function(){
+		$(".small-img").on("click", function(){
+		// var path = $(this).children("img").attr("src");
+		var path = $(this).attr("src");
+		var canDel = $(this).next(".remove-small-img").length;
+		console.log(canDel);
+		var user = "Anonymous";
+		if (canDel){
+			if (localStorage["name"]){
+				user = localStorage["name"];
+			}
+		}
+		$(".large-img").find(".img-creator").html("Added by: "+user + "<span class='glyphicon glyphicon-user'> </span>");
 		$(".large-img").children("img").attr("src", path);
 	});
 
+	//increase Like counts
 	$(".like-btn").on("click", function(){
 		var likeCount = $(this).next(".like-count");
 		var storyNum = $(this).attr("for");
@@ -26,6 +38,7 @@ $(document).ready(function() {
 
 	});
 
+	//Make Private flag checkable
 	$("#check-private").on("click", function(){
 		if($(this).children("span").hasClass("glyphicon-unchecked")){
 			$(this).children("span").removeClass("glyphicon-unchecked");
@@ -37,6 +50,8 @@ $(document).ready(function() {
 		}
 	});
 
+	//Click on Edit button to display user's editing rights, 
+	//including: save as draft, private button, cancel and add photos. Show draft indicator next to story title
 	$("#edit-story").on("click", function(){
 		var desc = $("#story-desc").children("p").html();
 		$("#story-desc-form").children("textarea").val(desc);
@@ -45,6 +60,7 @@ $(document).ready(function() {
 		$(".edit-rights").show();
 		$("#edit-story").hide();
 		$("#draft").show();
+		$(".remove-small-img").show();
 	});
 
 	$("#story-edit-save-btn").on("click", function(e){
@@ -79,12 +95,26 @@ $(document).ready(function() {
 		$("#edit-story").show();
 		$("#draft").hide();
 	});
+	// end code for editing rights
 
+	//only show edit button if user has logged in
 	if (localStorage["name"]) {
      $("#edit-story").show();
 	}
 	else{
 	      $("#edit-story").hide();   
 	}
+
+	//Delet an image from the photo timeline
+	$(".remove-small-img").on("click", function(){
+		var path = $(".large-img").children("img").attr("src");
+		if (path == $(this).prev("img").attr("src")){
+			var nextimg = $(this).parent().next("li.event");
+			var newpath = nextimg.children("img").attr("src");
+			$(".large-img").children("img").attr("src", newpath);
+		}
+		$(this).parent().hide();
+	});
+
 	
 });
