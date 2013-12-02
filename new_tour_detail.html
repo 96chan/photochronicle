@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <title>Photo Chronicle</title>    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">    
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="">
+    <link rel='stylesheet' id='css-template' type='text/css' href='css/normalize.css' />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel='stylesheet' id='css-template' type='text/css' href='css/font-awesome.css'/>
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' id='css-template' type='text/css' href='css/style_new_content.css' />
+    <link rel='stylesheet' id='css-template' type='text/css' href='css/style.css' />
+    <link rel="stylesheet" type='text/css' href="css/bootstrap-switch.css">
+    <link rel="stylesheet" type='text/css' href="css/bootstrap-wysihtml5.css">
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=visualization"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+    <script src="js/custom.modernizr.js"></script>
+    <script src="js/holder.js"></script>
+</head>
+<body onLoad="tour_detail_loaded()">
+    <!-- nav -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-camera"></span>&nbsp;Photo Chronicle</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li id="nav-explore" class="selected"><a href="index">Explore</a></li>
+            <li id="nav-view-tours" ><a href="#tour">View Tours</a></li>
+            <li id="nav-my-page" class="invisible"><a href="mytour">My Page</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li data-toggle="modal" data-target="#signin-modal"><a id="signin" href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;Sign In</a></li>
+            <li><a id="after-signin" href="#"></a></li>
+            <li><a id="signout" href="#">Sign Out</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Modal -->
+    <div class="modal fade" id="signin-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="signin modal-dialog">
+       <div class="signin signin-content modal-content">
+           <div class="signin-header modal-header">
+              Sign In to Photo Chronicle
+           </div>
+           <div class="signin modal-body">
+            <form id="form-signin" role="form" method="post">
+              <div id="form-group-input-name" class="form-group">
+                <label for="input-name">Username</label>
+                <input type="text" class="form-control stored" id="input-name" placeholder="Enter Username">
+              </div>
+              <div class="form-group">
+                <label for="input-password">Password</label>
+                <input type="password" class="form-control stored" id="input-password" placeholder="Password">
+              </div>
+              <div id="modal-button-group">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary">Sign In</button>
+              </div>
+            </form>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <!-- end nav -->
+
+    <!-- main contents -->
+    <div id="content">
+      <div class="container">
+
+      <div class="row" id="title_bar">
+          <div class="col-md-8">
+            <h1>Pizza tour in the East Bay<small>draft</small></h1>
+            <h5>Take a stroll in the most delicious pizza places of the East Bay</h5>
+            <textarea col="80" rows="4" class="hide_on_load"></textarea>
+          </div>
+          
+          <div class="col-sm-6 col-md-4 text-right" id="save_area">
+
+            <div class="btn-group" id="edit_or_not">
+              <a role="button" class="btn btn-default" id="edit_button">
+                <span class="glyphicon glyphicon-edit"></span>Edit</a>
+            </div>
+            <div class="btn-group" id="save_or_publish">
+              <a role="button" class="btn btn-default" id="cancel_button">
+                Cancel</a>
+              <a role="button" class="btn btn-default">
+                Save as a draft</a>
+              <a role="button" class="btn btn-primary" id="publish_button">
+                Publish</a>
+            </div>
+          </div>
+      </div>
+
+        <!-- Other Contents -->
+        <div class="row">
+
+          <!-- Map -->
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <div class="caption">
+                <h3>Map Overview</h3>
+              </div>
+              <div id="tour-map-canvas"></div>
+            </div>
+          </div>
+
+          <!-- Location List -->
+          <div class="col-sm-4 col-md-3">
+
+            <div id="locationlist" class="thumbnail">
+              <div class="caption">
+                <h3>Location List <div class="no_break_float_right hide_on_load">
+                    <small>
+                        <a href="#" onclick="$('#addnewlocation').modal('show');" id="mapModalLink"><i class="fa fa-plus-circle"></i> add a new location</a>
+                    </small></div>
+                </h3>
+               <br>
+              </div>
+
+
+              <div class="thumbnail">
+                <h4>Cheese Board</h4>
+                <p class="text-right hide_on_load">
+                  <!--a href="#">edit</a-->
+                  <!--a href="#">choose a color</a-->
+                  <a href="#" class="remove_a">remove from tour</a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tour stories -->
+          <div class="col-sm-8 col-md-5">
+
+            <div class="thumbnail"  >
+
+              <div class="caption">
+                <h3>Tour Stories</h3>
+              </div>
+              <div style="height:700px; overflow:scroll;" id="tourstorieslist">
+
+              <div class="thumbnail" style="background-color:#dddddd">
+                <h4>Cheese Board
+                  <div class="no_break_float_right hide_on_load"><small><a href="#" onclick="$('#addStoryModal').modal('show');" id="mapModalLink"><i class="fa fa-plus-circle"></i> add stories</a></small></div>
+                </h4>
+                 No stories here yet! Please click on add stories...
+            </div>
+          </div>
+            </div>
+
+
+
+              <div class="modal fade" id="addnewlocation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                   aria-hidden="true">
+                  <div class="modal-dialog">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal"
+                                      aria-hidden="true">&times;</button>
+                              <h1 class="modal-title" id="myModalLabel">Add a new location to your tour!</h1>
+                          </div>
+                          <div class="modal-body">
+                              <h3>Choose a location:</h3>
+                              <div class="alert alert-info"><b>You can use the searchbox to find places, addresses or important locations, and then put pin by clicking on the map</b></div>
+                              <input id="mapsearchboxmodal" class="controls" type="text" placeholder="Search Box">
+                              <div id="new-location-map-modal"></div>
+                              <button id="searchbuttonmodal" class="searchbtn" type="button"><i class="fa fa-search"></i>&nbsp;Search</button>
+                              <h3>Set a reference name for this location:</h3>
+                              <input name="text" id="locationReferenceName" placeholder="type a name!" style = "width:100%">
+                          </div>
+
+                          <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                              <button id="saveLocationButton" type="button" class="btn btn-primary">Add Location to the tour!</button>
+                          </div>
+                      </div>
+                      <!-- /.modal-content -->
+                  </div>
+                  <!-- /.modal-dialog -->
+              </div>
+              <!-- /.modal -->
+
+
+
+            <div class="add_new_storyModel-content add_new_story-modal modal fade" id="addStoryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                 aria-hidden="true">
+                <div class="add_new_storyModel-content modal-dialog">
+                    <div class="add_new_storyModel-content modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"
+                                    aria-hidden="true">&times;</button>
+                            <h1 class="modal-title" id="myModalLabel">Add a stories to your tour!</h1>
+                        </div>
+                        <div class="modal-body">
+                            <ul  class="nav nav-tabs" id="addstoriestab">
+                                <li class="active"><a id="addnewstorytab" href="#addnewstory"><i class="fa fa-plus-circle"></i> Add a new story</a></li>
+                                <li><a id="searchstorytab" href="#searchstory"><i class="fa fa-search-plus"></i> Search for stories</a></li>
+
+                            </ul>
+                            <div id="myTabContent" class="tab-content">
+
+                                <div class="tab-pane active" id="addnewstory">
+                                    <div style:="inline;">
+                                        <h4>Title: <input type="text" size="60"></h4>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <p>Add photos, audio/video files</p>
+                                        <div id="extras" class="panel-body text-left">
+
+                                            <div class="extra_item thumbnail">
+                                                <a href="#">
+                                                    <label id="dir-btn" for="directory-selector" class="btn btn-default btn-lg"><br><span class="glyphicon glyphicon-plus-sign"></span><input type="file" id="directory-selector" name="directory[]"  accept="image/jpeg,image/gif,image/png,audio/mpeg,video/mpeg,video/mp4,video/quicktime" /></label>
+
+                                                </a>
+                                                Year: <input type="text" size="8">
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <textarea id="story_desc" placeholder="Enter text ..." rows="8"></textarea>
+
+                                    <div id="new_story_tag">
+                                        <h4>Tags <input type="text" size="30" placeholder="separate with comma"> &nbsp;&nbsp;&nbsp;
+                                            Private
+                                        <span class="make-switch">
+                                            <input type="checkbox" unchecked>
+                                        </span>
+                                        </h4>
+                                    </div>
+                                    <hr>
+                                    <div style="width:100%;text-align:right">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>&nbsp
+                                        <button id="saveNewStoryButton" type="button" class="btn btn-primary">Save and Add to Location</button>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade in" id="searchstory">
+                                    <div class="left-sector">
+                                        <div style="display:inline-block;">
+                                            <input class="controls" type="text" placeholder="Search for stories">
+                                            <button class="searchbtn" type="button"><i class="fa fa-search"></i>&nbsp;Search</button>
+                                        </div>
+                                        <br>
+                                        <br>
+                                        <div  class="searchpane">
+                                            <div class="box">
+                                                <h4 style="text-align:left">Pizzaiolo</h4>
+                                                <img  src="img/sather_gate_11.jpg" alt="First slide">
+                                                <br>
+                                                <p>Pizzaiolo founder Charlie Hallowell was raised in suburban Connecticut on a modest diet of TV dinners and Chef Boyardee. As Pizzaiolo’s website explains, through some completely unexplainable, miraculous twist of fate, he found himself working in the Chez Panisse kitchen where for the first time he felt completely engaged and enlivened by his job, and the intellectual life that permeated the culture there.
+
+                                                    After eight years at Chez Panisse, Hallowell set out on his own, determined at his new pizzeria to make sure that about 98 percent of the time he would buy only locally grown, organic, seasonal meat and produce (the flour is organic flour and milled in Oakland), and from small farmers and ranchers he knows and trusts. Pizzaiolo changes the menu daily to reflect what they’re getting from their people, so it’s a bit harder to nail down a signature pie (they said the margherita is one of their most popular pies), but with ingredients like potato and pancetta, summer squash, shishito peppers, and chanterelles, and add-ons like housemade sausage, Calabrian peppers, and farm egg, you can be pretty sure any of the eight pies on the menu will feature interesting combinations.</p>
+                                            </div>
+
+                                            <div class="box">
+                                                <h4 style="text-align:left">The Sather Gate in Winter</h4>
+                                                <img  src="img/sather_gate_2.jpg" alt="First slide">
+                                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,sed diam nonummy nibh euismod tincidunt ut laoreet
+                                                    dolore magna aliquam erat volutpat.</p>
+                                            </div>
+
+                                            <div class="box">
+                                                <h4 style="text-align:left">The free speech gate</h4>
+                                                <img  src="img/sather_gate_3.jpg" alt="First slide">
+                                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,sed diam nonummy nibh euismod tincidunt ut laoreet
+                                                    dolore magna aliquam erat volutpat.</p>
+                                            </div>
+
+                                            <div class="box">
+                                                <h4 style="text-align:left">Welcome to UC Berkeley</h4>
+                                                <img  src="img/sather_gate_4.jpg" alt="First slide">
+                                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,sed diam nonummy nibh euismod tincidunt ut laoreet
+                                                    dolore magna aliquam erat volutpat.</p>
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+                                    <div class="right-sector">
+                                        <br>
+                                        <h4>Story Preview</h4>
+                                        <hr>
+                                        <h2>Strikes at Sather Gate<h2>
+                                            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                                                <!-- Indicators -->
+                                                <ol class="carousel-indicators">
+                                                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                                                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                                                </ol>
+                                                <div class="carousel-inner">
+                                                    <div class="item active">
+                                                        <img  src="img/sather_gate_1.jpg" alt="First slide">
+                                                        <div class="container">
+                                                            <div class="carousel-caption">
+                                                                <p>Sather gate, 1560</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="item">
+                                                        <img src="img/sather_gate_11.jpg" alt="Second slide">
+                                                        <div class="container">
+                                                            <div class="carousel-caption">
+                                                                <p>Sather gate, 2012.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="item">
+                                                        <img src="img/sather_gate_12.jpg" alt="Third slide">
+                                                        <div class="container">
+                                                            <div class="carousel-caption">
+                                                                <p>Sather gate, 2012.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+                                                <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+                                            </div>
+                                            <h4>Description</h4>
+                                            <h5>Pizzaiolo founder Charlie Hallowell was raised in suburban Connecticut on a modest diet of TV dinners and Chef Boyardee. As Pizzaiolo’s website explains, through some completely unexplainable, miraculous twist of fate, he found himself working in the Chez Panisse kitchen where for the first time he felt completely engaged and enlivened by his job, and the intellectual life that permeated the culture there.
+
+                                                After eight years at Chez Panisse, Hallowell set out on his own, determined at his new pizzeria to make sure that about 98 percent of the time he would buy only locally grown, organic, seasonal meat and produce (the flour is organic flour and milled in Oakland), and from small farmers and ranchers he knows and trusts. Pizzaiolo changes the menu daily to reflect what they’re getting from their people, so it’s a bit harder to nail down a signature pie (they said the margherita is one of their most popular pies), but with ingredients like potato and pancetta, summer squash, shishito peppers, and chanterelles, and add-ons like housemade sausage, Calabrian peppers, and farm egg, you can be pretty sure any of the eight pies on the menu will feature interesting combinations</h5>
+                                            <h4>Tags</h4>Sather, UC Berkeley, University,Gate</p>
+                                            <div style="width:100%;text-align:right">
+                                                <b>Status:</b> Private
+                                            </div>
+                                            <hr>
+                                            <div style="width:100%;text-align:right">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>&nbsp
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Edit</button>&nbsp
+                                                <button id="saveNewStoryButton" type="button" class="btn btn-primary" onclick="$('#hidden_story').show();$('#addStoryModal').modal('hide');">Save and Add to Location</button>
+                                            </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+
+
+
+
+          <!--div class="add_new_storyModel-content modal fade" id="add_new_story-modal" tabindex="-1" role="dialog" aria-labelledby="add_new_storyModelLabel" aria-hidden="true">
+              <div class="add_new_storyModel-content add_new_storyModel modal-dialog">
+               <div class="add_new_storyModel-content modal-content">
+                   
+                  <div class="panel panel-default">
+                    <div class="panel-body">
+                      <h1>Add a Story</h1>
+                      
+                      <div class="container new_story_container">
+
+                        <h4>Title: <input type="text" size="60"></h4>
+                        <h4>Location: Sather Gate</h4>
+
+                        <div class="panel panel-default">
+                            <p>Add photos, audio/video files</p>
+                          <div id="extras" class="panel-body text-left">
+
+                            <div class="extra_item thumbnail">
+                              <a href="#">
+                                <label id="dir-btn" for="directory-selector" class="btn btn-default btn-lg"><br><span class="glyphicon glyphicon-plus-sign"></span><input type="file" id="directory-selector" name="directory[]"  accept="image/jpeg,image/gif,image/png,audio/mpeg,video/mpeg,video/mp4,video/quicktime" /></label>
+                                  
+                              </a>
+                              date: <input type="text" size="8">
+                            </div>
+
+                          </div>
+                      </div>
+
+                      <textarea id="story_desc" placeholder="Enter text ..." rows="8"></textarea>
+
+                        <div id="new_story_tag">
+                          <h4>Tags <input type="text" size="30" placeholder="separate with comma"> &nbsp;&nbsp;&nbsp;
+                            Private 
+                            <span class="make-switch">
+                              <input type="checkbox" unchecked>
+                          </span>
+                        </h4>
+                        </div>
+
+                    </div>
+                    
+                    </div>
+                    <div class="panel-footer text-right">
+                      <a href="#" class="btn btn-default" id="add_new_story_cancel" role="button">Cancel</a>
+                      <a href="#" class="btn btn-primary" id="add_new_story_save" role="button">Save</a>
+                    </div>
+                  </div>
+
+
+                </div><!-- /.modal-content -->
+              <!-- </div>/.modal-dialog -->
+            <!--</div> /.modal -->
+
+          <!--div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <img data-src="holder.js/300x200" alt="...">
+              <div class="caption">
+                <h3>Thumbnail label</h3>
+                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+              </div>
+            </div>
+          </div-->                  
+        </div><!-- end row -->
+      </div> 
+    </div>
+    <!-- end main contents -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-wysihtml5.js"></script>
+    <script src="js/bootstrap-switch.min.js"></script>
+    <script src="js/wysihtml5-0.3.0.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/tab.js"></script>
+    <script src="js/script_new_content.js"></script>
+<!-- End Footer -->
+</body>
+</html>
