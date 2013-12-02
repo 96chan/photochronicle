@@ -326,7 +326,7 @@ function tour_detail_loaded() {
     $('#extras').children().eq(1).remove();
     $('.new_story_container h4 input[type=text]').val('');
     $('#new_story_tag h4 input[type=text]').val('');
-    $('.new_story_container textarea').text('');
+    $('.new_story_container textarea').val('');
     $('.remove_a').on('click', removeFunction);
   });
 }
