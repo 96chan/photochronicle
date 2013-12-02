@@ -337,7 +337,7 @@ input[type=file] {
  ************************************************/
 
 
-.modal-dialog, .modal-content {width: 100%; }
+.modal-dialog, .modal-content {width: 80%; }
 .modal p {color: #808080; }
 
 .left-sector {width: 48%; float: left; }
