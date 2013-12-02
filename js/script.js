@@ -208,7 +208,7 @@ function errorHandler(e) {
 
   console.log('Error: ' + msg);
 };
-var file_index = 1;
+var file_index = 2;
 $('#directory-selector').change(function(e) {
   $('#extras').append('<div class=\"extra_item thumbnail\"><a href=\"#\"><img src=\"img/sather_gate_' + file_index + '.jpg\"></a>date: <input type=\"text\" size=\"8\"></div>');
   file_index += 1;
@@ -277,6 +277,7 @@ function tour_detail_loaded() {
   $('.hide_on_load').hide();
 
   if (localStorage["name"]) {
+      $('#edit_or_not').show();
   } else {
       $('#edit_or_not').hide();
   }
@@ -314,6 +315,13 @@ function tour_detail_loaded() {
   });
   $('#add_new_story_save').on('click', function (e) {
     $('#add_new_story-modal').modal('toggle');
+    var title = $('.new_story_container h4 input[type=text]');
+    $('#sather_gate').append(
+                '<div class=\"thumbnail\"> \
+                  <p>' + title + '</p> \
+                  <img src=\"img/sather_tower_' + file_index + '.jpg\"> \
+                  <small class=\"hide_on_load\"><a href=\"#\">Remove from Location</a></small> \
+                </div>');
   });
 }
 
