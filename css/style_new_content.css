@@ -1,0 +1,404 @@
+/*
+*** MAIN COLOR
+http://www.colourlovers.com/palette/600798/(_t_r_a_v_e_l_e_r_)
+ECF0D6 236,240,214
+DDE4B5 221,228,181
+93AEA6 147,174,166
+5E677A 94,103,122
+5B585A 91,88,90
+
+*** Glyphicons
+http://getbootstrap.com/components/#glyphicons
+
+*** Place holder image
+http://imsky.github.io/holder/
+
+*** Bootstrap Docs
+http://getbootstrap.com/css/
+
+*** Jquery-thumbnail-scroller plugin
+http://manos.malihu.gr/jquery-thumbnail-scroller/
+All files (css, js) are downloaded to jquery_thumbnail_scroller folder
+
+*** Timeline style sheet
+http://christian-fei.com/simple-vertical-timeline-with-css/
+timeline.css
+*/
+
+body{font-family: 'Roboto', sans-serif; }
+nav{}
+#content{margin-top:70px; display:block; }
+
+/* Navigation*/
+.navbar-default{background: #ECF0D6; }
+.navbar-default .navbar-brand, .navbar-default .navbar-nav>li>a{color:#5E677A; }
+.navbar-default{border-bottom:#DDE4B5 solid 8px; }
+
+/* Map */
+#map-canvas{height:500px; margin:2em auto; }
+#map-canvas img {max-width: none; }
+#map-modal img {max-width: none; }
+/* Map Search*/
+.searchbtn {margin-top: 16px; border: 1px solid transparent; border-radius: 0; box-sizing: border-box; -moz-box-sizing: border-box; height: 32px; outline: none;}
+#searchbutton{background-color:#93AEA6; color:#fff;width:30px;padding-top:7px;text-align: center;}
+#mapsearch-form-canvas {background-color: #fff; padding: 0 11px 0 13px; width: 40%; font-size: 15px; font-weight: 300; text-overflow: ellipsis; }
+#mapsearch-form-canvas:focus {border-color: #4d90fe; margin-left: -1px; padding-left: 14px;}
+.controls {margin-top: 16px; border: 1px solid transparent; border-radius: 0px; box-sizing: border-box; -moz-box-sizing: border-box; height: 32px; outline: none;}
+
+
+
+
+.story-division{margin-top:5px; }
+.filter-bar{margin-bottom: 5px; margin-top: 5px; padding-top: 5px; padding-bottom: 5px; /*background: #ECF0D6;*/ }
+.tags{color:#5E677A; margin-left: 10px; }
+.thumbdown{margin-left: 10px; }
+.tag-list li {display: inline; }
+.tour-map{height:200px; width: 300px; }
+.timeinfo{margin-left: 10px; }
+.distanceinfo{margin-left: 10px; }
+.story-descriptions{margin-bottom: 5px; margin-top: 5px; margin-left: auto; margin-right: auto; background-color: #eee; }
+
+/*extend bootstrap thumbnail css*/
+
+.thumbnail>a>img{
+	display:block;
+	height:auto;
+	max-width:100%;
+	margin-right:auto;
+	margin-left:auto;
+}
+
+.thumbnail>a{
+	text-decoration: none;
+}
+
+/* Wendy's experiemntal css.*/
+.large-img img{width: 100%; height: auto; max-width: 700px; max-height: 480px; margin-top: 25px; margin-left: auto; margin-right: auto; display:block; /*border:2px solid #DDE4B5;*/ box-shadow: 10px 10px 5px #888; }
+.small-img {width:117px; height:auto; border:2px solid #DDE4B5; }
+.year-scroll{height:500px; overflow-y: scroll; margin-top: 10px; margin-bottom: 10px; }
+.img-caption{width: 100%; text-align: center; }
+.img-creator{float: right; }
+
+#story-desc-form button{float: right; margin-left: 10px; margin-top: 5px; margin-bottom: 5px; }
+.img-caption{margin-top: 10px; /*background-color: #eee;*/ }
+.tour-map-canvas{height:300px; width: auto; /*margin:2em auto;*/}
+
+#tour-grid{padding-left: 0px; }
+#tour-grid li{width: 360px; height: auto; /*border: 2px solid #DDE4B5;*/ margin-left: 10px; margin-right: 10px; /*display: inline-block;*/ }
+
+#tour-grid .mix{opacity: 0; display: none; }
+
+#tour-sort-bar li{display: inline-block; }
+#story-filter-bar{display: block;}
+#story-filter-bar div{display: inline-block; }
+#story-grid .mix{opacity: 0; display: none; }
+#story-grid li{width: 30%; height: auto; /*border: 2px solid #DDE4B5;*/ margin-left: 10px; margin-right: 10px; /*display: inline-block;*/ vertical-align: top; }
+
+#story-sort-bar li{display: inline-block; }
+
+/* end Wendy's experiemntal css.*/
+/* "card" class */
+.card {border-style: solid; border-width: 1px; border-color: #d9d9d9; margin-bottom: 1.25em; padding: 1.25em; background: #ffffff; }
+.card > :first-child {margin-top: 0; }
+.card > :last-child {margin-bottom: 0;}
+.card h1, .card h2, .card h3, .card h4, .card h5, .card h6 {color: #333333; }
+.card p {color: #808080; }
+.card h1, .card h2, .card h3, .card h4, .card h5, .card h6 {line-height: 1; margin-bottom: 0.625em; }
+.card h1.subheader, .card h2.subheader, .card h3.subheader, .card h4.subheader, .card h5.subheader, .card h6.subheader {line-height: 1.4; }
+.card.callout {border-style: solid; border-width: 1px; border-color: #2284a1; margin-bottom: 1.25em; padding: 1.25em; background: #2ba6cb; -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset; box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset; }
+.card.callout > :first-child {margin-top: 0; }
+.card.callout > :last-child {margin-bottom: 0; }
+.card.callout h1, .card.callout h2, .card.callout h3, .card.callout h4, .card.callout h5, .card.callout h6, .card.callout p {color: white; }
+.card.callout h1, .card.callout h2, .card.callout h3, .card.callout h4, .card.callout h5, .card.callout h6 {line-height: 1; margin-bottom: 0.625em; }
+.card.callout h1.subheader, .card.callout h2.subheader, .card.callout h3.subheader, .card.callout h4.subheader, .card.callout h5.subheader, .card.callout h6.subheader {line-height: 1.4; }
+.card.callout a {color: white; }
+.card.radius {-webkit-border-radius: 3px; border-radius: 3px; }
+.card img {max-width: 100%; height: auto; }
+
+/* modal styles */
+.modal-dialog, .modal-content {
+    width: 100%;
+}
+
+.modal p {
+    color: #808080;
+}
+
+.left-sector {
+    width: 48%;
+    float: left;
+}
+
+.right-sector {
+    margin-left: 52%;
+}
+
+.separator h1 {
+    color: red;
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+#mapModal {
+    height: 500px;
+    margin: 2em auto;
+}
+
+#mapModal img {
+    max-width: none;
+}
+
+.pac-container {
+    z-index: 1050 !important;
+}
+
+img,
+object,
+embed {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* Chan */
+#signin-modal{
+	position:absolute;
+	top:20%;
+}
+#modal-button-group{
+	float:right;
+}
+.signin-content{
+	height:280px;
+}
+.signin{
+	width:400px;
+}
+.signin-header{
+
+}
+
+
+.controls {
+    margin-top: 16px;
+    border: 1px solid transparent;
+    border-radius: 2px 0 0 2px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    height: 32px;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+.searchbtn {
+    margin-top: 16px;
+    border: 1px solid transparent;
+    border-radius: 2px 0 0 2px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    height: 32px;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    margin-right: 13px;
+
+}
+
+#pac-input {
+    background-color: #fff;
+    padding: 0 11px 0 13px;
+    width: 80%;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    text-overflow: ellipsis
+}
+
+#pac-input:focus {
+    border-color: #4d90fe;
+    margin-left: -1px;
+    padding-left: 14px;  /* Regular padding-left + 1. */
+    width: 700px;
+}
+
+#mapsearch-form-canvas {
+    background-color: #fff;
+    padding: 0 11px 0 13px;
+    width: 75%;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    text-overflow: ellipsis;
+}
+
+#mapsearch-form-canvas:focus {
+    border-color: #4d90fe;
+    margin-left: -1px;
+    padding-left: 14px;  /* Regular padding-left + 1. */
+    width: 75%;
+}
+
+
+.pac-container {
+    font-family: Roboto;
+    z-index: 1050 !important;
+}
+
+#type-selector {
+    color: #fff;
+    background-color: #4d90fe;
+    padding: 5px 11px 0px 11px;
+}
+
+#type-selector label {
+    font-family: Roboto;
+    font-size: 13px;
+    font-weight: 300;
+}
+
+
+/************************************************
+ jooddang starts adding here...
+ ************************************************/
+
+.no_break_float_right {
+    display: inline;
+    float: right;
+}
+
+.thumbnail p a {
+    margin-left: 0.5em;
+}
+
+#title_bar {
+    margin-bottom: 2em;
+}
+
+#save_area {
+    margin-top: 6em;
+}
+
+.new_story_container {
+    width: 43em;
+}
+
+.new_story_container .panel p {
+    margin-left: 1em;
+    margin-top: 1em;
+}
+
+.panel-body h1 {
+    text-align: center;
+}
+
+
+.extra_item {
+    width: 9em;
+    text-align: center;
+    height: 11em;
+    margin-left: 1em;
+    float: left;
+}
+
+.extra_item label {
+    margin-bottom: 1em;
+}
+
+.extra_item img {
+    margin-bottom: 1em;
+}
+
+.extra_item a:hover {
+    text-decoration: none;
+}
+
+#dir-btn {
+    height: 5em;
+    width: 5em;
+}
+
+.plus_box {
+    margin-top: 1em;
+    margin-left: 3em;
+    width: 4.5em;
+    text-align: center;
+}
+
+textarea#story_desc {
+    width: 100%;
+}
+
+
+input[type=file] {
+    width: 0px;
+}
+
+/************************************************
+ jooddang ends adding here...
+ ************************************************/
+
+
+.modal-dialog, .modal-content {width: 100%; }
+.modal p {color: #808080; }
+
+.left-sector {width: 48%; float: left; }
+.right-sector {margin-left: 52%; }
+.separator h1 {color: red; text-align: center; vertical-align: middle; }
+
+
+#mapModal {height: 500px; margin: 2em auto; }
+#mapModal img {max-width: none; }
+.pac-container {z-index: 1050 !important; }
+img, object, embed {max-width: 100%; height: auto; }
+#pac-input {background-color: #fff; padding: 0 11px 0 13px; width: 80%; font-family: Roboto; font-size: 15px; font-weight: 300; text-overflow: ellipsis }
+#pac-input:focus {border-color: #4d90fe; margin-left: -1px; padding-left: 14px;  /* Regular padding-left + 1. */ width: 700px; }
+.pac-container {font-family: Roboto; z-index: 1050 !important; }
+#type-selector {color: #fff; background-color: #4d90fe; padding: 5px 11px 0px 11px; }
+#type-selector label {font-family: Roboto; font-size: 13px; font-weight: 300; }
+
+/* Sign In*/
+#signin-modal{position:absolute; top:20%; }
+#modal-button-group{float:right; }
+.signin-content{height:280px; }
+.signin{width:400px; }
+
+/** Wendy add story model on location_stories.html **/
+#addStory-model{position:absolute; top:20%;}
+.addStoryModel{height:480px;}
+.addStoryModel-content{ width:480px; margin-left:30%;}
+
+/** end Wendy add story model on location_stories.html **/
+
+/* correcting map's display*/
+#tour-map-canvas{
+    height:400px;
+    margin:2em auto;
+}
+
+#tour-map-canvas img {
+    max-width: none;
+}
+#new-location-map-modal{
+    height:400px;
+    margin:2em auto;
+}
+
+#new-location-map-modal img {
+    max-width: none;
+}
+
+#mapsearchboxmodal {
+    background-color: #fff;
+    padding: 0 11px 0 13px;
+    width: 80%;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    text-overflow: ellipsis
+}
+
+#mapsearchboxmodal:focus {
+    border-color: #4d90fe;
+    margin-left: -1px;
+    padding-left: 14px;  /* Regular padding-left + 1. */
+    width: 80%;
+}

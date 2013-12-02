@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <title>Photo Chronicle</title>    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">    
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="">
+    <link rel='stylesheet' id='css-template' type='text/css' href='css/normalize.css' />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>    
+    <link rel='stylesheet' id='css-template' type='text/css' href='css/style_new_content.css' />
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=visualization"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+    <script src="js/custom.modernizr.js"></script>
+    <script src="js/holder.js"></script>
+</head>
+<body onLoad="tour_detail_loaded()">
+    <!-- nav -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-camera"></span>&nbsp;Photo Chronicle</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li id="nav-explore" class="selected"><a href="index">Explore</a></li>
+            <li id="nav-view-tours" ><a href="#tour">View Tours</a></li>
+            <li id="nav-my-page" class="invisible"><a href="mytour">My Page</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li data-toggle="modal" data-target="#signin-modal"><a id="signin" href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;Sign In</a></li>
+            <li><a id="after-signin" href="#"></a></li>
+            <li><a id="signout" href="#">Sign Out</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Modal -->
+    <div class="modal fade" id="signin-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="signin modal-dialog">
+       <div class="signin signin-content modal-content">
+           <div class="signin-header modal-header">
+              Sign In to Photo Chronicle
+           </div>
+           <div class="signin modal-body">
+            <form id="form-signin" role="form" method="post">
+              <div id="form-group-input-name" class="form-group">
+                <label for="input-name">Username</label>
+                <input type="text" class="form-control stored" id="input-name" placeholder="Enter Username">
+              </div>
+              <div class="form-group">
+                <label for="input-password">Password</label>
+                <input type="password" class="form-control stored" id="input-password" placeholder="Password">
+              </div>
+              <div id="modal-button-group">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary">Sign In</button>
+              </div>
+            </form>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <!-- end nav -->
+
+    <!-- main contents -->
+    <div id="content">
+      <div class="container">
+
+      <div class="row" id="title_bar">
+          <div class="col-md-8">
+            <h1>A Day in Berkeley <small>draft</small></h1>
+            <h5>Take a stroll in the beautiful UC Berkeley campus. The campus is a rolling oasis within the bustling city of Berkeley. Find out stories behind the famous Sather Gate, the Canpalini, as well as South Hall, the only original building of the campus still standing. See how the campus changed over time.</h5>
+            <textarea col="80" rows="4" class="hide_on_load"></textarea>
+          </div>
+          
+          <div class="col-sm-6 col-md-4 text-right" id="save_area">
+            <div class="btn-group" id="edit_or_not">
+              <a role="button" class="btn btn-default" id="edit_button">
+                Edit</a>
+              <a role="button" id="publish_button" class="btn btn-primary">
+                Publish</a>
+            </div>
+            <div class="btn-group" id="save_or_publish">
+              <a role="button" class="btn btn-default" id="cancel_button">
+                Cancel</a>
+              <a role="button" class="btn btn-primary">
+                Save as a draft</a>
+            </div>
+          </div>
+      </div>
+
+        <!-- Other Contents -->
+        <div class="row">
+
+          <!-- Map -->
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <div class="caption">
+                <h3>Map Overview</h3>
+              </div>
+              <div id="tour-map-canvas"></div>
+            </div>
+          </div>
+
+          <!-- Location List -->
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <div class="caption">
+                <h3>Location List <div class="no_break_float_right hide_on_load">
+                    <small>
+                        <a href="#" onclick="$('#addnewlocation').modal('show');" id="mapModalLink"><i class="fa fa-plus-circle"></i> add a new location</a
+                    </small></div></h3>
+              </div>
+              <div class="thumbnail">
+                <h4>Sather Gate</h4>
+                <p class="text-right hide_on_load">
+                  <!--a href="#">edit</a-->
+                  <!--a href="#">choose a color</a-->
+                  <a href="#" class="remove_a">remove from tour</a>
+                </p>
+              </div>
+              <div class="thumbnail">
+                <h4>Sather Tower</h4>
+                <p class="text-right hide_on_load">
+                  <!--a href="#">edit</a-->
+                  <!--a href="#">choose a color</a-->
+                  <a href="#" class="remove_a">remove from tour</a>
+                </p>
+              </div>
+              <div class="thumbnail">
+                <h4>South Hall</h4>
+                <p class="text-right hide_on_load">
+                  <!--a href="#">edit</a-->
+                  <!--a href="#">choose a color</a-->
+                  <a href="#" class="remove_a">remove from tour</a>
+                </p>
+              </div>
+              <div class="thumbnail">
+                <h4>Hearst Greek Theatre</h4>
+                <p class="text-right hide_on_load">
+                  <!--a href="#">edit</a-->
+                  <!--a href="#">choose a color</a-->
+                  <a href="#" class="remove_a">remove from tour</a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tour stories -->
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <div class="caption">
+                <h3>Tour Stories</h3>
+              </div>
+              <div class="thumbnail">
+                <h4>Sather Gate
+                  <div class="no_break_float_right hide_on_load"><small><a href="#">add stories</a></small></div>
+                </h4>
+                <div class="thumbnail">
+                  <p>Free speech at Sather Gate</p>
+                  <img src="img/sather_gate_1.jpg">
+                  <small class="hide_on_load"><a href="#">Remove from Location</a></small>
+                </div>
+              </div>
+              <div class="thumbnail">
+                <h4>Sather Tower
+                  <div class="no_break_float_right hide_on_load"><small><a href="#">add stories</a></small></div>
+                </h4>
+                <div class="thumbnail">
+                  <p>Sather Tower at night</p>
+                  <img src="img/sather_tower_1.jpg">
+                  <small class="hide_on_load"><a href="#">Remove from Location</a></small>
+                </div>
+              </div>
+              <div class="thumbnail">
+                <h4>South Hall
+                  <div class="no_break_float_right hide_on_load"><small><a href="#">add stories</a></small></div>
+                </h4>
+                <div class="thumbnail">
+                  <p>South Hall in a shiny day</p>
+                  <img src="img/south_hall.jpg">
+                  <small class="hide_on_load"><a href="#">Remove from Location</a></small>
+                </div>
+              </div>
+              <div class="thumbnail">
+                <h4>Hearst Greek Theatre
+                  <div class="no_break_float_right hide_on_load"><small><a href="#">add stories</a></small></div>
+                </h4>
+                 No stories here yet! Please click on add stories...
+            </div>
+          </div>
+
+          <!--div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <img data-src="holder.js/300x200" alt="...">
+              <div class="caption">
+                <h3>Thumbnail label</h3>
+                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+              </div>
+            </div>
+          </div-->                  
+        </div><!-- end row -->
+      </div> 
+    </div>
+
+    <div class="modal fade" id="addnewlocation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-hidden="true">&times;</button>
+                    <h1 class="modal-title" id="myModalLabel">Add a new location to your tour!</h1>
+                </div>
+                <div class="modal-body">
+                    <h3>Choose a location:</h3>
+                    <p>Search in the map for a new location in your tour</p>
+                    <input id="mapsearchboxmodal" class="controls" type="text" placeholder="Search Box">
+                    <div id="new-location-map-modal"></div>
+                    <button id="searchbuttonmodal" class="searchbtn" type="button"><i class="fa fa-search"></i>&nbsp;Search</button>
+                    <h3>Give us a reference name for this location:</h3>
+                    <input name="text" placeholder="type a name!" style = "width:100%">
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save tour & start!</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+    <!-- end main contents -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/script_new_content.js"></script>
+<!-- End Footer -->
+</body>
+</html>
