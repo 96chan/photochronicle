@@ -26,7 +26,6 @@ timeline.css
 */
 
 body{font-family: 'Roboto', sans-serif; }
-nav{}
 #content{margin-top:60px; display:block; }
 
 /* Navigation*/
@@ -36,10 +35,27 @@ nav{}
 .navbar-default{border-bottom:#DDE4B5 solid 4px; }
 .selected{background:#DDE4B5;}
 
+/* Intro */
+#intro-container{position:absolute; left:0; top:54px; width:100%;background:rgba(91,88,90,0.9);z-index:999;text-align:center;}
+#intro-text{color:#ECF0D6;width:50%;margin:10% auto;text-align: left;font-size:20px;}
+.emphasis{border-bottom: #fff dotted 1px;color:#fff;}
+.extra-small{font-size:16px;color:#fff;font-weight:40;}
+
+/* Tour/Story Panel */
+#tour-story-container{position:absolute; right:10px; top:70px; width:20%;background:rgba(255,255,255/*236,240,214*/,0.9);z-index:10;text-align:center;}
+.tour-story-container-title{background:rgba(147,174,166/*221,228,181*/,0.9);line-height:32px;text-align: left;padding-left:16px;font-weight: bold;color:#fff;}
+.tour-title,.story-title{text-align:left;font-size:16px;margin-bottom:5px;}
+.tour-description,.story-description{font-size:12px;text-align: left;padding-left:10px;margin-top:10px;}
+.tour-detail,.story-detail{padding-top:33px;padding-right:0;}
+.tour-item,.story-item{border-bottom:#93AEA6 1px dotted;margin:0;padding:10px 0;}
+.tour-item a,.story-item a{color:#5E677A;}
+.tour-item a:hover,.story-item a:hover{color:#93AEA6;}
+
 /* Map */
 #map-canvas{position: absolute;top:54px;left:0;}
 #map-canvas img {max-width: none; }
 #map-modal img {max-width: none; }
+
 /* Map Search*/
 .searchbtn {margin-top: 16px; border: 1px solid transparent; border-radius: 0; box-sizing: border-box; -moz-box-sizing: border-box; height: 32px; outline: none;}
 #searchbutton{background-color:#93AEA6; color:#fff;width:30px;padding-top:7px;text-align: center;}
@@ -134,17 +150,19 @@ img, object, embed {max-width: 100%; height: auto; }
 #title_bar .no_break_float_right a {margin-left: 2em; }
 #save_area {margin-top: 1em; margin-bottom: 2em; }
 
-/* Sign In*/
-#signin-modal{position:absolute; top:20%; }
-#modal-button-group{float:right; }
-.signin-content{height:280px; }
-.signin{width:400px; }
+
 
 /** Wendy add story model on location_stories.html **/
 #addStory-model{position:absolute; top:20%;}
 .addStoryModel{height:480px;}
 .addStoryModel-content{ width:480px; margin-left:30%;}
 /** end Wendy add story model on location_stories.html **/
+
+/* Sign In*/
+#signin-modal{position:absolute; top:20%; }
+#modal-button-group{float:right; }
+.signin-content{height:280px; }
+.signin{width:400px; }
 
 .invisible{display:none;}
 .visible{display:inline-block;}

@@ -29,9 +29,8 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li id="nav-explore" class="selected"><a href="index">Explore</a></li>
-            <li id="nav-view-tours" ><a href="#tour">View Tours</a></li>
-            <li id="nav-my-page" class="invisible"><a href="mytour">My Page</a></li>
+            <li id="nav-explore" class="selected"><a href="index.html">Explore</a></li>
+            <li id="nav-my-page" class="invisible"><a href="mytour.html">My Page</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li data-toggle="modal" data-target="#signin-modal"><a id="signin" href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;Sign In</a></li>
@@ -70,9 +69,101 @@
     <!-- end nav -->
 
 
-    <!-- main contents -->
+    <!-- Main Contents -->
     <div id="content">
       <div class="container">
+        <!-- Intro Box -->
+        <div id="intro-container"> 
+            <div id="intro-text">
+                <h1>Welcome.</h1>
+                <br>
+                <p><span class="emphasis">Photo Chronicle</span> is a place where people come together to create a chronicle of their local communities, and show the transformation of places over time through the lens of photography. It is also a place for people to share with the world those hidden gems in their neighbourhoods, in the form of a virtual tour.</p>
+                <br>
+                <p class="extra-small"><span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp;Start now to explore the neighbourhood locations and learn their stories ! 
+                <br><span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp;Contribute to the chronicle by adding your own photos !
+                <br><span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp;Help to create the photo timeline for your community landmarks !
+                </p>
+            </div>  
+        </div>
+
+        <!-- Tour/Story Container on the map -->
+        <div id="tour-story-container">
+            <div id="tour-content">
+              <div class="tour-story-container-title">Tour</div>
+                <div class="row tour-item">
+                  <a href="#">
+                  <div class="col-xs-14 col-md-10">
+                      <div class="tour-title">A Day in Berkeley</div>
+                      <div class="tour-description">
+                          <span class="glyphicon glyphicon-tags"></span>
+                          <span>&nbsp;campus tour, historic</span><br>
+                          <span class="glyphicon glyphicon-time"></span>
+                          <span>&nbsp;3 miles in 50 minuites</span><br>
+                          <span class="glyphicon glyphicon-heart"></span>
+                          <span>&nbsp;100</span>
+                      </div>
+                  </div>
+                  <div class="col-xs-4 col-md-2 tour-detail">
+                    <span class="glyphicon glyphicon-chevron-right"></span>                    
+                  </div>
+                  </a>
+                </div>
+                <div class="row tour-item">
+                  <a href="#">
+                  <div class="col-xs-14 col-md-10">
+                      <div class="tour-title">Berkeley Library Tour</div>
+                      <div class="tour-description">
+                          <span class="glyphicon glyphicon-tags"></span>
+                          <span>&nbsp;cal campus, library, fun</span><br>
+                          <span class="glyphicon glyphicon-time"></span>
+                          <span>&nbsp;5 miles in 45 minuites</span><br>
+                          <span class="glyphicon glyphicon-heart"></span>
+                          <span>&nbsp;300</span>
+                      </div>
+                  </div>
+                  <div class="col-xs-4 col-md-2 tour-detail">
+                    <span class="glyphicon glyphicon-chevron-right"></span>                    
+                  </div>
+                </a>
+                </div>
+            </div>
+            <div id="story-content">
+              <div class="tour-story-container-title">Story</div>
+                <div class="row story-item">
+                  <a href="story_beautifulSather.html">
+                  <div class="col-xs-14 col-md-10">
+                      <div class="story-title">The Beautiful Sather Gate</div>
+                      <div class="story-description">
+                          <span class="glyphicon glyphicon-tags"></span>
+                          <span>&nbsp;Sather Gate, Berkeley</span><br>
+                          <span class="glyphicon glyphicon-heart"></span>
+                          <span>&nbsp;250</span>
+                      </div>
+                  </div>
+                  <div class="col-xs-4 col-md-2 tour-detail">
+                    <span class="glyphicon glyphicon-chevron-right"></span>                    
+                  </div>
+                </a>
+                </div>
+                <div class="row story-item">
+                  <a href="#">
+                  <div class="col-xs-14 col-md-10">
+                      <div class="story-title">The History of Sather Gate</div>
+                      <div class="story-description">
+                          <span class="glyphicon glyphicon-tags"></span>
+                          <span>&nbsp;Sather Gate, California, Architecture</span><br>
+                          <span class="glyphicon glyphicon-heart"></span>
+                          <span>&nbsp;500</span>
+                      </div>
+                  </div>
+                  <div class="col-xs-4 col-md-2 tour-detail">
+                    <span class="glyphicon glyphicon-chevron-right"></span>                    
+                  </div>
+                </a>
+                </div>
+            </div>
+        </div>
+
         <!-- Search Box -->
         <div id="search" class="row">
           <div class="col-sm-8">
@@ -95,7 +186,7 @@
     <script src="js/custom.modernizr.js"></script>
     <script src="js/holder.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="js/script_chan.js"></script>
 <!-- End Footer -->
 </body>
 </html>
