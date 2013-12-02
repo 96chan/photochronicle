@@ -208,10 +208,10 @@ function errorHandler(e) {
 
   console.log('Error: ' + msg);
 };
-var file_index = 2;
+var file_index = 1;
 $('#directory-selector').change(function(e) {
-  $('#extras').append('<div class=\"extra_item thumbnail\"><a href=\"#\"><img src=\"img/sather_gate_' + file_index + '.jpg\"></a>date: <input type=\"text\" size=\"8\"></div>');
   file_index += 1;
+  $('#extras').append('<div class=\"extra_item thumbnail\"><a href=\"#\"><img src=\"img/sather_gate_' + file_index + '.jpg\"></a>date: <input type=\"text\" size=\"8\"></div>');
   /*
   var reader = new FileReader();
   var allfiles = e.target.files;
@@ -306,6 +306,7 @@ function tour_detail_loaded() {
   });
 
   $('.remove_a').on('click', removeFunction);
+
   $('#add_story').on('click', function(e) {
     $('#add_new_story-modal').modal('toggle');
   });
@@ -315,13 +316,18 @@ function tour_detail_loaded() {
   });
   $('#add_new_story_save').on('click', function (e) {
     $('#add_new_story-modal').modal('toggle');
-    var title = $('.new_story_container h4 input[type=text]');
+    var title = $('.new_story_container h4 input[type=text]').val();
     $('#sather_gate').append(
                 '<div class=\"thumbnail\"> \
                   <p>' + title + '</p> \
-                  <img src=\"img/sather_tower_' + file_index + '.jpg\"> \
-                  <small class=\"hide_on_load\"><a href=\"#\">Remove from Location</a></small> \
+                  <img src=\"img/sather_gate_' + file_index + '.jpg\"> \
+                  <small class=\"hide_on_load remove_a\"><a href=\"#\">Remove from Location</a></small> \
                 </div>');
+    $('#extras').children().eq(1).remove();
+    $('.new_story_container h4 input[type=text]').val('');
+    $('#new_story_tag h4 input[type=text]').val('');
+    $('.new_story_container textarea').text('');
+    $('.remove_a').on('click', removeFunction);
   });
 }
 
@@ -335,6 +341,7 @@ var removeFunction  = function (event) {
     , function() {
       $(event.target.parentElement.parentElement).remove();
   });
+  return false;
 };
 
 
