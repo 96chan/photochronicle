@@ -12,7 +12,7 @@
     <link rel='stylesheet' id='css-template' type='text/css' href='css/font-awesome.css'/>
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <link rel='stylesheet' id='css-template' type='text/css' href='css/style_new_content.css' />
-    <link rel='stylesheet' id='css-template' type='text/css' href='css/style.css' />
+    <link rel='stylesheet' id='css-template' type='text/css' href='css/style_chan.css' />
     <link rel="stylesheet" type='text/css' href="css/bootstrap-switch.css">
     <link rel="stylesheet" type='text/css' href="css/bootstrap-wysihtml5.css">
     <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=visualization"></script>
@@ -131,7 +131,7 @@
 
 
               <div class="thumbnail">
-                <h4>Cheese Board</h4>
+                <h4>Pizzaiolo</h4>
                 <p class="text-right hide_on_load">
                   <!--a href="#">edit</a-->
                   <!--a href="#">choose a color</a-->
@@ -152,10 +152,15 @@
               <div style="height:700px; overflow:scroll;" id="tourstorieslist">
 
               <div class="thumbnail" style="background-color:#dddddd">
-                <h4>Cheese Board
+                <h4>Pizzaiolo
                   <div class="no_break_float_right hide_on_load"><small><a href="#" onclick="$('#addStoryModal').modal('show');" id="mapModalLink"><i class="fa fa-plus-circle"></i> add stories</a></small></div>
                 </h4>
-                 No stories here yet! Please click on add stories...
+                 <div id="nostoriesmessage">No stories here yet! Please click on add stories...</div>
+                  <div id = "hidden_story" class="thumbnail" style = "display:none;">
+                      <p>Pizzaiolo in the best 100</p>
+                      <img src="img/Pizzaiolo_1.jpg">
+                      <small class="hide_on_load remove_a"><a href="#">Remove from Location</a></small>
+                  </div>
             </div>
           </div>
             </div>
@@ -256,35 +261,24 @@
                                         <br>
                                         <div  class="searchpane">
                                             <div class="box">
-                                                <h4 style="text-align:left">Pizzaiolo</h4>
-                                                <img  src="img/sather_gate_11.jpg" alt="First slide">
+                                                <h4 style="text-align:left">Pizzaiolo in the best 100 pizzas of the US</h4>
+                                                <img  src="img/Pizzaiolo_1.jpg" alt="First slide">
                                                 <br>
-                                                <p>Pizzaiolo founder Charlie Hallowell was raised in suburban Connecticut on a modest diet of TV dinners and Chef Boyardee. As Pizzaiolo’s website explains, through some completely unexplainable, miraculous twist of fate, he found himself working in the Chez Panisse kitchen where for the first time he felt completely engaged and enlivened by his job, and the intellectual life that permeated the culture there.
-
-                                                    After eight years at Chez Panisse, Hallowell set out on his own, determined at his new pizzeria to make sure that about 98 percent of the time he would buy only locally grown, organic, seasonal meat and produce (the flour is organic flour and milled in Oakland), and from small farmers and ranchers he knows and trusts. Pizzaiolo changes the menu daily to reflect what they’re getting from their people, so it’s a bit harder to nail down a signature pie (they said the margherita is one of their most popular pies), but with ingredients like potato and pancetta, summer squash, shishito peppers, and chanterelles, and add-ons like housemade sausage, Calabrian peppers, and farm egg, you can be pretty sure any of the eight pies on the menu will feature interesting combinations.</p>
                                             </div>
 
                                             <div class="box">
-                                                <h4 style="text-align:left">The Sather Gate in Winter</h4>
-                                                <img  src="img/sather_gate_2.jpg" alt="First slide">
+                                                <h4 style="text-align:left">Cheese Board Collective</h4>
+                                                <img  src="img/CheeseBoard_2.jpg" alt="First slide">
                                                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,sed diam nonummy nibh euismod tincidunt ut laoreet
                                                     dolore magna aliquam erat volutpat.</p>
                                             </div>
 
                                             <div class="box">
-                                                <h4 style="text-align:left">The free speech gate</h4>
-                                                <img  src="img/sather_gate_3.jpg" alt="First slide">
+                                                <h4 style="text-align:left">Sliver Pizza Collective</h4>
+                                                <img  src="img/CheeseBoard_1.jpg" alt="First slide">
                                                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,sed diam nonummy nibh euismod tincidunt ut laoreet
                                                     dolore magna aliquam erat volutpat.</p>
                                             </div>
-
-                                            <div class="box">
-                                                <h4 style="text-align:left">Welcome to UC Berkeley</h4>
-                                                <img  src="img/sather_gate_4.jpg" alt="First slide">
-                                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,sed diam nonummy nibh euismod tincidunt ut laoreet
-                                                    dolore magna aliquam erat volutpat.</p>
-                                            </div>
-
                                         </div>
 
 
@@ -293,36 +287,27 @@
                                         <br>
                                         <h4>Story Preview</h4>
                                         <hr>
-                                        <h2>Strikes at Sather Gate<h2>
+                                        <h2>Pizzaiolo in the best 100 pizzas of the US<h2>
                                             <div id="myCarousel" class="carousel slide" data-ride="carousel">
                                                 <!-- Indicators -->
                                                 <ol class="carousel-indicators">
                                                     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                                                     <li data-target="#myCarousel" data-slide-to="1"></li>
-                                                    <li data-target="#myCarousel" data-slide-to="2"></li>
                                                 </ol>
                                                 <div class="carousel-inner">
                                                     <div class="item active">
-                                                        <img  src="img/sather_gate_1.jpg" alt="First slide">
+                                                        <img  src="img/Pizzaiolo_1.jpg" alt="First slide">
                                                         <div class="container">
                                                             <div class="carousel-caption">
-                                                                <p>Sather gate, 1560</p>
+                                                                <p>Pizza Margarita, 2012</p>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="item">
-                                                        <img src="img/sather_gate_11.jpg" alt="Second slide">
+                                                        <img src="img/bio-charlie.gif" alt="Second slide">
                                                         <div class="container">
                                                             <div class="carousel-caption">
-                                                                <p>Sather gate, 2012.</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="item">
-                                                        <img src="img/sather_gate_12.jpg" alt="Third slide">
-                                                        <div class="container">
-                                                            <div class="carousel-caption">
-                                                                <p>Sather gate, 2012.</p>
+                                                                <p>Charlie, 1960.</p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -331,10 +316,8 @@
                                                 <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
                                             </div>
                                             <h4>Description</h4>
-                                            <h5>Pizzaiolo founder Charlie Hallowell was raised in suburban Connecticut on a modest diet of TV dinners and Chef Boyardee. As Pizzaiolo’s website explains, through some completely unexplainable, miraculous twist of fate, he found himself working in the Chez Panisse kitchen where for the first time he felt completely engaged and enlivened by his job, and the intellectual life that permeated the culture there.
-
-                                                After eight years at Chez Panisse, Hallowell set out on his own, determined at his new pizzeria to make sure that about 98 percent of the time he would buy only locally grown, organic, seasonal meat and produce (the flour is organic flour and milled in Oakland), and from small farmers and ranchers he knows and trusts. Pizzaiolo changes the menu daily to reflect what they’re getting from their people, so it’s a bit harder to nail down a signature pie (they said the margherita is one of their most popular pies), but with ingredients like potato and pancetta, summer squash, shishito peppers, and chanterelles, and add-ons like housemade sausage, Calabrian peppers, and farm egg, you can be pretty sure any of the eight pies on the menu will feature interesting combinations</h5>
-                                            <h4>Tags</h4>Sather, UC Berkeley, University,Gate</p>
+                                            <h5>Pizzaiolo founder Charlie Hallowell was raised in suburban Connecticut on a modest diet of TV dinners and Chef Boyardee. As Pizzaiolo’s website explains, through some completely unexplainable, miraculous twist of fate, he found himself working in the Chez Panisse kitchen where for the first time he felt completely engaged and enlivened by his job, and the intellectual life that permeated the culture there.</h5>
+                                            <h4>Tags</h4>Pizza, Best 101 US, Food, Oakland</p>
                                             <div style="width:100%;text-align:right">
                                                 <b>Status:</b> Private
                                             </div>
@@ -342,7 +325,7 @@
                                             <div style="width:100%;text-align:right">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>&nbsp
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Edit</button>&nbsp
-                                                <button id="saveNewStoryButton" type="button" class="btn btn-primary" onclick="$('#hidden_story').show();$('#addStoryModal').modal('hide');">Save and Add to Location</button>
+                                                <button id="saveNewStoryButton" type="button" class="btn btn-primary" onclick="$('#nostoriesmessage').hide();$('#hidden_story').show();$('#addStoryModal').modal('hide');">Save and Add to Location</button>
                                             </div>
                                     </div>
 
