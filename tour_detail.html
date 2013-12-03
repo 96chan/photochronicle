@@ -28,17 +28,17 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-camera"></span>&nbsp;Photo Chronicle</a>
+          <a class="navbar-brand" href="index"><span class="glyphicon glyphicon-camera"></span>&nbsp;Photo Chronicle</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li id="nav-explore" class="selected"><a href="index.html">Explore</a></li>
-            <li id="nav-my-page" class="invisible"><a href="mytour.html">My Page</a></li>
+            <li id="nav-explore" class="selected"><a href="index">Explore</a></li>
+            <li id="nav-my-page" class="invisible"><a href="mytour">My Page</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li data-toggle="modal" data-target="#signin-modal"><a id="signin" href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;Sign In</a></li>
             <li><a id="after-signin" href="#"></a></li>
-            <li><a id="signout" href="index.html">
+            <li><a id="signout" href="index">
             <head>
               <title></title>
             </head>
@@ -126,7 +126,7 @@
               <div class="caption">
                 <h3>Location List <div class="no_break_float_right hide_on_load">
                     <small>
-                        <a href="#" onclick="$('#addnewlocation').modal('show');" id="mapModalLink"><i class="fa fa-plus-circle"></i> add a new location</a>
+                        <a href="#" onclick="$('#addnewlocation').modal('show');" id="mapModalLink"><i class="fa fa-plus-circle"></i> add a location</a>
                     </small></div>
                 </h3>
                <br>
@@ -176,7 +176,7 @@
               </div>
               <div style="height:700px; overflow:scroll;" id="tourstorieslist">
 
-              <div class="thumbnail" id="sather_gate" style="background-color:#dddddd">
+              <div class="thumbnail each-story-container" id="sather_gate">
                 <h4>Sather Gate
                   <div class="no_break_float_right hide_on_load"><small><a href="#" onclick="$('#addStoryModal').modal('show');" id="mapModalLink"><i class="fa fa-plus-circle"></i> add stories</a></small></div>
                 </h4>
@@ -192,7 +192,7 @@
                 </div>
               </div>
 
-              <div class="thumbnail"  style="background-color:#dddddd">
+              <div class="thumbnail each-story-container">
                 <h4>Sather Tower
                   <div class="no_break_float_right hide_on_load"><small><a href="#" onclick="$('#addStoryModal').modal('show');" id="mapModalLink"><i class="fa fa-plus-circle"></i> add stories</a></small></div>
                 </h4>
@@ -202,7 +202,7 @@
                   <small class="hide_on_load remove_a"><a href="#">Remove from Location</a></small>
                 </div>
               </div>
-              <div class="thumbnail" style="background-color:#dddddd">
+              <div class="thumbnail each-story-container">
                 <h4>South Hall
                   <div class="no_break_float_right hide_on_load"><small><a href="#" onclick="$('#addStoryModal').modal('show');" id="mapModalLink"><i class="fa fa-plus-circle"></i> add stories</a></small></div>
                 </h4>
@@ -212,7 +212,7 @@
                   <small class="hide_on_load remove_a"><a href="#">Remove from Location</a></small>
                 </div>
               </div>
-              <div class="thumbnail" style="background-color:#dddddd">
+              <div class="thumbnail each-story-container">
                 <h4>Hearst Greek Theatre
                   <div class="no_break_float_right hide_on_load"><small><a href="#" onclick="$('#addStoryModal').modal('show');" id="mapModalLink"><i class="fa fa-plus-circle"></i> add stories</a></small></div>
                 </h4>
