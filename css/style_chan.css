@@ -196,5 +196,5 @@ input[type=file] {width: 0px; }
 .searchbtnmodal {margin-top: 16px; border: 1px solid transparent; border-radius: 2px 0 0 2px; box-sizing: border-box; -moz-box-sizing: border-box; height: 32px; outline: none; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); margin-right: 13px; }
 #mapsearchboxmodal {background-color: #fff; padding: 0 11px 0 13px; width: 60%; font-family: Roboto; font-size: 15px; font-weight: 300; text-overflow: ellipsis; }
 #mapsearchboxmodal:focus {border-color: #4d90fe; margin-left: -1px; padding-left: 14px;  /* Regular padding-left + 1. */ width: 60%; }
-
+.add-tour-modal {width:80%;margin:0 auto;}
 
