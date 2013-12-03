@@ -83,6 +83,7 @@ function initialize_map_modal() {
         }
 
         map_modal.fitBounds(bounds);
+        map_modal.setZoom(13);
     });
 
     function addMarker(latLng){
@@ -104,7 +105,6 @@ function initialize_map_modal() {
         var bounds = map_modal.getBounds();
         searchBox.setBounds(bounds);
     });
-
 }
 
 
@@ -148,17 +148,25 @@ $(document).ready(function() {
     google.maps.event.addDomListener(window, "load", initialize_tour_map_canvas);
     google.maps.event.addDomListener(window, "load", initialize_map_modal);
 
-    // getting login name
-    if (localStorage["name"]) {
-        $('#input-name').val(localStorage["name"]);
-        $('#signin').hide();
-        $('#after-signin').text('Welcome, '+localStorage["name"]+'!' );
-    }else{
-        $('#signout').hide();
-        $('#after-signin').hide();
-        $('#signin').show();
-
-    }
+  // getting login name  
+  if (localStorage["name"]) {
+      $('#input-name').val(localStorage["name"]);
+      $('#signin').hide();
+      $('#after-signin').text('Welcome, '+localStorage["name"]+'!' );
+      if($('#nav-my-page').hasClass('invisible')){
+         $('#nav-my-page').removeClass('invisible');        
+      }
+      $('#nav-my-page').addClass('visible');
+  }else{
+      $('#signout').hide();
+      $('#after-signin').hide();
+      $('#signin').show();      
+      if($('#nav-my-page').hasClass('visible')){
+         $('#nav-my-page').removeClass('visible');        
+      }
+      $('#nav-my-page').addClass('invisible');
+      $('#title_bar h1 small').hide();
+  }
 
 
 });
@@ -193,7 +201,10 @@ $('#form-signin').submit(function(){
         $('#signin').hide();
         $('#signout').show();
         $('#signin-modal').modal('hide');
-
+      if($('#nav-my-page').hasClass('invisible')){
+         $('#nav-my-page').removeClass('invisible');        
+      }
+      $('#nav-my-page').addClass('visible');
         tour_detail_loaded();
     }
     return false;
@@ -204,6 +215,10 @@ $('#signout').click(function(){
     $('#after-signin').hide();
     $('#signout').hide();
 
+    if($('#nav-my-page').hasClass('visible')){
+         $('#nav-my-page').removeClass('visible');        
+    }
+    $('#nav-my-page').addClass('invisible');
     tour_detail_loaded();
 });
 $('#mapModalLink').click(function(){
@@ -307,6 +322,7 @@ function tour_detail_loaded() {
     $('.hide_on_load').hide();
 
     if (localStorage["name"]) {
+        $('#edit_or_not').show();
     } else {
         $('#edit_or_not').hide();
     }
@@ -363,12 +379,6 @@ $('#mapModalLink').on('click', function () {
 
 
 $('#saveLocationButton').on('click', function(event) {
-    /*<div class="thumbnail">
-     <h4>Hearst Greek Theatre</h4>
-     <p class="text-right hide_on_load">
-     <a href="#" class="remove_a">remove from tour</a>
-     </p>
-     </div>*/
     var bounds = new google.maps.LatLngBounds();
     markers.push(marker);
 
@@ -381,6 +391,7 @@ $('#saveLocationButton').on('click', function(event) {
 
     }
     map_canvas.fitBounds(bounds);
+    map_canvas.setZoom(12);
 
     //markers[0].position.ob+markers[0].position.pb
     //marker.position.ob+marker.position.pb
