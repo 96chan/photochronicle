@@ -31,17 +31,17 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-camera"></span>&nbsp;Photo Chronicle</a>
+          <a class="navbar-brand" href="index"><span class="glyphicon glyphicon-camera"></span>&nbsp;Photo Chronicle</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li id="nav-explore" class="selected"><a href="index.html">Explore</a></li>
-            <li id="nav-my-page" class="invisible"><a href="mytour.html">My Page</a></li>
+            <li id="nav-explore" class="selected"><a href="index">Explore</a></li>
+            <li id="nav-my-page" class="invisible"><a href="mytour">My Page</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li data-toggle="modal" data-target="#signin-modal"><a id="signin" href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;Sign In</a></li>
             <li><a id="after-signin" href="#"></a></li>
-            <li><a id="signout" href="index.html">
+            <li><a id="signout" href="index">
             <head>
               <title></title>
             </head>
@@ -101,7 +101,7 @@
             <div class="btn-group" id="save_or_publish">
               <a role="button" class="btn btn-default" id="cancel_button">
                 Cancel</a>
-              <a role="button" class="btn btn-default">
+              <a role="button" id="draft_button" class="btn btn-default">
                 Save as a draft</a>
               <a role="button" class="btn btn-primary" id="publish_button">
                 Publish</a>
@@ -329,9 +329,9 @@
                                             </div>
                                             <hr>
                                             <div style="width:100%;text-align:right">
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>&nbsp
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">Edit</button>&nbsp
-                                                <button id="saveNewStoryButton" type="button" class="btn btn-primary" onclick="$('#nostoriesmessage').hide();$('#hidden_story').show();$('#addStoryModal').modal('hide');">Save and Add to Location</button>
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>&nbsp
+<!--                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Edit</button>&nbsp
+ -->                                                <button id="saveNewStoryButton" type="button" class="btn btn-primary" onclick="$('#nostoriesmessage').hide();$('#hidden_story').show();$('#addStoryModal').modal('hide');">Save and Add to Location</button>
                                             </div>
                                     </div>
 

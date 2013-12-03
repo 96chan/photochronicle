@@ -165,7 +165,6 @@ $(document).ready(function() {
          $('#nav-my-page').removeClass('visible');        
       }
       $('#nav-my-page').addClass('invisible');
-      $('#title_bar h1 small').hide();
   }
 
 
@@ -349,7 +348,9 @@ function tour_detail_loaded() {
     $('#publish_button').on('click', function(e) {
         $('#title_bar h1 small').hide();
     });
-
+    $('#draft_button').on('click', function(){
+        $('#title_bar h1 small').show();
+    });
     $('.remove_a').on('click', removeFunction);
 }
 

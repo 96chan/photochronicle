@@ -38,7 +38,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li data-toggle="modal" data-target="#signin-modal"><a id="signin" href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;Sign In</a></li>
             <li><a id="after-signin" href="#"></a></li>
-            <li><a id="signout" href="index">
+            <li><a id="signout" href="#">
             <head>
               <title></title>
             </head>
@@ -98,7 +98,7 @@
             <div class="btn-group" id="save_or_publish">
               <a role="button" class="btn btn-default" id="cancel_button">
                 Cancel</a>
-              <a role="button" class="btn btn-default">
+              <a role="button" id="draft_button" class="btn btn-default">
                 Save as a draft</a>
               <a role="button" class="btn btn-primary" id="publish_button">
                 Publish</a>
@@ -243,7 +243,7 @@
                           </div>
 
                           <div class="modal-footer">
-                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                               <button id="saveLocationButton" type="button" class="btn btn-primary">Add Location to the tour!</button>
                           </div>
                       </div>
@@ -398,9 +398,9 @@
                                             </div>
                                             <hr>
                                             <div style="width:100%;text-align:right">
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>&nbsp
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">Edit</button>&nbsp
-                                                <button id="saveNewStoryButton" type="button" class="btn btn-primary" onclick="$('#hidden_story').show();$('#addStoryModal').modal('hide');">Save and Add to Location</button>
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>&nbsp;
+<!--                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Edit</button>&nbsp
+ -->                                                <button id="saveNewStoryButton" type="button" class="btn btn-primary" onclick="$('#hidden_story').show();$('#addStoryModal').modal('hide');">Save and Add to Location</button>
                                             </div>
                                     </div>
 
