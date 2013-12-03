@@ -324,6 +324,7 @@ function tour_detail_loaded() {
         $('#edit_or_not').show();
     } else {
         $('#edit_or_not').hide();
+        $('#title_bar h1 small').hide();
     }
 
     $('#edit_button').on('click', function() {
