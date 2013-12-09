@@ -13,6 +13,7 @@ var sg_latlng = new google.maps.LatLng(37.87016, -122.25947);   // Sather Gate
 var st_latlng = new google.maps.LatLng(37.87205,-122.25783);    // Sather Tower
 var hgt_latlng = new google.maps.LatLng(37.87362,-122.25415);   // Hearst Greek Theatre
 var hmmb_latlng = new google.maps.LatLng(37.87448,-122.25725);  // Hearst Memorial Mining Building
+var pizzaiolo_latlng = new google.maps.LatLng(37.83691, -122.26236); // Pizzaiolo
 
 var maxStory = 3;
 var storyLikes={"story1Likes":250, "story2Likes": 500, "story3Likes": 56};
@@ -126,8 +127,8 @@ function createMarker(latlng, html) {
 }
 function initialize_tour_map_canvas() {
     var mapOptions = {
-        zoom: 8,
-        center: new google.maps.LatLng(37.8715, -122.2600),
+        zoom: 12,
+        center: pizzaiolo_latlng,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         mapTypeControl: false
     };
@@ -379,21 +380,19 @@ $('#mapModalLink').on('click', function () {
     google.maps.event.trigger(map_modal, 'resize');
 });
 
-
+var bounds4overview = new google.maps.LatLngBounds();
 $('#saveLocationButton').on('click', function(event) {
-    var bounds = new google.maps.LatLngBounds();
     markers.push(marker);
-
     for (var i = 0, temp_marker; temp_marker = markers[i]; i++) {
         markers_overview[i] = new google.maps.Marker({
             map: map_canvas,
             position: markers[i].position
         });
-        bounds.extend(markers_overview[i].position);
+        bounds4overview.extend(markers_overview[i].position);
 
     }
-    map_canvas.fitBounds(bounds);
-    map_canvas.setZoom(12);
+    map_canvas.fitBounds(bounds4overview);   
+    // map_canvas.setZoom(12);
 
     //markers[0].position.ob+markers[0].position.pb
     //marker.position.ob+marker.position.pb
