@@ -146,28 +146,23 @@ function initialize_map_modal() {
         // For each place, get the icon, place name, and location.
         markers = [];
         var bounds = new google.maps.LatLngBounds();
+        // prioritizing only the first place retrieved
         for (var i = 0, place; place = places[i]; i++) {
-            var image = {
-                url: place.icon,
-                size: new google.maps.Size(71, 71),
-                origin: new google.maps.Point(0, 0),
-                anchor: new google.maps.Point(17, 34),
-                scaledSize: new google.maps.Size(25, 25)
-            };
-
-            // Create a marker for each place.
-            var marker = new google.maps.Marker({
+            marker = new google.maps.Marker({
+                position: place.geometry.location,
                 map: map_modal,
-                icon: image,
-                title: place.name,
-                position: place.geometry.location
+                draggable:true
             });
-
             markers.push(marker);
             bounds.extend(place.geometry.location);
+            localStorage["firstlocationx"] = place.geometry.location.nb;
+            localStorage["firstlocationy"] = place.geometry.location.ob;
+
+            break;
         }
 
         map_modal.fitBounds(bounds);
+        map_modal.setZoom(16);
     });
 
     // Bias the SearchBox results towards places that are within the bounds of the

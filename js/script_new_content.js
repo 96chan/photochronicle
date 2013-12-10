@@ -45,9 +45,9 @@ function initialize_map_modal() {
     google.maps.event.addListener(searchBox, 'places_changed', function () {
         var places = searchBox.getPlaces();
 
-        /*for (var i = 0, marker; marker = markers[i]; i++) {
+        for (var i = 0, marker; marker = markers[i]; i++) {
          marker.setMap(null);
-         }*/
+         }
 
         marker = new google.maps.Marker({
             //position: bk_latlng,
@@ -60,23 +60,14 @@ function initialize_map_modal() {
         var bounds = new google.maps.LatLngBounds();
         //retrieving only one place from google places //i=0
         for (var i = 0, place; place = places[i]; i++) {
-            /*  var image = {
-             url: place.icon,
-             size: new google.maps.Size(71, 71),
-             origin: new google.maps.Point(0, 0),
-             anchor: new google.maps.Point(17, 34),
-             scaledSize: new google.maps.Size(25, 25)
-             };
-
-             // Create a marker for each place.
-             var marker = new google.maps.Marker({
-             map: map_modal,
-             icon: image,
-             title: place.name,
-             position: place.geometry.location,
-             draggable:true
-             }); */
-            //getting only one marker, to drag and drop
+            marker = new google.maps.Marker({
+                position: place.geometry.location,
+                map: map_modal,
+                draggable:true
+            });
+            markers.push(marker);
+            bounds.extend(place.geometry.location);
+            break;
             if (i==0){
                 //markers.push(marker);
                 bounds.extend(place.geometry.location);
@@ -127,7 +118,7 @@ function createMarker(latlng, html) {
 }
 function initialize_tour_map_canvas() {
     var mapOptions = {
-        zoom: 12,
+        zoom: 13,
         center: pizzaiolo_latlng,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         mapTypeControl: false
@@ -135,6 +126,21 @@ function initialize_tour_map_canvas() {
 
     map_canvas = new google.maps.Map(document.getElementById('tour-map-canvas'), mapOptions);
 
+    if(localStorage["firstlocationx"]) {
+        marker = new google.maps.Marker({
+            position:   new google.maps.LatLng(localStorage["firstlocationx"],localStorage["firstlocationy"]),
+            map: map_canvas,
+            //draggable:true
+        });
+        markers.push(marker);
+        for (var i = 0, temp_marker; temp_marker = markers[i]; i++) {
+            markers_overview[i] = new google.maps.Marker({
+                map: map_canvas,
+                position: markers[i].position
+            });
+        }
+
+    }
 }
 
 /* =====================
