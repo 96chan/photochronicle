@@ -5,6 +5,7 @@ https://developers.google.com/maps/documentation/javascript/tutorial#Audience
 var markers = [];
 var map_canvas;
 var map_modal;
+var marker;
 var bk_latlng = new google.maps.LatLng(37.8715, -122.2600);     // Berkeley
 var sg_latlng = new google.maps.LatLng(37.87016, -122.25947);   // Sather Gate
 var st_latlng = new google.maps.LatLng(37.87205,-122.25783);    // Sather Tower
@@ -55,13 +56,6 @@ function initialize_map_canvas() {
         markers = [];
         var bounds = new google.maps.LatLngBounds();
         for (var i = 0, place; place = places[i]; i++) {
-            // var image = {
-            //     url: place.icon,
-            //     size: new google.maps.Size(71, 71),
-            //     origin: new google.maps.Point(0, 0),
-            //     anchor: new google.maps.Point(17, 34),
-            //     scaledSize: new google.maps.Size(25, 25)
-            // };
             // Create a marker for each place.
             var marker = new google.maps.Marker({
                 map: map_canvas,
@@ -102,6 +96,17 @@ function createMarker(latlng, html) {
         infowindow.open(map_canvas,marker);
     });
 }
+function addMarker(latLng){
+    //clear the previous marker and circle.
+    if(marker != null){
+        marker.setMap(null);
+    }
+    marker = new google.maps.Marker({
+        position: latLng,
+        map: map_modal,
+        draggable:true
+    });
+}
 function initialize_tour_map_canvas() {
    mapOptions = {
     zoom: 8,
@@ -114,15 +119,26 @@ function initialize_tour_map_canvas() {
         var map = new google.maps.Map($(this)[0], mapOptions);
     });
  }
+
 function initialize_map_modal() {
+
     var mapOptions = {
         zoom: 7,
-        center: new google.maps.LatLng(37.397, -122.644),
+        center: new google.maps.LatLng(37.8715, -122.2600),
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         mapTypeControl: false
     };
+    var styles = [
+      {
+        "elementType": "labels.icon",
+        "stylers": [
+        { "visibility": "off" }
+        ]
+      },
+    ];
     map_modal = new google.maps.Map(document.getElementById('map-modal'),
         mapOptions);
+    map_modal.setOptions({styles: styles});
 
     var searchbutton = /** @type {HTMLInputElement} */(document.getElementById('searchbuttonmodal'));
     map_modal.controls[google.maps.ControlPosition.TOP_RIGHT].push(searchbutton);
@@ -133,37 +149,27 @@ function initialize_map_modal() {
 
     var searchBox = new google.maps.places.SearchBox(/** @type {HTMLInputElement} */(input));
 
-
+    google.maps.event.addListener(map_modal, 'click', function(event){
+        addMarker(event.latLng, map_modal);
+    });
     // Listen for the event fired when the user selects an item from the
     // pick list. Retrieve the matching places for that item.
     google.maps.event.addListener(searchBox, 'places_changed', function () {
         var places = searchBox.getPlaces();
-
-        for (var i = 0, marker; marker = markers[i]; i++) {
-            marker.setMap(null);
-        }
-
-        // For each place, get the icon, place name, and location.
-        markers = [];
-        var bounds = new google.maps.LatLngBounds();
-        // prioritizing only the first place retrieved
-        for (var i = 0, place; place = places[i]; i++) {
-            marker = new google.maps.Marker({
-                position: place.geometry.location,
+        var marker_temp = new google.maps.Marker({
+                //position: bk_latlng,
                 map: map_modal,
-                draggable:true
-            });
-            markers.push(marker);
-            bounds.extend(place.geometry.location);
-            localStorage["firstlocationx"] = place.geometry.location.nb;
-            localStorage["firstlocationy"] = place.geometry.location.ob;
-
-            break;
-        }
-
+                position: places[0].geometry.location            //draggable:true
+        });
+        var bounds = new google.maps.LatLngBounds();
+        bounds.extend(places[0].geometry.location);
+        marker = marker_temp;
         map_modal.fitBounds(bounds);
-        map_modal.setZoom(16);
+        map_modal.setZoom(14);
+        var el = document.getElementById("mapsearchboxmodal");
+        el.value = "";
     });
+
 
     // Bias the SearchBox results towards places that are within the bounds of the
     // current map's viewport.
@@ -171,7 +177,6 @@ function initialize_map_modal() {
         var bounds = map_modal.getBounds();
         searchBox.setBounds(bounds);
     });
-
 }
 
 /* =====================

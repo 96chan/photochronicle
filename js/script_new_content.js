@@ -2,12 +2,14 @@
  *** Google Map API
  https://developers.google.com/maps/documentation/javascript/tutorial#Audience
  */
-var markers = [];
+var markers_modal = [];
 var markers_overview  = [];
-var marker;
-var places = [];
+var bounds_overview = new google.maps.LatLngBounds();
+var marker_over;
+var marker_modal;
 var map_canvas;
 var map_modal;
+var saved_latlng;
 var bk_latlng = new google.maps.LatLng(37.8715, -122.2600);     // Berkeley
 var sg_latlng = new google.maps.LatLng(37.87016, -122.25947);   // Sather Gate
 var st_latlng = new google.maps.LatLng(37.87205,-122.25783);    // Sather Tower
@@ -25,8 +27,17 @@ function initialize_map_modal() {
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         mapTypeControl: false
     };
+    var styles = [
+      {
+        "elementType": "labels.icon",
+        "stylers": [
+        { "visibility": "off" }
+        ]
+      },
+    ];
     map_modal = new google.maps.Map(document.getElementById('new-location-map-modal'),
         mapOptions);
+    map_modal.setOptions({styles: styles});
 
     var searchbutton = /** @type {HTMLInputElement} */(document.getElementById('searchbuttonmodal'));
     map_modal.controls[google.maps.ControlPosition.TOP_RIGHT].push(searchbutton);
@@ -34,63 +45,23 @@ function initialize_map_modal() {
     // Create the search box and link it to the UI element.
     var input = /** @type {HTMLInputElement} */(document.getElementById('mapsearchboxmodal'));
     map_modal.controls[google.maps.ControlPosition.TOP_RIGHT].push(input);
-
     var searchBox = new google.maps.places.SearchBox(/** @type {HTMLInputElement} */(input));
 
     google.maps.event.addListener(map_modal, 'click', function(event){
-        addMarker(event.latLng);
+        addMarker2modal(event.latLng, map_modal);
     });
     // Listen for the event fired when the user selects an item from the
     // pick list. Retrieve the matching places for that item.
     google.maps.event.addListener(searchBox, 'places_changed', function () {
         var places = searchBox.getPlaces();
-
-        for (var i = 0, marker; marker = markers[i]; i++) {
-         marker.setMap(null);
-         }
-
-        marker = new google.maps.Marker({
-            //position: bk_latlng,
-            map: map_modal,
-            //draggable:true
-        });
-
-        // For each place, get the icon, place name, and location.
-        markers = [];
-        var bounds = new google.maps.LatLngBounds();
-        //retrieving only one place from google places //i=0
-        for (var i = 0, place; place = places[i]; i++) {
-            marker = new google.maps.Marker({
-                position: place.geometry.location,
-                map: map_modal,
-                draggable:true
-            });
-            markers.push(marker);
-            bounds.extend(place.geometry.location);
-            break;
-            if (i==0){
-                //markers.push(marker);
-                bounds.extend(place.geometry.location);
-            }
-        }
-
-        map_modal.fitBounds(bounds);
-        map_modal.setZoom(13);
+        addMarker2modal(places[0].geometry.location, map_modal);
+        var bounds_modal = new google.maps.LatLngBounds();
+        bounds_modal.extend(places[0].geometry.location);
+        map_modal.fitBounds(bounds_modal);
+        map_modal.setZoom(14);
+        var el = document.getElementById("mapsearchboxmodal");
+        el.value = "";
     });
-
-    function addMarker(latLng){
-        //clear the previous marker and circle.
-        if(marker != null){
-            marker.setMap(null);
-        }
-
-        marker = new google.maps.Marker({
-            position: latLng,
-            map: map_modal,
-            draggable:true
-        });
-
-    }
     // Bias the SearchBox results towards places that are within the bounds of the
     // current map's viewport.
     google.maps.event.addListener(map_modal, 'bounds_changed', function () {
@@ -99,48 +70,59 @@ function initialize_map_modal() {
     });
 }
 
-
+function addMarker2modal(latLng){
+    //clear the previous marker and circle.
+    if(marker_modal != null){
+        marker_modal.setMap(null);
+    }
+    marker_modal = new google.maps.Marker({
+        position: latLng,
+        map: map_modal,
+        draggable:true
+    });
+    maker = marker_modal;
+    saved_latlng = latLng;
+}
+function addMarker2over(latLng){
+    //clear the previous marker and circle.
+    marker_over = new google.maps.Marker({
+        position: latLng,
+        map: map_canvas,
+        draggable:true
+    });
+    maker = marker_over;
+    saved_latlng = latLng;
+}
 var infowindow = new google.maps.InfoWindow({
     size: new google.maps.Size(150,50)
 });
 
-function createMarker(latlng, html) {
-    var contentString = html;
-    var marker = new google.maps.Marker({
-        position: latlng,
-        map: map_modal,
-        zIndex: Math.round(latlng.lat()*-100000)<<5
-    });
-    google.maps.event.addListener(marker, 'click', function() {
-        infowindow.setContent(contentString);
-        infowindow.open(map_modal,marker);
-    });
-}
 function initialize_tour_map_canvas() {
     var mapOptions = {
-        zoom: 13,
-        center: pizzaiolo_latlng,
+        zoom: 15,
+        center: sg_latlng,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         mapTypeControl: false
     };
-
+    var styles = [
+      {
+        "elementType": "labels.icon",
+        "stylers": [
+        { "visibility": "off" }
+        ]
+      },
+    ];
     map_canvas = new google.maps.Map(document.getElementById('tour-map-canvas'), mapOptions);
-
-    if(localStorage["firstlocationx"]) {
-        marker = new google.maps.Marker({
-            position:   new google.maps.LatLng(localStorage["firstlocationx"],localStorage["firstlocationy"]),
-            map: map_canvas,
-            //draggable:true
-        });
-        markers.push(marker);
-        for (var i = 0, temp_marker; temp_marker = markers[i]; i++) {
-            markers_overview[i] = new google.maps.Marker({
-                map: map_canvas,
-                position: markers[i].position
-            });
-        }
-
-    }
+    map_canvas.setOptions({styles: styles});
+    addMarker2over(sg_latlng);
+    addMarker2over(st_latlng);
+    addMarker2over(hmmb_latlng);
+    addMarker2over(hgt_latlng);
+    bounds_overview.extend(sg_latlng);
+    bounds_overview.extend(st_latlng);
+    bounds_overview.extend(hmmb_latlng);
+    bounds_overview.extend(hgt_latlng);
+    map_canvas.fitBounds(bounds_overview);
 }
 
 /* =====================
@@ -386,27 +368,18 @@ $('#mapModalLink').on('click', function () {
     google.maps.event.trigger(map_modal, 'resize');
 });
 
-var bounds4overview = new google.maps.LatLngBounds();
 $('#saveLocationButton').on('click', function(event) {
-    markers.push(marker);
-    for (var i = 0, temp_marker; temp_marker = markers[i]; i++) {
-        markers_overview[i] = new google.maps.Marker({
-            map: map_canvas,
-            position: markers[i].position
-        });
-        bounds4overview.extend(markers_overview[i].position);
-
-    }
-    map_canvas.fitBounds(bounds4overview);   
+    addMarker2over(saved_latlng);
+    bounds_overview.extend(saved_latlng);
+    map_canvas.fitBounds(bounds_overview);
     // map_canvas.setZoom(12);
 
     //markers[0].position.ob+markers[0].position.pb
     //marker.position.ob+marker.position.pb
-    $("#tourstorieslist").append("<div class=\"thumbnail each-story-container\" ><h4>"+$("#locationReferenceName").val()+"<div class=\"no_break_float_right hide_on_load\"><small><a href=\"#\" onclick=\"$('#addStoryModal').modal(\'show\');\" id=\"mapModalLink\"><i class=\"fa fa-plus-circle\"></i> add stories</a></small></div></h4>No stories here yet! Please click on add stories...</div>");
+    $("#tourstorieslist").append("<div class=\"thumbnail\" style=\"background-color:#dddddd\"><h4>"+$("#locationReferenceName").val()+"<div class=\"no_break_float_right hide_on_load\"><small><a href=\"#\" onclick=\"$('#addStoryModal').modal(\'show\');\" id=\"mapModalLink\"><i class=\"fa fa-plus-circle\"></i> add stories</a></small></div></h4>No stories here yet! Please click on add stories...</div>");
     $("#locationlist").append("<div class=\"thumbnail\"><h4>"+$("#locationReferenceName").val()+"</h4><p class=\"text-right hide_on_load\"><a href=\"#\" class=\"remove_a\">remove from tour</a></p></div>")
     $('#addnewlocation').modal('hide');
 });
-
 $('#searchstorytab').click(function (e) {
     e.preventDefault();
     $(this).tab('show');
