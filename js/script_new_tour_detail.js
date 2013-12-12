@@ -42,6 +42,10 @@ function initialize_map_modal() {
     // Create the search box and link it to the UI element.
     var input = /** @type {HTMLInputElement} */(document.getElementById('mapsearchboxmodal'));
     map_modal.controls[google.maps.ControlPosition.TOP_RIGHT].push(input);
+
+    var msg = /** @type {HTMLInputElement} */(document.getElementById('infolocationchosen'));
+    map_modal.controls[google.maps.ControlPosition.BOTTOM_RIGHT].push(msg);
+
     var searchBox = new google.maps.places.SearchBox(/** @type {HTMLInputElement} */(input));
     google.maps.event.addListener(map_modal, 'click', function(event){
         addMarker2modal(event.latLng, map_modal);
@@ -57,6 +61,7 @@ function initialize_map_modal() {
         map_modal.setZoom(14);
         var el = document.getElementById("mapsearchboxmodal");
         el.value = "";
+        $('#infolocationchosen').show();
     });
     // Bias the SearchBox results towards places that are within the bounds of the
     // current map's viewport.
@@ -293,7 +298,7 @@ $('#saveLocationButton').on('click', function(event) {
 
     //markers[0].position.ob+markers[0].position.pb
     //marker.position.ob+marker.position.pb
-    $("#tourstorieslist").append("<div class=\"thumbnail\" style=\"background-color:#dddddd\"><h4>"+$("#locationReferenceName").val()+"<div class=\"no_break_float_right hide_on_load\"><small><a href=\"#\" onclick=\"$('#addStoryModal').modal(\'show\');\" id=\"mapModalLink\"><i class=\"fa fa-plus-circle\"></i> add stories</a></small></div></h4>No stories here yet! Please click on add stories...</div>");
+    $("#tourstorieslist").append("<div class=\"thumbnail each-story-container\" ><h4>"+$("#locationReferenceName").val()+"<div class=\"no_break_float_right hide_on_load\"><small><a href=\"#\" onclick=\"$('#addStoryModal').modal(\'show\');\" id=\"mapModalLink\"><i class=\"fa fa-plus-circle\"></i> add stories</a></small></div></h4>No stories here yet! Please click on add stories...</div>");
     $("#locationlist").append("<div class=\"thumbnail\"><h4>"+$("#locationReferenceName").val()+"</h4><p class=\"text-right hide_on_load\"><a href=\"#\" class=\"remove_a\">remove from tour</a></p></div>")
     $('#addnewlocation').modal('hide');
 });
