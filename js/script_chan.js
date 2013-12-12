@@ -290,6 +290,7 @@ $('#intro-container').click(function(){
 $('#createNewTourModal').on('shown', function () {
     //google.maps.event.addDomListener(window, "load", initialize_modal);
     //initialize_modal();
+
     google.maps.event.trigger(map_modal, "resize");
 });
 
@@ -451,6 +452,18 @@ $('#searchstorytab').click(function (e) {
 $('#addnewstorytab').click(function (e) {
     e.preventDefault();
     $(this).tab('show');
+});
+
+// Submit a new tour form
+$('#form-new-tour').submit(function(){
+    if($('#newTourTitle').val().length==0 | $('#locationReferenceName').val().length==0 | marker==null){
+        $(this).addClass('has-error');
+        $(this).removeClass('has-success');
+    }else{
+        window.location='new_tour_detail.html'
+
+    }
+    return false;
 });
 
 

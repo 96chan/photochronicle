@@ -313,6 +313,7 @@
              aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
+                    <form id="form-new-tour" role="form" method="post">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         <h1 class="modal-title" id="myModalLabel">Create a new tour!</h1>
@@ -323,7 +324,7 @@
                             <h3><span class="label label-default">1</span>&nbsp;Enter the name of the location.</h3>
                             <br>
                             <h4>Title:</h4>
-                            <input name="text" placeholder="Tour title" style = "width:100%">
+                            <input name="text" placeholder="Tour title" id ="newTourTitle" class="form-control stored" style = "width:100%">
                             <h4>Description:</h4>
                             <textarea id="TourDescription" rows="5" style = "width:100%;height:100%;">Write your story here!</textarea>
                         </div>
@@ -332,18 +333,19 @@
                             <br>
                             <p>Search and the map to select an starting point for your tour:</p>
                             <div class="alert alert-info" style = "display:none;" id="infolocationchosen"><b>Location ready!</b>, move the pin around for a more precise location</div>
-                            <input id="mapsearchboxmodal" class="controlsmodal" type="text" placeholder="Search Box">
+                            <input id="mapsearchboxmodal" class="form-control stored controlsmodal" type="text" placeholder="Search Box">
                             <div id="map-modal"></div>
                             <button id="searchbuttonmodal" class="searchbtnmodal" type="button"><i class="fa fa-search"></i>&nbsp;Search</button>
                             <h3>Set a reference name for this location:</h3>
-                            <input name="text" id="locationReferenceName" placeholder="type a name!" style = "width:100%">
+                            <input name="text" id="locationReferenceName" placeholder="type a name!" class="form-control stored" style = "width:100%">
                         </div>
                     </div>
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button onclick="window.location='new_tour_detail.html'" type="button" class="btn btn-primary">Save tour & start!</button>
+                        <button type="submit" class="btn btn-primary">Save tour & start!</button>
                     </div>
+                    </form>
                 </div>
                 <!-- /.modal-content -->
             </div>
