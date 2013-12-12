@@ -147,6 +147,9 @@ function initialize_map_modal() {
     var input = /** @type {HTMLInputElement} */(document.getElementById('mapsearchboxmodal'));
     map_modal.controls[google.maps.ControlPosition.TOP_RIGHT].push(input);
 
+    var msg = /** @type {HTMLInputElement} */(document.getElementById('infolocationchosen'));
+    map_modal.controls[google.maps.ControlPosition.BOTTOM_RIGHT].push(msg);
+
     var searchBox = new google.maps.places.SearchBox(/** @type {HTMLInputElement} */(input));
 
     google.maps.event.addListener(map_modal, 'click', function(event){
@@ -159,7 +162,8 @@ function initialize_map_modal() {
         var marker_temp = new google.maps.Marker({
                 //position: bk_latlng,
                 map: map_modal,
-                position: places[0].geometry.location            //draggable:true
+                position: places[0].geometry.location,
+                draggable:true
         });
         var bounds = new google.maps.LatLngBounds();
         bounds.extend(places[0].geometry.location);
@@ -168,6 +172,7 @@ function initialize_map_modal() {
         map_modal.setZoom(14);
         var el = document.getElementById("mapsearchboxmodal");
         el.value = "";
+        $('#infolocationchosen').show();
     });
 
 
