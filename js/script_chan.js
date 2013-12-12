@@ -181,6 +181,7 @@ function initialize_map_modal() {
     google.maps.event.addListener(map_modal, 'bounds_changed', function () {
         var bounds = map_modal.getBounds();
         searchBox.setBounds(bounds);
+        $('#form-new-tour').removeClass('has-error');
     });
 }
 
