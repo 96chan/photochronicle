@@ -6,6 +6,7 @@ var markers = [];
 var map_canvas;
 var map_modal;
 var marker;
+var sf_latlng = new google.maps.LatLng(37.78416,  -122.47572); 
 var bk_latlng = new google.maps.LatLng(37.8715, -122.2600);     // Berkeley
 var sg_latlng = new google.maps.LatLng(37.87016, -122.25947);   // Sather Gate
 var st_latlng = new google.maps.LatLng(37.87205,-122.25783);    // Sather Tower
@@ -17,8 +18,8 @@ var storyLikes={"story1Likes":250, "story2Likes": 500, "story3Likes": 56};
 
 function initialize_map_canvas() {
     var mapOptions = {
-        zoom: 16,
-        center: bk_latlng,
+        zoom: 13,
+        center: sf_latlng,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         mapTypeControl: false,
     };
@@ -74,6 +75,9 @@ function initialize_map_canvas() {
     google.maps.event.addListener(map_canvas, 'bounds_changed', function () {
         var bounds = map_canvas.getBounds();
         searchBox.setBounds(bounds);
+        if(searchBox.getPlaces()[0].formatted_address !== 'UC Berkeley, Berkeley, CA, United States' && $(document).find('#tour-story-container').length > 0){
+          $('#tour-story-container').show();
+        }
     });
     google.maps.event.addListener(map_canvas, 'click', function() {
       infowindow.close();
