@@ -267,7 +267,7 @@
                                         <br>
                                         <br>
                                         <div  class="searchpane">
-                                            <div class="box">
+                                            <div class="box" id="firstStoryLeftPane" onclick = "clickStoryLeftPane();">
                                                 <h4 style="text-align:left">Pizzaiolo in the best 100 pizzas of the US</h4>
                                                 <img  src="img/Pizzaiolo_1.jpg" alt="First slide">
                                                 <br>
@@ -293,6 +293,8 @@
                                     <div class="right-sector">
                                         <br>
                                         <h4>Story Preview </h4>
+                                        <div id="storyPreviewMsg"><p>Click on any story on the left panel to preview it</p></div>
+                                        <div id="storyPreview" style="display:none;">
                                         <hr>
                                         <h2>Pizzaiolo in the best 100 pizzas of the US<h2>
                                             <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -333,6 +335,7 @@
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>&nbsp
 <!--                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Edit</button>&nbsp
  -->                                                <button id="saveNewStoryButton" type="button" class="btn btn-primary" onclick="$('#nostoriesmessage').hide();$('#hidden_story').show();$('#addStoryModal').modal('hide');">Save and Add to Location</button>
+                                            </div>
                                             </div>
                                     </div>
 

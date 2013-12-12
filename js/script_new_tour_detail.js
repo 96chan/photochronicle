@@ -313,4 +313,12 @@ $('#addnewstorytab').click(function (e) {
     $(this).tab('show');
 });
 
+function clickStoryLeftPane()
+{
+    $('#storyPreviewMsg').hide();
+    $('#storyPreview').show();
+    $('#firstStoryLeftPane').removeClass('box')
+    $('#firstStoryLeftPane').addClass('searchpane box_selected')
+}
+
 //$('#story_desc').wysihtml5();

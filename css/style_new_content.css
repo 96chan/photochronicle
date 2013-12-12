@@ -453,3 +453,18 @@ img, object, embed {max-width: 100%; height: auto; }
     -ms-interpolation-mode: bicubic;
 }
 
+
+/* Image Box Style */
+.searchpane .box_selected {
+    border: 5px solid #428BCA;
+    cursor: pointer;
+    height: 200px;
+    float: left;
+    margin: 2px;
+    position: relative;
+    overflow: hidden;
+    width: 95%;
+    -webkit-box-shadow: 1px 1px 1px 1px #ccc;
+    -moz-box-shadow: 1px 1px 1px 1px #ccc;
+    box-shadow: 1px 1px 1px 1px #ccc;
+}
