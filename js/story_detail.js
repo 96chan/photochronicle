@@ -119,6 +119,8 @@ $(document).ready(function() {
 
 	    $("#year2010").before("<li class='event'><img src='img/sather_gate_15.jpg' class='small-img'/></li>");
 	    showLargeImg();
+	    $(".large-img").find(".img-creator").html("Added by: "+user + "<span class='glyphicon glyphicon-user'> </span>");
+		$(".large-img").children("img").attr("src", path);
 	});
 	
 });
