@@ -333,7 +333,7 @@ function errorHandler(e) {
 var file_index = 1;
 $('#directory-selector').change(function(e) {
   file_index += 1;
-  $('#extras').append('<div class=\"extra_item thumbnail\"><a href=\"#\"><img src=\"img/sather_gate_' + file_index + '.jpg\"></a>date: <input type=\"text\" size=\"8\"></div>');
+  $('#extras').append('<div class=\"extra_item thumbnail\"><a href=\"#\"><img src=\"img/sather_gate_15.jpg\"></a>Year: <input type=\"text\" size=\"8\"></div>');
 });
 
 function tour_detail_loaded() {
